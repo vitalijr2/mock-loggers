@@ -388,6 +388,7 @@
   </licenses>
   <modelVersion>4.0.0</modelVersion>
   <modules>
+    <module>jdk-platform-logging</module>
     <module>junit-extension</module>
     <module>keeper</module>
   </modules>
