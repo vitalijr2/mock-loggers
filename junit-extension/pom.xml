@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <artifactId>mock-loggers-junit-extension</artifactId>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <groupId>org.apache.maven.plugins</groupId>
+      </plugin>
+      <plugin>
+        <artifactId>maven-failsafe-plugin</artifactId>
+        <groupId>org.apache.maven.plugins</groupId>
+      </plugin>
+      <plugin>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <groupId>org.jacoco</groupId>
+      </plugin>
+    </plugins>
+  </build>
+  <dependencies>
+    <!-- main -->
+    <dependency>
+      <artifactId>annotations</artifactId>
+      <groupId>org.jetbrains</groupId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <artifactId>junit-jupiter-api</artifactId>
+      <groupId>org.junit.jupiter</groupId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <artifactId>junit-platform-commons</artifactId>
+      <groupId>org.junit.platform</groupId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <artifactId>mock-loggers-keeper</artifactId>
+      <groupId>io.github.vitalijr2.logging</groupId>
+      <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+    <!-- test -->
+    <dependency>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <groupId>org.junit.jupiter</groupId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <artifactId>junit-jupiter-params</artifactId>
+      <groupId>org.junit.jupiter</groupId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <artifactId>mockito-junit-jupiter</artifactId>
+      <groupId>org.mockito</groupId>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+  <modelVersion>4.0.0</modelVersion>
+  <name>jUnit Extension</name>
+  <parent>
+    <artifactId>mock-loggers</artifactId>
+    <groupId>io.github.vitalijr2.logging</groupId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+</project>
