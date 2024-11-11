@@ -15,6 +15,8 @@
  */
 package io.github.vitalijr2.logging.keeper;
 
+import java.util.List;
+
 /**
  * An observer to listen {@linkplain MockLoggerKeeper keeper} when to clean and reset mocks. Mock logger factories
  * should implement this.
@@ -23,7 +25,7 @@ package io.github.vitalijr2.logging.keeper;
  */
 public interface MockLoggerCleaner {
 
-  void cleanAndReset();
+  List<String> cleanAndReset();
 
   /**
    * Register itself with a keeper.
