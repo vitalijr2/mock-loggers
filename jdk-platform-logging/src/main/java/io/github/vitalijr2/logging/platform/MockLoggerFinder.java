@@ -59,6 +59,7 @@ public class MockLoggerFinder extends LoggerFinder implements MockLoggerCleaner 
   @VisibleForTesting
   MockLoggerFinder(Map<String, Logger> loggers) {
     this.loggers = loggers;
+    subscribeToNotifications();
   }
 
   @Override
