@@ -4,7 +4,7 @@ on:
   push:
     branches: [ "**" ]
     tags-ignore:
-    - v*
+      - v*
   pull_request:
     # The branches below must be a subset of the branches above
     branches: [ "**" ]
@@ -16,21 +16,21 @@ jobs:
     name: Maven build
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repository
+      - name: Checkout repository
         uses: actions/checkout@v4
-    - name: Setup Java JDK
+      - name: Setup Java JDK
         uses: actions/setup-java@v4
         with:
           distribution: 'corretto'
           java-version: 11
-    - name: Build with Maven
+      - name: Build with Maven
         run: ./mvnw --batch-mode
-    - name: Temporarily save target and test requests
+      - name: Temporarily save target and test requests
         uses: actions/upload-artifact@master
         with:
           name: targets
           path: |
-            jdk-platform-logging/target
+            jdk-platform-logging/targets
             junit-extension/target
             keeper/target
           retention-days: 1
@@ -41,9 +41,9 @@ jobs:
     permissions:
       security-events: write
     steps:
-    - name: Checkout repository
+      - name: Checkout repository
         uses: actions/checkout@v4
-    - name: Run Codacy Analysis CLI
+      - name: Run Codacy Analysis CLI
         uses: codacy/codacy-analysis-cli-action@09916000460adeeedc96b9704f86deba53e2ad5d
         with:
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
@@ -51,7 +51,7 @@ jobs:
           output: results.sarif
           format: sarif
           gh-code-scanning-compat: true
-    - name: Upload SARIF results file
+      - name: Upload SARIF results file
         uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: results.sarif
@@ -60,14 +60,14 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repository
+      - name: Checkout repository
         uses: actions/checkout@v4
-    - name: Retrieve saved test requests and target
+      - name: Retrieve saved test requests and target
         uses: actions/download-artifact@master
         with:
           name: targets
           path: .
-    - name: Run codacy-coverage-reporter
+      - name: Run codacy-coverage-reporter
         uses: codacy/codacy-coverage-reporter-action@a38818475bb21847788496e9f0fddaa4e84955ba
         with:
           coverage-reports: target/site/jacoco/jacoco.xml
