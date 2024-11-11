@@ -1,0 +1,10 @@
+---
+engines:
+  codenarc:
+    exclude_paths:
+      - "src/it/**"
+exclude_paths:
+  - "src/it/**"
+  - "**/mock-loggers.css"
+  - "**/prism.css"
+  - "**/prism.js"
