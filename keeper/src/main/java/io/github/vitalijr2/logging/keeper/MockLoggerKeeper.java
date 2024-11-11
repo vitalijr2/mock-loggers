@@ -15,6 +15,8 @@
  */
 package io.github.vitalijr2.logging.keeper;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 import org.jetbrains.annotations.NotNull;
@@ -53,8 +55,12 @@ public class MockLoggerKeeper {
   /**
    * Send notifications to all cleaners.
    */
-  public void cleanAndReset() {
-    cleaners.forEach(MockLoggerCleaner::cleanAndReset);
+  public List<String> cleanAndReset() {
+    var loggerNames = new ArrayList<String>();
+
+    cleaners.forEach(cleaner -> loggerNames.addAll(cleaner.cleanAndReset()));
+
+    return loggerNames;
   }
 
 }

@@ -15,10 +15,15 @@
  */
 package io.github.vitalijr2.logging.platform;
 
+import static org.mockito.Mockito.clearInvocations;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.reset;
 
+import io.github.vitalijr2.logging.keeper.MockLoggerCleaner;
 import java.lang.System.Logger;
 import java.lang.System.LoggerFinder;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.jetbrains.annotations.VisibleForTesting;
@@ -40,7 +45,7 @@ import org.jetbrains.annotations.VisibleForTesting;
  *
  * @since 1.0.0
  */
-public class MockLoggerFinder extends LoggerFinder {
+public class MockLoggerFinder extends LoggerFinder implements MockLoggerCleaner {
 
   private final Map<String, Logger> loggers;
 
@@ -54,6 +59,19 @@ public class MockLoggerFinder extends LoggerFinder {
   @VisibleForTesting
   MockLoggerFinder(Map<String, Logger> loggers) {
     this.loggers = loggers;
+  }
+
+  @Override
+  public List<String> cleanAndReset() {
+    var processedLoggers = new ArrayList<String>();
+
+    loggers.forEach((loggerName, logger) -> {
+      clearInvocations(logger);
+      reset(logger);
+      processedLoggers.add(loggerName);
+    });
+
+    return processedLoggers;
   }
 
   /**

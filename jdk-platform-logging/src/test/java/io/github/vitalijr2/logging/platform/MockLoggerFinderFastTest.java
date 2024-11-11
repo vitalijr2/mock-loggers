@@ -1,6 +1,7 @@
 package io.github.vitalijr2.logging.platform;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.collection.IsIterableContainingInOrder.contains;
 import static org.hamcrest.collection.IsMapContaining.hasEntry;
 import static org.hamcrest.collection.IsMapWithSize.aMapWithSize;
 import static org.hamcrest.core.Is.isA;
@@ -50,6 +51,20 @@ class MockLoggerFinderFastTest {
     assertAll("Logger was reused", () -> assertThat("size", loggers, aMapWithSize(1)),
         () -> assertThat("entry", loggers, hasEntry(equalTo("test"), isA(Logger.class))),
         () -> assertThat(loggers.values().iterator().next(), hasToString(startsWith("Mock for Logger, hashCode:"))));
+  }
+
+  @DisplayName("Clean and reset loggers")
+  @Test
+  void cleanAndResetLoggers() {
+    // given
+    var loggers = new HashMap<>(Map.of("a", mock(Logger.class), "b", mock(Logger.class), "c", mock(Logger.class)));
+    var loggerFinder = new MockLoggerFinder(loggers);
+
+    // when
+    var loggerNames = loggerFinder.cleanAndReset();
+
+    // then
+    assertThat(loggerNames, contains("a", "b", "c"));
   }
 
 }

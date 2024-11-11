@@ -20,6 +20,8 @@ import org.jetbrains.annotations.VisibleForTesting;
 import org.junit.jupiter.api.extension.AfterEachCallback;
 import org.junit.jupiter.api.extension.BeforeEachCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
+import org.junit.platform.commons.logging.Logger;
+import org.junit.platform.commons.logging.LoggerFactory;
 
 /**
  * A jUnit extension to clean and reset mock loggers.
@@ -59,18 +61,20 @@ import org.junit.jupiter.api.extension.ExtensionContext;
  */
 public class MockLoggerExtension implements AfterEachCallback, BeforeEachCallback {
 
+  private final Logger extensionLogger;
   private final MockLoggerKeeper loggerKeeper;
 
   /**
    * Create an extension.
    */
   public MockLoggerExtension() {
-    this(MockLoggerKeeper.getInstance());
+    this(MockLoggerKeeper.getInstance(), LoggerFactory.getLogger(MockLoggerExtension.class));
   }
 
   @VisibleForTesting
-  MockLoggerExtension(MockLoggerKeeper loggerKeeper) {
+  MockLoggerExtension(MockLoggerKeeper loggerKeeper, Logger extensionLogger) {
     this.loggerKeeper = loggerKeeper;
+    this.extensionLogger = extensionLogger;
   }
 
   /**
@@ -81,7 +85,9 @@ public class MockLoggerExtension implements AfterEachCallback, BeforeEachCallbac
    */
   @Override
   public void afterEach(ExtensionContext context) {
-    loggerKeeper.cleanAndReset();
+    var loggerNames = loggerKeeper.cleanAndReset();
+
+    extensionLogger.debug(() -> "Clean and reset the loggers: " + String.join(", ", loggerNames));
   }
 
   /**
@@ -92,7 +98,9 @@ public class MockLoggerExtension implements AfterEachCallback, BeforeEachCallbac
    */
   @Override
   public void beforeEach(ExtensionContext context) {
-    loggerKeeper.cleanAndReset();
+    var loggerNames = loggerKeeper.cleanAndReset();
+
+    extensionLogger.debug(() -> "Clean and reset the loggers: " + String.join(", ", loggerNames));
   }
 
 }
