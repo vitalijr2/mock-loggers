@@ -23,7 +23,7 @@ Just put a test dependency to your POM:
 </dependency>
 ```
 
-The most basic usage example looks like this:
+The simplest usage example looks like this:
 ```java
 @Test
 void helloWorld() {

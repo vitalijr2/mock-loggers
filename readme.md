@@ -17,7 +17,7 @@ Different logging services can be tested using mock loggers backed by [Mockito][
 
 ## How to use
 
-The most basic usage example looks like this:
+The simplest usage example looks like this:
 ```java
 @Test
 void helloWorld() {
