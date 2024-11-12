@@ -1,6 +1,6 @@
 # Mock loggers for JDK Platform Logging
 
-[JDK Platform Logging][jdk-logging] Service with mock loggers backed by [Mockito][].
+[JDK Platform Logging][jdk-logging] service with mock loggers backed by [Mockito][].
 
 > [!WARNING]
 > This library does not support _parallel test execution_.
