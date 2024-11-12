@@ -29,8 +29,8 @@ void helloWorld() {
 }
 ```
 
-Now this library implements services for [JDK Platform Logging][jdk-logging]
-and [Apache Commons Logging][commons-logging].
+Now this library implements services for [JDK Platform Logging][jdk-logging],
+[Apache Commons Logging][commons-logging] and [SLF4J][slf4j].
 
 See more examples in the relevant modules of this project:
 
@@ -76,6 +76,8 @@ limitations under the License.
 [jdk-logging]: https://www.baeldung.com/java-9-logging-api "Java Platform Logging API"
 
 [commons-logging]: https://commons.apache.org/proper/commons-logging/
+
+[slf4j]: https://www.slf4j.org/
 
 [java-version]: https://img.shields.io/static/v1?label=Java&message=11&color=blue&logoColor=E23D28
 
