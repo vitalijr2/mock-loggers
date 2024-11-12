@@ -133,9 +133,9 @@ class HelloServiceAnnotationTest {
 ```
 See more details at [HelloServiceAnnotationTest.java](src/it/hello-jdk-platform-logging-world/src/test/java/example/hello/HelloServiceAnnotationTest.java)
 
-[Mockito]: https://site.mockito.org
-
 [jdk-logging]: https://www.baeldung.com/java-9-logging-api "Java Platform Logging API"
+
+[Mockito]: https://site.mockito.org
 
 [java-version]: https://img.shields.io/static/v1?label=Java&message=11&color=blue&logoColor=E23D28
 

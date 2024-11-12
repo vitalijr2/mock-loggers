@@ -11,8 +11,8 @@ import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
-import java.lang.System.Logger;
-import java.lang.System.Logger.Level;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -22,17 +22,17 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 class HelloServiceFullTest {
 
-  private static Logger logger;
+  private static Log log;
 
   @BeforeAll
   static void setUpClass() {
-    logger = System.getLogger("HelloService");
+    log = LogFactory.getLog(HelloService.class);
   }
 
   @BeforeEach
   void setUp() {
-    clearInvocations(logger);
-    reset(logger);
+    clearInvocations(log);
+    reset(log);
   }
 
   @DisplayName("Names")
@@ -41,15 +41,15 @@ class HelloServiceFullTest {
   void names(String name) {
     var helloService = new HelloService();
 
-    when(logger.isLoggable(Level.INFO)).thenReturn(true);
+    when(log.isInfoEnabled()).thenReturn(true);
 
     assertDoesNotThrow(() -> helloService.sayHello(name));
 
-    var actualLogger = System.getLogger("HelloService");
+    var actualLog = LogFactory.getLog(helloService.getClass());
 
-    verify(actualLogger).isLoggable(Level.INFO);
-    verify(actualLogger).log(Level.INFO, "Hello " + name + "!");
-    verifyNoMoreInteractions(actualLogger);
+    verify(actualLog).isInfoEnabled();
+    verify(actualLog).info("Hello " + name + "!");
+    verifyNoMoreInteractions(actualLog);
   }
 
   @DisplayName("Null or empty name")
@@ -61,10 +61,9 @@ class HelloServiceFullTest {
 
     var exception = assertThrows(RuntimeException.class, () -> helloService.sayHello(name));
 
-    verifyNoInteractions(System.getLogger("HelloService"));
+    verifyNoInteractions(LogFactory.getLog(helloService.getClass()));
 
     assertThat(exception.getMessage(), startsWith("Name is"));
   }
-
 
 }
