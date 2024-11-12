@@ -36,7 +36,7 @@ void helloWorld() {
 ```
 See more details at [HelloServiceBasicTest.java](src/it/hello-jdk-platform-logging-world/src/test/java/example/hello/HelloServiceBasicTest.java)
 
-> [!NOTE]
+> [!IMPORTANT]
 > It should be taken into account that all loggers are initialized only once during the run of tests.
 
 Therefore, a more complex example cleans the loggers after (or before) each test:
