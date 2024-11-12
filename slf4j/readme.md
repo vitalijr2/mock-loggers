@@ -16,7 +16,7 @@
 Just put a test dependency to your POM:
 ```xml
 <dependency>
-    <artifactId>mock-loggers-commons-logging</artifactId>
+    <artifactId>mock-loggers-slf4j</artifactId>
     <groupId>io.github.vitalijr2.logging</groupId>
     <scope>test</scope>
     <version>1.0.0</version>
@@ -34,7 +34,7 @@ void helloWorld() {
     verify(LoggerFactory.getLogger(helloService.getClass())).info("Hello World!");
 }
 ```
-See more details at [HelloServiceBasicTest.java](src/it/hello-commons-logging-world/src/test/java/example/hello/HelloServiceBasicTest.java)
+See more details at [HelloServiceBasicTest.java](src/it/hello-slf4j-world/src/test/java/example/hello/HelloServiceBasicTest.java)
 
 > [!IMPORTANT]
 > Keep in mind that all loggers are initialized only once during the test run.
@@ -71,7 +71,7 @@ void names(String name) {
     verifyNoMoreInteractions(actualLogger);
 }
 ```
-See more details at [HelloServiceFullTest.java](src/it/hello-commons-logging-world/src/test/java/example/hello/HelloServiceFullTest.java)
+See more details at [HelloServiceFullTest.java](src/it/hello-slf4j-world/src/test/java/example/hello/HelloServiceFullTest.java)
 
 To avoid manual cleaning of mock loggers you can use the [jUnit extension][junit-extension] for automation.
 
@@ -102,7 +102,7 @@ class HelloServiceExtensionTest {
 
 }
 ```
-See more details at [HelloServiceExtensionTest.java](src/it/hello-commons-logging-world/src/test/java/example/hello/HelloServiceExtensionTest.java)
+See more details at [HelloServiceExtensionTest.java](src/it/hello-slf4j-world/src/test/java/example/hello/HelloServiceExtensionTest.java)
 
 Also you can use the annotation for automation.
 ```java
@@ -132,7 +132,7 @@ class HelloServiceAnnotationTest {
 
 }
 ```
-See more details at [HelloServiceAnnotationTest.java](src/it/hello-commons-logging-world/src/test/java/example/hello/HelloServiceAnnotationTest.java)
+See more details at [HelloServiceAnnotationTest.java](src/it/hello-slf4j-world/src/test/java/example/hello/HelloServiceAnnotationTest.java)
 
 [slf4j]: https://www.slf4j.org/
 
@@ -144,14 +144,14 @@ See more details at [HelloServiceAnnotationTest.java](src/it/hello-commons-loggi
 
 [mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.14.2&color=blue&logoColor=E23D28
 
-[maven-central-last-update]: https://img.shields.io/maven-central/last-update/io.github.vitalijr2.logging/mock-loggers-commons-logging
+[maven-central-last-update]: https://img.shields.io/maven-central/last-update/io.github.vitalijr2.logging/mock-loggers-slf4j
 
-[maven-central]: https://img.shields.io/maven-central/v/io.github.vitalijr2.logging/mock-loggers-commons-logging
+[maven-central]: https://img.shields.io/maven-central/v/io.github.vitalijr2.logging/mock-loggers-slf4j
 
-[maven-central-link]: https://central.sonatype.com/artifact/io.github.vitalijr2.logging/mock-loggers-commons-logging?smo=true
+[maven-central-link]: https://central.sonatype.com/artifact/io.github.vitalijr2.logging/mock-loggers-slf4j?smo=true
 
-[javadoc]: https://javadoc.io/badge2/io.github.vitalijr2.logging/mock-loggers-commons-logging/javadoc.svg
+[javadoc]: https://javadoc.io/badge2/io.github.vitalijr2.logging/mock-loggers-slf4j/javadoc.svg
 
-[javadoc-link]: https://javadoc.io/doc/io.github.vitalijr2.logging/mock-loggers-commons-logging
+[javadoc-link]: https://javadoc.io/doc/io.github.vitalijr2.logging/mock-loggers-slf4j
 
 [junit-extension]: ../core/
