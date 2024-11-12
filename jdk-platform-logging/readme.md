@@ -140,11 +140,11 @@ See more details at [HelloServiceAnnotationTest.java](src/it/hello-jdk-platform-
 
 [mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.14.2&color=blue&logoColor=E23D28
 
-[maven-central-last-update]: https://img.shields.io/maven-central/last-update/io.github.vitalijr2.logging/mock-loggers
+[maven-central-last-update]: https://img.shields.io/maven-central/last-update/io.github.vitalijr2.logging/mock-loggers-jdk-platform-logging
 
-[maven-central]: https://img.shields.io/maven-central/v/io.github.vitalijr2.logging/mock-loggers
+[maven-central]: https://img.shields.io/maven-central/v/io.github.vitalijr2.logging/mock-loggers-jdk-platform-logging
 
-[maven-central-link]: https://central.sonatype.com/artifact/io.github.vitalijr2.logging/mock-loggers?smo=true
+[maven-central-link]: https://central.sonatype.com/artifact/io.github.vitalijr2.logging/mock-loggers-jdk-platform-logging?smo=true
 
 [javadoc]: https://javadoc.io/badge2/io.github.vitalijr2.logging/mock-loggers/javadoc.svg
 
