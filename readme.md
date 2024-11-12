@@ -185,16 +185,6 @@ limitations under the License.
 
 [mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.14.2&color=blue&logoColor=E23D28
 
-[maven-central-last-update]: https://img.shields.io/maven-central/last-update/io.github.vitalijr2.logging/mock-loggers
-
-[maven-central]: https://img.shields.io/maven-central/v/io.github.vitalijr2.logging/mock-loggers
-
-[javadoc]: https://javadoc.io/badge2/io.github.vitalijr2.logging/mock-loggers/javadoc.svg
-
-[javadoc-link]: https://javadoc.io/doc/io.github.vitalijr2.logging/mock-loggers
-
-[maven-central-link]: https://central.sonatype.com/artifact/io.github.vitalijr2.logging/mock-loggers?smo=true
-
 [github-master-check-runs]: https://img.shields.io/github/check-runs/vitalijr2/mock-loggers/master
 
 [github-master-check-runs-link]: https://github.com/vitalijr2/mock-loggers/actions?query=branch%3Amaster
