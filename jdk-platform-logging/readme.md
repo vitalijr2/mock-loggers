@@ -70,7 +70,7 @@ void names(String name) {
 ```
 See more details at [HelloServiceFullTest.java](src/it/hello-jdk-platform-logging-world/src/test/java/example/hello/HelloServiceFullTest.java)
 
-You can use the jUnit extension for automation.
+To avoid manual cleaning of mock loggers you can use the [jUnit extension][junit-extension] for automation.
 ```java
 @ExtendWith(MockLoggerExtension.class)
 class HelloServiceExtensionTest {
@@ -149,3 +149,5 @@ See more details at [HelloServiceAnnotationTest.java](src/it/hello-jdk-platform-
 [javadoc]: https://javadoc.io/badge2/io.github.vitalijr2.logging/mock-loggers/javadoc.svg
 
 [javadoc-link]: https://javadoc.io/doc/io.github.vitalijr2.logging/mock-loggers
+
+[junit-extension]: ../core/
