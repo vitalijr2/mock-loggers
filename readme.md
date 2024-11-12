@@ -17,16 +17,6 @@ Different logging services can be tested using mock loggers backed by [Mockito][
 
 ## How to use
 
-Just put a test dependency to your POM:
-```xml
-<dependency>
-    <artifactId>mock-loggers</artifactId>
-    <groupId>io.github.vitalijr2.logging</groupId>
-    <scope>test</scope>
-    <version>1.2.0</version>
-</dependency>
-```
-
 The most basic usage example looks like this:
 ```java
 @Test
