@@ -6,7 +6,6 @@
 
 [![Java Version][java-version]][jdk-download]
 ![Mockito Version][mockito-version]
-[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0.html)  
 ![Maven Central Last Update][maven-central-last-update]
 [![Maven Central][maven-central]][maven-central-link]
 [![Javadoc][javadoc]][javadoc-link]  

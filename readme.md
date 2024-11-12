@@ -9,9 +9,6 @@ Now this library implements [JDK Platform Logging][jdk-logging] and [Apache Comm
 ![jUnit Version][junit-version]
 ![Mockito Version][mockito-version]
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0.html)  
-![Maven Central Last Update][maven-central-last-update]
-[![Maven Central][maven-central]][maven-central-link]
-[![Javadoc][javadoc]][javadoc-link]  
 [![GitHub master check runs][github-master-check-runs]][github-master-check-runs-link]
 [![Codacy Badge][codacy-badge]][codacy-badge-link]
 [![Codacy Coverage][codacy-coverage]][codacy-coverage-link]
