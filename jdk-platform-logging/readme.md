@@ -5,7 +5,7 @@
 **WARNING:** this library does not support _parallel test execution_.
 
 [![Java Version][java-version]][jdk-download]
-![Mockito Version][mockito-version]
+![Mockito Version][mockito-version]  
 ![Maven Central Last Update][maven-central-last-update]
 [![Maven Central][maven-central]][maven-central-link]
 [![Javadoc][javadoc]][javadoc-link]  
