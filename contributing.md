@@ -13,7 +13,7 @@ try following [necolas's guidelines][issue-guidelines].
 
 ## Fork, patch and contribute code
 
-Feel free to fork **Mock Loggers**'s repository
+Feel free to fork **Mock Loggers**' repository
 at [GitHub][github-project] for your own use and updates.
 
 Contribute your fixes and new features back to the main codebase using
