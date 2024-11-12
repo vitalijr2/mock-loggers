@@ -1,6 +1,6 @@
-# Mock loggers for Apache Commons Logging
+# Mock loggers for SLF4J
 
-[Apache Commons Logging][commons-logging] factory with mock loggers backed by [Mockito][].
+[SLF4J][slf4j] factory with mock loggers backed by [Mockito][].
 
 > [!WARNING]
 > This library does not support _parallel test execution_.
@@ -31,7 +31,7 @@ void helloWorld() {
 
     assertDoesNotThrow(helloService::sayHelloWorld);
 
-    verify(LogFactory.getLog(helloService.getClass())).info("Hello World!");
+    verify(LoggerFactory.getLogger(helloService.getClass())).info("Hello World!");
 }
 ```
 See more details at [HelloServiceBasicTest.java](src/it/hello-commons-logging-world/src/test/java/example/hello/HelloServiceBasicTest.java)
@@ -42,18 +42,18 @@ See more details at [HelloServiceBasicTest.java](src/it/hello-commons-logging-wo
 Therefore, a more complex example cleans the loggers after (or before) each test:
 ```java
 // the static logger instance
-private static Log log;
+private static Logger logger;
 
 // initialize the mock logger once
 @BeforeAll
 static void setUpClass() {
-    log = LogFactory.getLog(HelloService.class);
+    logger = LoggerFactory.getLogger(HelloService.class);
 }
 
 // clean the mock logger after each test
 @AfterEach
 void tearDown() {
-    clearInvocations(log);
+    clearInvocations(logger);
 }
 
 // use the mock logger in a test
@@ -65,20 +65,21 @@ void names(String name) {
 
     assertDoesNotThrow(() -> helloService.sayHello(name));
 
-    var actualLog = LogFactory.getLog(helloService.getClass());
+    var actualLogger = LoggerFactory.getLogger(helloService.getClass());
 
-    verify(actualLog).info("Hello " + name + "!");
-    verifyNoMoreInteractions(actualLog);
+    verify(actualLogger).info("Hello " + name + "!");
+    verifyNoMoreInteractions(actualLogger);
 }
 ```
 See more details at [HelloServiceFullTest.java](src/it/hello-commons-logging-world/src/test/java/example/hello/HelloServiceFullTest.java)
 
 To avoid manual cleaning of mock loggers you can use the [jUnit extension][junit-extension] for automation.
+
 ```java
 @ExtendWith(MockLoggerExtension.class)
 class HelloServiceExtensionTest {
 
-    private static Log log;
+    private static Logger logger;
 
     @BeforeAll
     static void setUpClass() {
@@ -93,10 +94,10 @@ class HelloServiceExtensionTest {
 
         assertDoesNotThrow(() -> helloService.sayHello(name));
 
-        var actualLog = LogFactory.getLog(helloService.getClass());
+        var actualLogger = LoggerFactory.getLogger(helloService.getClass());
 
-        verify(actualLog).info("Hello " + name + "!");
-        verifyNoMoreInteractions(actualLog);
+        verify(actualLogger).info("Hello " + name + "!");
+        verifyNoMoreInteractions(actualLogger);
     }
 
 }
@@ -108,11 +109,11 @@ Also you can use the annotation for automation.
 @MockLoggers
 class HelloServiceAnnotationTest {
 
-    private static Log log;
+    private static Logger logger;
 
     @BeforeAll
     static void setUpClass() {
-        log = LogFactory.getLog(HelloService.class);
+        logger = LogFactory.getLog(HelloService.class);
     }
 
     @DisplayName("Names")
@@ -123,17 +124,17 @@ class HelloServiceAnnotationTest {
 
         assertDoesNotThrow(() -> helloService.sayHello(name));
 
-        var actualLog = LogFactory.getLog(helloService.getClass());
+        var actualLogger = LogFactory.getLog(helloService.getClass());
 
-        verify(actualLog).info("Hello " + name + "!");
-        verifyNoMoreInteractions(actualLog);
+        verify(actualLogger).info("Hello " + name + "!");
+        verifyNoMoreInteractions(actualLogger);
     }
 
 }
 ```
 See more details at [HelloServiceAnnotationTest.java](src/it/hello-commons-logging-world/src/test/java/example/hello/HelloServiceAnnotationTest.java)
 
-[commons-logging]: https://commons.apache.org/proper/commons-logging/
+[slf4j]: https://www.slf4j.org/
 
 [Mockito]: https://site.mockito.org
 
