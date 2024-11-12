@@ -17,7 +17,7 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <artifactId>mock-loggers-jdk-platform-logging</artifactId>
+  <artifactId>mock-loggers-core</artifactId>
   <build>
     <plugins>
       <plugin>
@@ -39,16 +39,6 @@
     <dependency>
       <artifactId>annotations</artifactId>
       <groupId>org.jetbrains</groupId>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <artifactId>mock-loggers-core</artifactId>
-      <groupId>io.github.vitalijr2.logging</groupId>
-      <version>1.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <artifactId>mockito-core</artifactId>
-      <groupId>org.mockito</groupId>
       <scope>provided</scope>
     </dependency>
     <!-- test -->
@@ -73,26 +63,15 @@
       <scope>provided</scope>
     </dependency>
   </dependencies>
-  <description>Mock loggers for JDK Platform Logging backed by Mockito.</description>
-  <name>Mock loggers for JDK Platform Logging</name>
+  <description>The observer pattern is implemented here: cleaners subscribe to notifications from a keeper, who sends
+    alerts when mock loggers need to be cleaned and reset. Logger factories should implement the cleaner interface and
+    register themselves with the keeper. The jUnit extension manages the keeper and sends alerts before and after tests.
+  </description>
   <modelVersion>4.0.0</modelVersion>
+  <name>Logger Keeper and jUnit Extension</name>
   <parent>
     <artifactId>mock-loggers</artifactId>
     <groupId>io.github.vitalijr2.logging</groupId>
-    <relativePath>../pom.xml</relativePath>
     <version>1.0.0-SNAPSHOT</version>
   </parent>
-  <profiles>
-    <profile>
-      <build>
-        <plugins>
-          <plugin>
-            <artifactId>maven-invoker-plugin</artifactId>
-            <groupId>org.apache.maven.plugins</groupId>
-          </plugin>
-        </plugins>
-      </build>
-      <id>run-its</id>
-    </profile>
-  </profiles>
 </project>
