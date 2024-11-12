@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.vitalijr2.logging.mock.commons;
+package io.github.vitalijr2.logging.mock.slf4j;
 
 import static org.mockito.Mockito.clearInvocations;
 import static org.mockito.Mockito.mock;
@@ -24,10 +24,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogConfigurationException;
-import org.apache.commons.logging.LogFactory;
 import org.jetbrains.annotations.VisibleForTesting;
+import org.slf4j.ILoggerFactory;
+import org.slf4j.Logger;
 
 /**
  * Uses {@link org.mockito.Mockito#mock(Class, String)} to get a mock that is adapted for {@link System.Logger}.
@@ -40,15 +39,15 @@ import org.jetbrains.annotations.VisibleForTesting;
  *
  *     assertDoesNotThrow(helloService::sayHelloWorld);
  *
- *     verify(LogFactory.getLog(helloService.getClass())).info("Hello World!");
+ *     verify(LoggerFactory.getLogger("HelloService")).log(Level.INFO, "Hello World!");
  *   }
  * </code></pre>
  *
  * @since 1.0.0
  */
-public class MockLoggerFactory extends LogFactory implements MockLoggerCleaner {
+public class MockLoggerFactory implements ILoggerFactory, MockLoggerCleaner {
 
-  private final Map<String, Log> loggers;
+  private final Map<String, Logger> loggers;
 
   /**
    * Create a map-based logger finder. The finder uses a concurrent map: a logger name is a key.
@@ -58,7 +57,7 @@ public class MockLoggerFactory extends LogFactory implements MockLoggerCleaner {
   }
 
   @VisibleForTesting
-  MockLoggerFactory(Map<String, Log> loggers) {
+  public MockLoggerFactory(Map<String, Logger> loggers) {
     this.loggers = loggers;
     subscribeToNotifications();
   }
@@ -76,46 +75,15 @@ public class MockLoggerFactory extends LogFactory implements MockLoggerCleaner {
     return processedLoggers;
   }
 
-  @Override
-  public Object getAttribute(String name) {
-    return null;
-  }
-
-  @Override
-  public String[] getAttributeNames() {
-    return new String[0];
-  }
-
-  @Override
-  public Log getInstance(Class<?> clazz) throws LogConfigurationException {
-    return getInstance(clazz.getName());
-  }
-
   /**
    * Returns an instance of Logger for the given name.
    *
    * @param name logging name
    * @return mock logger
-   * @throws LogConfigurationException this is never thrown
    */
   @Override
-  public Log getInstance(String name) throws LogConfigurationException {
-    return loggers.computeIfAbsent(name, key -> mock(Log.class, "Mock for logger " + key));
-  }
-
-  @Override
-  public void release() {
-    loggers.clear();
-  }
-
-  @Override
-  public void removeAttribute(String s) {
-    // do nothing
-  }
-
-  @Override
-  public void setAttribute(String s, Object o) {
-    // do nothing
+  public Logger getLogger(String name) {
+    return loggers.computeIfAbsent(name, key -> mock(Logger.class, "Mock for logger " + key));
   }
 
 }

@@ -34,8 +34,9 @@ and [Apache Commons Logging][commons-logging].
 
 See more examples in the relevant modules of this project:
 
-- for JDK Platform Logging in [mock-loggers-jdk-platform-logging](jdk-platform-logging)
 - for Apache Commons Logging in [mock-loggers-commons-logging](commons-logging)
+- for JDK Platform Logging in [mock-loggers-jdk-platform-logging](jdk-platform-logging)
+- for SLF4J in [mock-loggers-slf4j](slf4j)
 
 ## Credits
 
