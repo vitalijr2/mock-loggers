@@ -147,8 +147,8 @@ See more details at [HelloServiceAnnotationTest.java](src/it/hello-jdk-platform-
 
 [maven-central-link]: https://central.sonatype.com/artifact/io.github.vitalijr2.logging/mock-loggers-jdk-platform-logging?smo=true
 
-[javadoc]: https://javadoc.io/badge2/io.github.vitalijr2.logging/mock-loggers/javadoc.svg
+[javadoc]: https://javadoc.io/badge2/io.github.vitalijr2.logging/mock-loggers-jdk-platform-logging/javadoc.svg
 
-[javadoc-link]: https://javadoc.io/doc/io.github.vitalijr2.logging/mock-loggers
+[javadoc-link]: https://javadoc.io/doc/io.github.vitalijr2.logging/mock-loggers-jdk-platform-logging
 
 [junit-extension]: ../core/
