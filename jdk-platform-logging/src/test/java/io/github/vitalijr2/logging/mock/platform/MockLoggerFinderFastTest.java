@@ -50,7 +50,8 @@ class MockLoggerFinderFastTest {
     // then
     assertAll("Logger was reused", () -> assertThat("size", loggers, aMapWithSize(1)),
         () -> assertThat("entry", loggers, hasEntry(equalTo("test"), isA(Logger.class))),
-        () -> assertThat(loggers.values().iterator().next(), hasToString(startsWith("Mock for Logger, hashCode:"))));
+        () -> assertThat("Logger was created outside", loggers.values().iterator().next(),
+            hasToString(startsWith("Mock for Logger, hashCode:"))));
   }
 
   @DisplayName("Clean and reset loggers")
