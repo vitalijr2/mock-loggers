@@ -1,6 +1,6 @@
-# Mock loggers for JDK Platform Logging
+# Mock loggers for Apache Commons Logging
 
-[JDK Platform Logging][jdk-logging] service with mock loggers backed by [Mockito][].
+[Apache Commons Logging][commons-logging] factory with mock loggers backed by [Mockito][].
 
 > [!WARNING]
 > This library does not support _parallel test execution_.
@@ -9,14 +9,14 @@
 ![Mockito Version][mockito-version]  
 ![Maven Central Last Update][maven-central-last-update]
 [![Maven Central][maven-central]][maven-central-link]
-[![Javadoc][javadoc]][javadoc-link]  
+[![Javadoc][javadoc]][javadoc-link]
 
 ## How to use
 
 Just put a test dependency to your POM:
 ```xml
 <dependency>
-    <artifactId>mock-loggers-jdk-platform-logging</artifactId>
+    <artifactId>mock-loggers-commons-logging</artifactId>
     <groupId>io.github.vitalijr2.logging</groupId>
     <scope>test</scope>
     <version>1.0.0</version>
@@ -25,16 +25,18 @@ Just put a test dependency to your POM:
 
 The simplest usage example looks like this:
 ```java
+import org.apache.commons.logging.LogFactory;
+
 @Test
 void helloWorld() {
     var helloService = new HelloService();
 
     assertDoesNotThrow(helloService::sayHelloWorld);
 
-    verify(System.getLogger("HelloService")).log(Level.INFO, "Hello World!");
+    verify(LogFactory.getLog(helloService.getClass())).info("Hello World!");
 }
 ```
-See more details at [HelloServiceBasicTest.java](src/it/hello-jdk-platform-logging-world/src/test/java/example/hello/HelloServiceBasicTest.java)
+See more details at [HelloServiceBasicTest.java](src/it/hello-commons-logging-world/src/test/java/example/hello/HelloServiceBasicTest.java)
 
 > [!IMPORTANT]
 > Keep in mind that all loggers are initialized only once during the test run.
@@ -42,12 +44,12 @@ See more details at [HelloServiceBasicTest.java](src/it/hello-jdk-platform-loggi
 Therefore, a more complex example cleans the loggers after (or before) each test:
 ```java
 // the static logger instance
-private static Logger logger;
+private static Log log;
 
 // initialize the mock logger once
 @BeforeAll
 static void setUpClass() {
-    logger = System.getLogger("HelloService");
+    log = LogFactory.getLog(HelloService.class);
 }
 
 // clean the mock logger after each test
@@ -65,24 +67,24 @@ void names(String name) {
 
     assertDoesNotThrow(() -> helloService.sayHello(name));
 
-    var logger = System.getLogger("HelloService");
+    var actualLog = LogFactory.getLog(helloService.getClass());
 
-    verify(logger).log(Level.INFO, "Hello " + name + "!");
-    verifyNoMoreInteractions(logger);
+    verify(actualLog).info("Hello " + name + "!");
+    verifyNoMoreInteractions(actualLog);
 }
 ```
-See more details at [HelloServiceFullTest.java](src/it/hello-jdk-platform-logging-world/src/test/java/example/hello/HelloServiceFullTest.java)
+See more details at [HelloServiceFullTest.java](src/it/hello-commons-logging-world/src/test/java/example/hello/HelloServiceFullTest.java)
 
 To avoid manual cleaning of mock loggers you can use the [jUnit extension][junit-extension] for automation.
 ```java
 @ExtendWith(MockLoggerExtension.class)
 class HelloServiceExtensionTest {
 
-    private static Logger logger;
+    private static Log log;
 
     @BeforeAll
     static void setUpClass() {
-        logger = System.getLogger("HelloService");
+        log = LogFactory.getLog(HelloService.class);
     }
 
     @DisplayName("Names")
@@ -93,26 +95,26 @@ class HelloServiceExtensionTest {
 
         assertDoesNotThrow(() -> helloService.sayHello(name));
 
-        var logger = System.getLogger("HelloService");
+        var actualLog = LogFactory.getLog(helloService.getClass());
 
-        verify(logger).log(Level.INFO, "Hello " + name + "!");
-        verifyNoMoreInteractions(logger);
+        verify(actualLog).info("Hello " + name + "!");
+        verifyNoMoreInteractions(actualLog);
     }
 
 }
 ```
-See more details at [HelloServiceExtensionTest.java](src/it/hello-jdk-platform-logging-world/src/test/java/example/hello/HelloServiceExtensionTest.java)
+See more details at [HelloServiceExtensionTest.java](src/it/hello-commons-logging-world/src/test/java/example/hello/HelloServiceExtensionTest.java)
 
 Also you can use the annotation for automation.
 ```java
 @MockLoggers
 class HelloServiceAnnotationTest {
 
-    private static Logger logger;
+    private static Log log;
 
     @BeforeAll
     static void setUpClass() {
-        logger = System.getLogger("HelloService");
+        log = LogFactory.getLog(HelloService.class);
     }
 
     @DisplayName("Names")
@@ -123,17 +125,17 @@ class HelloServiceAnnotationTest {
 
         assertDoesNotThrow(() -> helloService.sayHello(name));
 
-        var logger = System.getLogger("HelloService");
+        var actualLog = LogFactory.getLog(helloService.getClass());
 
-        verify(logger).log(Level.INFO, "Hello " + name + "!");
-        verifyNoMoreInteractions(logger);
+        verify(actualLog).info("Hello " + name + "!");
+        verifyNoMoreInteractions(actualLog);
     }
 
 }
 ```
-See more details at [HelloServiceAnnotationTest.java](src/it/hello-jdk-platform-logging-world/src/test/java/example/hello/HelloServiceAnnotationTest.java)
+See more details at [HelloServiceAnnotationTest.java](src/it/hello-commons-logging-world/src/test/java/example/hello/HelloServiceAnnotationTest.java)
 
-[jdk-logging]: https://www.baeldung.com/java-9-logging-api "Java Platform Logging API"
+[commons-logging]: https://commons.apache.org/proper/commons-logging/
 
 [Mockito]: https://site.mockito.org
 
@@ -143,14 +145,14 @@ See more details at [HelloServiceAnnotationTest.java](src/it/hello-jdk-platform-
 
 [mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.14.2&color=blue&logoColor=E23D28
 
-[maven-central-last-update]: https://img.shields.io/maven-central/last-update/io.github.vitalijr2.logging/mock-loggers-jdk-platform-logging
+[maven-central-last-update]: https://img.shields.io/maven-central/last-update/io.github.vitalijr2.logging/mock-loggers-commons-logging
 
-[maven-central]: https://img.shields.io/maven-central/v/io.github.vitalijr2.logging/mock-loggers-jdk-platform-logging
+[maven-central]: https://img.shields.io/maven-central/v/io.github.vitalijr2.logging/mock-loggers-commons-logging
 
-[maven-central-link]: https://central.sonatype.com/artifact/io.github.vitalijr2.logging/mock-loggers-jdk-platform-logging?smo=true
+[maven-central-link]: https://central.sonatype.com/artifact/io.github.vitalijr2.logging/mock-loggers-commons-logging?smo=true
 
-[javadoc]: https://javadoc.io/badge2/io.github.vitalijr2.logging/mock-loggers-jdk-platform-logging/javadoc.svg
+[javadoc]: https://javadoc.io/badge2/io.github.vitalijr2.logging/mock-loggers-commons-logging/javadoc.svg
 
-[javadoc-link]: https://javadoc.io/doc/io.github.vitalijr2.logging/mock-loggers-jdk-platform-logging
+[javadoc-link]: https://javadoc.io/doc/io.github.vitalijr2.logging/mock-loggers-commons-logging
 
 [junit-extension]: ../core/

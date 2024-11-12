@@ -2,9 +2,6 @@
 
 Different logging services can be tested using mock loggers backed by [Mockito][].
 
-Now this library implements services for [JDK Platform Logging][jdk-logging]
-and [Apache Commons Logging][commons-logging].
-
 > [!WARNING]
 > This library does not support _parallel test execution_.
 
@@ -20,17 +17,7 @@ and [Apache Commons Logging][commons-logging].
 
 ## How to use
 
-Just put a test dependency to your POM:
-```xml
-<dependency>
-    <artifactId>mock-loggers</artifactId>
-    <groupId>io.github.vitalijr2.logging</groupId>
-    <scope>test</scope>
-    <version>1.2.0</version>
-</dependency>
-```
-
-The most basic usage example looks like this:
+The simplest usage example looks like this:
 ```java
 @Test
 void helloWorld() {
@@ -41,102 +28,14 @@ void helloWorld() {
     verify(System.getLogger("HelloService")).log(Level.INFO, "Hello World!");
 }
 ```
-See more details at [HelloServiceBasicTest.java](jdk-platform-logging/src/it/hello-world/src/test/java/example/hello/HelloServiceBasicTest.java)
 
-It should be taken into account that all loggers are initialized only once during the run of tests.
-Therefore, a more complex example cleans the loggers before (or after) each test:
-```java
-// the static logger instance
-private static Logger logger;
+Now this library implements services for [JDK Platform Logging][jdk-logging]
+and [Apache Commons Logging][commons-logging].
 
-// initialize the mock logger once
-@BeforeAll
-static void setUpClass() {
-    logger = System.getLogger("HelloService");
-}
+See more examples in the relevant modules of this project:
 
-// clean the mock logger after each test
-@AfterEach
-void tearDown() {
-    clearInvocations(logger);
-}
-
-// use the mock logger in a test
-@DisplayName("Names")
-@ParameterizedTest(name = "<{0}>")
-@ValueSource(strings = {"John", "Jane"})
-void names(String name) {
-    var helloService = new HelloService();
-
-    assertDoesNotThrow(() -> helloService.sayHello(name));
-
-    var logger = System.getLogger("HelloService");
-
-    verify(logger).log(Level.INFO, "Hello " + name + "!");
-    verifyNoMoreInteractions(logger);
-}
-```
-See more details at [HelloServiceFullTest.java](jdk-platform-logging/src/it/hello-world/src/test/java/example/hello/HelloServiceFullTest.java)
-
-Since the version **1.1.0** you can use the jUnit extension for automation.
-```java
-@ExtendWith(MockLoggerExtension.class)
-class HelloServiceExtensionTest {
-
-    private static Logger logger;
-
-    @BeforeAll
-    static void setUpClass() {
-        logger = System.getLogger("HelloService");
-    }
-
-    @DisplayName("Names")
-    @ParameterizedTest(name = "<{0}>")
-    @ValueSource(strings = {"John", "Jane"})
-    void names(String name) {
-        var helloService = new HelloService();
-
-        assertDoesNotThrow(() -> helloService.sayHello(name));
-
-        var logger = System.getLogger("HelloService");
-
-        verify(logger).log(Level.INFO, "Hello " + name + "!");
-        verifyNoMoreInteractions(logger);
-    }
-
-}
-```
-See more details at [HelloServiceExtensionTest.java](jdk-platform-logging/src/it/hello-world/src/test/java/example/hello/HelloServiceExtensionTest.java)
-
-Since the version **1.1.3** you can use the annotation for automation.
-```java
-@MockLoggers
-class HelloServiceAnnotationTest {
-
-    private static Logger logger;
-
-    @BeforeAll
-    static void setUpClass() {
-        logger = System.getLogger("HelloService");
-    }
-
-    @DisplayName("Names")
-    @ParameterizedTest(name = "<{0}>")
-    @ValueSource(strings = {"John", "Jane"})
-    void names(String name) {
-        var helloService = new HelloService();
-
-        assertDoesNotThrow(() -> helloService.sayHello(name));
-
-        var logger = System.getLogger("HelloService");
-
-        verify(logger).log(Level.INFO, "Hello " + name + "!");
-        verifyNoMoreInteractions(logger);
-    }
-
-}
-```
-See more details at [HelloServiceAnnotationTest.java](jdk-platform-logging/src/it/hello-world/src/test/java/example/hello/HelloServiceAnnotationTest.java)
+- for JDK Platform Logging in [mock-loggers-jdk-platform-logging](jdk-platform-logging)
+- for Apache Commons Logging in [mock-loggers-commons-logging](commons-logging)
 
 ## Credits
 
