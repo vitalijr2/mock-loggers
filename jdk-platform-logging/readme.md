@@ -36,8 +36,10 @@ void helloWorld() {
 ```
 See more details at [HelloServiceBasicTest.java](src/it/hello-jdk-platform-logging-world/src/test/java/example/hello/HelloServiceBasicTest.java)
 
-It should be taken into account that all loggers are initialized only once during the run of tests.
-Therefore, a more complex example cleans the loggers before (or after) each test:
+> [!NOTE]
+> It should be taken into account that all loggers are initialized only once during the run of tests.
+
+Therefore, a more complex example cleans the loggers after (or before) each test:
 ```java
 // the static logger instance
 private static Logger logger;
