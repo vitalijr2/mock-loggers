@@ -5,8 +5,8 @@ Different logging services can be tested using mock loggers backed by [Mockito][
 Now this library implements services for [JDK Platform Logging][jdk-logging]
 and [Apache Commons Logging][commons-logging].
 
-[!WARNING]  
-This library does not support _parallel test execution_.
+> [!WARNING]
+> This library does not support _parallel test execution_.
 
 [![Java Version][java-version]][jdk-download]
 ![jUnit Version][junit-version]
