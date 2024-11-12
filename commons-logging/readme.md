@@ -34,9 +34,10 @@ void helloWorld() {
 
     assertDoesNotThrow(helloService::sayHelloWorld);
 
-    verify(LogFactory.getInstance("HelloService")).info("Hello World!");
+    verify(LogFactory.getLog(helloService.getClass())).info("Hello World!");
 }
 ```
+See more details at [HelloServiceBasicTest.java](src/it/hello-commons-logging-world/src/test/java/example/hello/HelloServiceBasicTest.java)
 
 [commons-logging]: https://commons.apache.org/proper/commons-logging/
 
