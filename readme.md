@@ -1,17 +1,17 @@
 # Mock Loggers
 
-Different logging services with mock loggers backed by [Mockito][].
-Now this library implements [JDK Platform Logging][jdk-logging] and [Apache Commons Logging][commons-logging].
+Different logging services can be tested using mock loggers backed by [Mockito][].
 
-**WARNING:** this library does not support _parallel test execution_.
+Now this library implements services for [JDK Platform Logging][jdk-logging]
+and [Apache Commons Logging][commons-logging].
+
+> [!WARNING]
+> This library does not support _parallel test execution_.
 
 [![Java Version][java-version]][jdk-download]
 ![jUnit Version][junit-version]
 ![Mockito Version][mockito-version]
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0.html)  
-![Maven Central Last Update][maven-central-last-update]
-[![Maven Central][maven-central]][maven-central-link]
-[![Javadoc][javadoc]][javadoc-link]  
 [![GitHub master check runs][github-master-check-runs]][github-master-check-runs-link]
 [![Codacy Badge][codacy-badge]][codacy-badge-link]
 [![Codacy Coverage][codacy-coverage]][codacy-coverage-link]
@@ -41,7 +41,7 @@ void helloWorld() {
     verify(System.getLogger("HelloService")).log(Level.INFO, "Hello World!");
 }
 ```
-See more details at [HelloServiceBasicTest.java](src/it/hello-world/src/test/java/example/hello/HelloServiceBasicTest.java)
+See more details at [HelloServiceBasicTest.java](jdk-platform-logging/src/it/hello-world/src/test/java/example/hello/HelloServiceBasicTest.java)
 
 It should be taken into account that all loggers are initialized only once during the run of tests.
 Therefore, a more complex example cleans the loggers before (or after) each test:
@@ -76,7 +76,7 @@ void names(String name) {
     verifyNoMoreInteractions(logger);
 }
 ```
-See more details at [HelloServiceFullTest.java](src/it/hello-world/src/test/java/example/hello/HelloServiceFullTest.java)
+See more details at [HelloServiceFullTest.java](jdk-platform-logging/src/it/hello-world/src/test/java/example/hello/HelloServiceFullTest.java)
 
 Since the version **1.1.0** you can use the jUnit extension for automation.
 ```java
@@ -106,7 +106,7 @@ class HelloServiceExtensionTest {
 
 }
 ```
-See more details at [HelloServiceExtensionTest.java](src/it/hello-world/src/test/java/example/hello/HelloServiceExtensionTest.java)
+See more details at [HelloServiceExtensionTest.java](jdk-platform-logging/src/it/hello-world/src/test/java/example/hello/HelloServiceExtensionTest.java)
 
 Since the version **1.1.3** you can use the annotation for automation.
 ```java
@@ -136,7 +136,7 @@ class HelloServiceAnnotationTest {
 
 }
 ```
-See more details at [HelloServiceAnnotationTest.java](src/it/hello-world/src/test/java/example/hello/HelloServiceAnnotationTest.java)
+See more details at [HelloServiceAnnotationTest.java](jdk-platform-logging/src/it/hello-world/src/test/java/example/hello/HelloServiceAnnotationTest.java)
 
 ## Credits
 
@@ -184,16 +184,6 @@ limitations under the License.
 [junit-version]: https://img.shields.io/static/v1?label=jUnit&message=5.11.3&color=blue&logo=junit5&logoColor=E23D28
 
 [mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.14.2&color=blue&logoColor=E23D28
-
-[maven-central-last-update]: https://img.shields.io/maven-central/last-update/io.github.vitalijr2.logging/mock-loggers
-
-[maven-central]: https://img.shields.io/maven-central/v/io.github.vitalijr2.logging/mock-loggers
-
-[javadoc]: https://javadoc.io/badge2/io.github.vitalijr2.logging/mock-loggers/javadoc.svg
-
-[javadoc-link]: https://javadoc.io/doc/io.github.vitalijr2.logging/mock-loggers
-
-[maven-central-link]: https://central.sonatype.com/artifact/io.github.vitalijr2.logging/mock-loggers?smo=true
 
 [github-master-check-runs]: https://img.shields.io/github/check-runs/vitalijr2/mock-loggers/master
 
