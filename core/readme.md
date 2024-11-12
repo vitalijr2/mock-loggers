@@ -5,7 +5,7 @@ alerts when mock loggers need to be cleaned and reset. Logger factories should i
 register themselves with the keeper. The jUnit extension manages the keeper and sends alerts before and after tests.
 
 [![Java Version][java-version]][jdk-download]
-![jUnit Version][junit-version]
+![jUnit Version][junit-version]  
 ![Maven Central Last Update][maven-central-last-update]
 [![Maven Central][maven-central]][maven-central-link]
 [![Javadoc][javadoc]][javadoc-link]  
