@@ -6,6 +6,7 @@
 > This library does not support _parallel test execution_.
 
 [![Java Version][java-version]][jdk-download]
+![SLF4J Version][slf4j-version]
 ![Mockito Version][mockito-version]  
 ![Maven Central Last Update][maven-central-last-update]
 [![Maven Central][maven-central]][maven-central-link]
@@ -141,6 +142,8 @@ See more details at [HelloServiceAnnotationTest.java](src/it/hello-slf4j-world/s
 [java-version]: https://img.shields.io/static/v1?label=Java&message=11&color=blue&logoColor=E23D28
 
 [jdk-download]: https://www.oracle.com/java/technologies/downloads/#java11
+
+[slf4j-version]: https://img.shields.io/static/v1?label=SLF4J&message=2.0.16&color=blue&logoColor=E23D28
 
 [mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.14.2&color=blue&logoColor=E23D28
 
