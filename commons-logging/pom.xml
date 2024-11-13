@@ -80,8 +80,8 @@
     </dependency>
   </dependencies>
   <description>Mock loggers for Apache Commons Logging backed by Mockito.</description>
-  <name>Mock loggers for Apache Commons Logging</name>
   <modelVersion>4.0.0</modelVersion>
+  <name>Mock loggers for Apache Commons Logging</name>
   <parent>
     <artifactId>mock-loggers</artifactId>
     <groupId>io.github.vitalijr2.logging</groupId>

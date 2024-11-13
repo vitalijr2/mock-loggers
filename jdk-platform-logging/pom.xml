@@ -74,8 +74,8 @@
     </dependency>
   </dependencies>
   <description>Mock loggers for JDK Platform Logging backed by Mockito.</description>
-  <name>Mock loggers for JDK Platform Logging</name>
   <modelVersion>4.0.0</modelVersion>
+  <name>Mock loggers for JDK Platform Logging</name>
   <parent>
     <artifactId>mock-loggers</artifactId>
     <groupId>io.github.vitalijr2.logging</groupId>
