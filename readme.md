@@ -38,6 +38,11 @@ See more examples in the relevant modules of this project:
 - for JDK Platform Logging in [mock-loggers-jdk-platform-logging](jdk-platform-logging)
 - for SLF4J in [mock-loggers-slf4j](slf4j)
 
+## Other logging libraries and frameworks
+
+- [Apache Log4j: Unit Testing in Maven][log4j-unit-testing-in-maven]
+- [Unit Test logback Using JUnit][logback-unit-test-using-junit], it's old but gold
+
 ## Credits
 
 There are two projects which inspired me to make this library:
@@ -104,6 +109,10 @@ limitations under the License.
 [today-hits]: https://hits.sh/github.com/vitalijr2/mock-loggers.svg?view=today-total&label=today's%20hits
 
 [today-hits-link]: https://hits.sh/github.com/vitalijr2/mock-loggers/
+
+[log4j-unit-testing-in-maven]: https://logging.apache.org/log4j/2.3.x/manual/configuration.html#UnitTestingInMaven
+
+[logback-unit-test-using-junit]: https://www.iamninad.com/posts/unit-test-logback-using-junit/
 
 [slf4j-mock]: https://github.com/s4u/slf4j-mock
 
