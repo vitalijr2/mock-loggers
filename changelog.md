@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Unreleased
 
 - Rename to Mock Loggers
+- Add SLF4J and Apache Commons Logging modules
 
 ## 1.1.3 - 2024-11-09
 
