@@ -1,0 +1,18 @@
+
+Lists of 16 third-party dependencies.
+     (Apache License version 2.0) Apache Commons Logging (commons-logging:commons-logging:1.3.4 - https://commons.apache.org/proper/commons-logging/)
+     (Apache License version 2.0) Logger Keeper and jUnit Extension (io.github.vitalijr2.logging:mock-loggers-core:1.0.0 - https://github.com/vitalijr2/mock-loggers/mock-loggers-core)
+     (Apache License version 2.0) Byte Buddy (without dependencies) (net.bytebuddy:byte-buddy:1.15.4 - https://bytebuddy.net/byte-buddy)
+     (Apache License version 2.0) Byte Buddy agent (net.bytebuddy:byte-buddy-agent:1.15.4 - https://bytebuddy.net/byte-buddy-agent)
+     (Apache License version 2.0) org.apiguardian:apiguardian-api (org.apiguardian:apiguardian-api:1.1.2 - https://github.com/apiguardian-team/apiguardian)
+     (Apache License version 2.0) JetBrains Java Annotations (org.jetbrains:annotations:26.0.1 - https://github.com/JetBrains/java-annotations)
+     (Eclipse Public License - v 2.0) JUnit Jupiter API (org.junit.jupiter:junit-jupiter-api:5.11.3 - https://junit.org/junit5/)
+     (Eclipse Public License - v 2.0) JUnit Jupiter Engine (org.junit.jupiter:junit-jupiter-engine:5.11.3 - https://junit.org/junit5/)
+     (Eclipse Public License - v 2.0) JUnit Jupiter Params (org.junit.jupiter:junit-jupiter-params:5.11.3 - https://junit.org/junit5/)
+     (Eclipse Public License - v 2.0) JUnit Platform Commons (org.junit.platform:junit-platform-commons:1.11.3 - https://junit.org/junit5/)
+     (Eclipse Public License - v 2.0) JUnit Platform Engine API (org.junit.platform:junit-platform-engine:1.11.3 - https://junit.org/junit5/)
+     (MIT License) mockito-core (org.mockito:mockito-core:5.14.2 - https://github.com/mockito/mockito)
+     (MIT License) mockito-junit-jupiter (org.mockito:mockito-junit-jupiter:5.14.2 - https://github.com/mockito/mockito)
+     (Apache License version 2.0) Objenesis (org.objenesis:objenesis:3.3 - http://objenesis.org/objenesis)
+     (Apache License version 2.0) org.opentest4j:opentest4j (org.opentest4j:opentest4j:1.3.0 - https://github.com/ota4j-team/opentest4j)
+     (MIT License) SLF4J API Module (org.slf4j:slf4j-api:2.0.16 - http://www.slf4j.org)
