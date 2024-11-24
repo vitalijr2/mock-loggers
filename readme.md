@@ -76,6 +76,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ```
 
+See full text [here](LICENSE "the LICENSE file").
+
 [Mockito]: https://site.mockito.org
 
 [jdk-logging]: https://www.baeldung.com/java-9-logging-api "Java Platform Logging API"
