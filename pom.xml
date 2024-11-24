@@ -162,36 +162,6 @@
           <version>3.13.0</version>
         </plugin>
         <plugin>
-          <artifactId>maven-enforcer-plugin</artifactId>
-          <configuration>
-            <rules>
-              <requireJavaVersion>
-                <version>[${java.version},)</version>
-              </requireJavaVersion>
-              <requireMavenVersion>
-                <version>[3.9.0,)</version>
-              </requireMavenVersion>
-            </rules>
-          </configuration>
-          <executions>
-            <execution>
-              <goals>
-                <goal>enforce</goal>
-              </goals>
-              <id>enforce-maven</id>
-            </execution>
-            <execution>
-              <goals>
-                <goal>enforce</goal>
-              </goals>
-              <id>enforce-clean</id>
-              <phase>pre-clean</phase>
-            </execution>
-          </executions>
-          <groupId>org.apache.maven.plugins</groupId>
-          <version>3.5.0</version>
-        </plugin>
-        <plugin>
           <artifactId>maven-failsafe-plugin</artifactId>
           <configuration>
             <forkCount>1</forkCount>
@@ -319,6 +289,38 @@
         </plugin>
       </plugins>
     </pluginManagement>
+    <plugins>
+      <plugin>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <configuration>
+          <rules>
+            <requireJavaVersion>
+              <version>[${java.version},)</version>
+            </requireJavaVersion>
+            <requireMavenVersion>
+              <version>[3.9.0,)</version>
+            </requireMavenVersion>
+          </rules>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <id>enforce-maven</id>
+          </execution>
+          <execution>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <id>enforce-clean</id>
+            <phase>pre-clean</phase>
+          </execution>
+        </executions>
+        <groupId>org.apache.maven.plugins</groupId>
+        <version>3.5.0</version>
+      </plugin>
+    </plugins>
   </build>
   <ciManagement>
     <system>GitHub Actions</system>
