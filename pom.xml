@@ -412,6 +412,7 @@
     <module>core</module>
     <module>jdk-platform-logging</module>
     <module>slf4j</module>
+    <module>tinylog-provider</module>
   </modules>
   <name>Mock Loggers</name>
   <packaging>pom</packaging>
