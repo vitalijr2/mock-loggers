@@ -30,13 +30,14 @@ void helloWorld() {
 ```
 
 Now this library implements services for [JDK Platform Logging][jdk-logging],
-[Apache Commons Logging][commons-logging] and [SLF4J][slf4j].
+[Apache Commons Logging][commons-logging], [SLF4J][slf4j] and [tinylog][].
 
 See more examples in the relevant modules of this project:
 
 - for Apache Commons Logging in [mock-loggers-commons-logging](commons-logging)
 - for JDK Platform Logging in [mock-loggers-jdk-platform-logging](jdk-platform-logging)
 - for SLF4J in [mock-loggers-slf4j](slf4j)
+- for tinylog in [mock-loggers-tinylog-provider](tinylog-provider)
 
 ## Other logging libraries and frameworks
 
@@ -61,13 +62,13 @@ See [Changelog](changelog.md)
 ## License
 
 ```
-Copyright 2024 Vitalij Berdinskih
+Copyright (C) 2024 Vitalij Berdinskih
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-    <https://www.apache.org/licenses/LICENSE-2.0>
+     https://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -76,6 +77,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ```
 
+See full text [here](LICENSE "the LICENSE file").
+
 [Mockito]: https://site.mockito.org
 
 [jdk-logging]: https://www.baeldung.com/java-9-logging-api "Java Platform Logging API"
@@ -83,6 +86,8 @@ limitations under the License.
 [commons-logging]: https://commons.apache.org/proper/commons-logging/
 
 [slf4j]: https://www.slf4j.org/
+
+[tinylog]: https://tinylog.org/v2/
 
 [java-version]: https://img.shields.io/static/v1?label=Java&message=11&color=blue&logoColor=E23D28
 

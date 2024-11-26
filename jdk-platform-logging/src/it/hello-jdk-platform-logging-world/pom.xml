@@ -28,7 +28,6 @@
     </plugins>
   </build>
   <dependencies>
-    <!-- test -->
     <dependency>
       <artifactId>@project.artifactId@</artifactId>
       <groupId>@project.groupId@</groupId>
@@ -40,12 +39,6 @@
       <groupId>org.hamcrest</groupId>
       <scope>test</scope>
       <version>3.0</version>
-    </dependency>
-    <dependency>
-      <artifactId>junit-jupiter-api</artifactId>
-      <groupId>org.junit.jupiter</groupId>
-      <scope>test</scope>
-      <version>${junit-jupiter.version}</version>
     </dependency>
     <dependency>
       <artifactId>junit-jupiter-engine</artifactId>

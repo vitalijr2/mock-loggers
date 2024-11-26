@@ -28,13 +28,6 @@
     </plugins>
   </build>
   <dependencies>
-    <!-- main -->
-    <dependency>
-      <artifactId>slf4j-api</artifactId>
-      <groupId>org.slf4j</groupId>
-      <version>2.0.16</version>
-    </dependency>
-    <!-- test -->
     <dependency>
       <artifactId>@project.artifactId@</artifactId>
       <groupId>@project.groupId@</groupId>
@@ -46,12 +39,6 @@
       <groupId>org.hamcrest</groupId>
       <scope>test</scope>
       <version>3.0</version>
-    </dependency>
-    <dependency>
-      <artifactId>junit-jupiter-api</artifactId>
-      <groupId>org.junit.jupiter</groupId>
-      <scope>test</scope>
-      <version>${junit-jupiter.version}</version>
     </dependency>
     <dependency>
       <artifactId>junit-jupiter-engine</artifactId>
@@ -76,6 +63,11 @@
       <groupId>org.mockito</groupId>
       <scope>test</scope>
       <version>${mockito.version}</version>
+    </dependency>
+    <dependency>
+      <artifactId>slf4j-api</artifactId>
+      <groupId>org.slf4j</groupId>
+      <version>2.0.16</version>
     </dependency>
   </dependencies>
   <description>Basic example</description>

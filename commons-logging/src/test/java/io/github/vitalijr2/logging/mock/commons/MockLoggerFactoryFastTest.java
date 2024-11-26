@@ -19,6 +19,9 @@ import org.apache.commons.logging.Log;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 @Tag("fast")
 class MockLoggerFactoryFastTest {
@@ -82,6 +85,40 @@ class MockLoggerFactoryFastTest {
 
     // then
     assertThat(loggers.entrySet(), emptyIterable());
+  }
+
+  @DisplayName("getAttribute doesn't throw an exception")
+  @ParameterizedTest
+  @NullAndEmptySource
+  @ValueSource(strings = {" ", "test"})
+  void getAttributes(String name) {
+    // given
+    var loggerFactory = new MockLoggerFactory(new HashMap<>());
+
+    // when and then
+    assertDoesNotThrow(() -> loggerFactory.getAttribute(name));
+  }
+
+  @DisplayName("getAttributeNames doesn't throw an exception")
+  @Test
+  void getAttributeNames() {
+    // given
+    var loggerFactory = new MockLoggerFactory(new HashMap<>());
+
+    // when and then
+    assertDoesNotThrow(loggerFactory::getAttributeNames);
+  }
+
+  @DisplayName("removeAttribute doesn't throw an exception")
+  @ParameterizedTest
+  @NullAndEmptySource
+  @ValueSource(strings = {" ", "test"})
+  void removeAttribute(String name) {
+    // given
+    var loggerFactory = new MockLoggerFactory(new HashMap<>());
+
+    // when and then
+    assertDoesNotThrow(() -> loggerFactory.removeAttribute(name));
   }
 
 }
