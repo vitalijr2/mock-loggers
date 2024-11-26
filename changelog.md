@@ -7,7 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
-- Rename to Mock Loggers
+- Add tinylog modules
+- Fix dependencies' scopes
+
+## 1.0.0 - 2024-11-13 - Mock Loggers
+
+- Rename to **Mock Loggers**
 - Add SLF4J and Apache Commons Logging modules
 
 ## 1.1.3 - 2024-11-09
@@ -34,7 +39,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Implement jUnit extension.
 
-## 1.0.0 - 2024-07-15
+## 1.0.0 - 2024-07-15 - Mock of JDK Platform Logging
 
 - Implement a logger finder.
 - Add Javadocs.
