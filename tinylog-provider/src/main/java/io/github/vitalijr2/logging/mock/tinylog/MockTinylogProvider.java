@@ -24,7 +24,28 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.tinylog.provider.LoggingProvider;
 
+/**
+ * An annotation for injecting an instance of a mock {@link LoggingProvider} instance.
+ * <p>
+ * A field of type {@link LoggingProvider} marked with the {@link MockTinylogProvider} annotation will be assigned a
+ * mock instance. This mock can then be used to test logging behavior.
+ * <p>
+ * Example:
+ * <pre><code class="language-java">
+ *   {@literal @}Test
+ *   void helloWorld() {
+ *     when(logger.getMinimumLevel(isNull())).thenReturn(Level.INFO);
+ *
+ *     assertDoesNotThrow(helloService::sayHelloWorld);
+ *
+ *     verify(logger).log(eq(Level.INFO.ordinal()), isNull(), eq(Level.INFO), isNull(), isNull(), anyString(), isNull());
+ *   }
+ * </code></pre>
+ *
+ * @since 1.1.0
+ */
 @ExtendWith(MockTinylogProviderExtension.class)
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.FIELD})

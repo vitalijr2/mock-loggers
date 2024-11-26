@@ -30,6 +30,13 @@ import org.tinylog.format.MessageFormatter;
 import org.tinylog.provider.ContextProvider;
 import org.tinylog.provider.LoggingProvider;
 
+/**
+ * Wraps a mock logger provider.
+ * <p>
+ * Use {@link MockTinylogProvider} to get access to a mock {@link LoggingProvider} instance.
+ *
+ * @since 1.1.0
+ */
 public class MockLoggerProvider implements LoggingProvider, MockLoggerCleaner {
 
   static final LoggingProvider MOCK_INSTANCE;

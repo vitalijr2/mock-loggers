@@ -36,9 +36,12 @@ class MockLoggerProviderSlowTest {
 
   @DisplayName("Clear and reset the mock instance")
   @Test
-  void cleanAndReset() throws InterruptedException {
+  void cleanAndReset() {
+    // given
+    when(MockLoggerProvider.MOCK_INSTANCE.getMinimumLevel(isNull())).thenReturn(Level.INFO);
+
     // when
-    provider.shutdown();
+    Logger.info("test message");
     provider.cleanAndReset();
 
     // then

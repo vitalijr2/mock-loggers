@@ -33,7 +33,7 @@ import org.slf4j.ILoggerFactory;
 import org.slf4j.Logger;
 
 /**
- * Uses {@link org.mockito.Mockito#mock(Class, String)} to get a mock that is adapted for {@link System.Logger}.
+ * Uses {@link org.mockito.Mockito#mock(Class, String)} to get a mock that is adapted for {@link Logger}.
  * <p>
  * Example:
  * <pre><code class="language-java">

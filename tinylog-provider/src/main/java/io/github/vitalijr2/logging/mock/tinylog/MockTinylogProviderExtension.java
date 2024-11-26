@@ -28,6 +28,15 @@ import org.junit.jupiter.api.extension.ParameterResolver;
 import org.junit.jupiter.api.extension.TestInstancePostProcessor;
 import org.tinylog.provider.LoggingProvider;
 
+/**
+ * A JUnit extension for injecting an instance of a mock {@link LoggingProvider} instance.
+ * <p>
+ * This extension is used alongside an annotation. A field of type {@link LoggingProvider} marked with the
+ * {@link MockTinylogProvider} annotation will be assigned a mock instance. This mock can then be used to test logging
+ * behavior.
+ *
+ * @since 1.1.0
+ */
 public class MockTinylogProviderExtension implements TestInstancePostProcessor, ParameterResolver {
 
   @VisibleForTesting

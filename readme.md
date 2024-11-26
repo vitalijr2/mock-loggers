@@ -30,13 +30,14 @@ void helloWorld() {
 ```
 
 Now this library implements services for [JDK Platform Logging][jdk-logging],
-[Apache Commons Logging][commons-logging] and [SLF4J][slf4j].
+[Apache Commons Logging][commons-logging], [SLF4J][slf4j] and [tinylog][].
 
 See more examples in the relevant modules of this project:
 
 - for Apache Commons Logging in [mock-loggers-commons-logging](commons-logging)
 - for JDK Platform Logging in [mock-loggers-jdk-platform-logging](jdk-platform-logging)
 - for SLF4J in [mock-loggers-slf4j](slf4j)
+- for tinylog in [mock-loggers-tinylog-provider](tinylog-provider)
 
 ## Other logging libraries and frameworks
 
@@ -85,6 +86,8 @@ See full text [here](LICENSE "the LICENSE file").
 [commons-logging]: https://commons.apache.org/proper/commons-logging/
 
 [slf4j]: https://www.slf4j.org/
+
+[tinylog]: https://tinylog.org/v2/
 
 [java-version]: https://img.shields.io/static/v1?label=Java&message=11&color=blue&logoColor=E23D28
 

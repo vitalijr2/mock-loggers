@@ -2,7 +2,7 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <artifactId>hello-jdk-platform-logging-world</artifactId>
+  <artifactId>hello-tinylog-world</artifactId>
   <build>
     <plugins>
       <plugin>
@@ -63,6 +63,11 @@
       <groupId>org.mockito</groupId>
       <scope>test</scope>
       <version>${mockito.version}</version>
+    </dependency>
+    <dependency>
+      <artifactId>tinylog-api</artifactId>
+      <groupId>org.tinylog</groupId>
+      <version>2.7.0</version>
     </dependency>
   </dependencies>
   <description>Basic example</description>

@@ -54,7 +54,7 @@
       <artifactId>slf4j-api</artifactId>
       <groupId>org.slf4j</groupId>
       <scope>provided</scope>
-      <version>2.0.16</version>
+      <version>${slf4j.version}</version>
     </dependency>
   </dependencies>
   <description>Mock loggers for SLF4J backed by Mockito.</description>
@@ -70,6 +70,22 @@
       <build>
         <plugins>
           <plugin>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <configuration>
+              <links>
+                <link>https://javadoc.io/doc/org.slf4j/slf4j-api/${slf4j.version}</link>
+              </links>
+            </configuration>
+            <groupId>org.apache.maven.plugins</groupId>
+          </plugin>
+        </plugins>
+      </build>
+      <id>release</id>
+    </profile>
+    <profile>
+      <build>
+        <plugins>
+          <plugin>
             <artifactId>maven-invoker-plugin</artifactId>
             <groupId>org.apache.maven.plugins</groupId>
           </plugin>
@@ -78,4 +94,7 @@
       <id>run-its</id>
     </profile>
   </profiles>
+  <properties>
+    <slf4j.version>2.0.16</slf4j.version>
+  </properties>
 </project>

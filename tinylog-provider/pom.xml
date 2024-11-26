@@ -64,7 +64,7 @@
       <artifactId>tinylog-api</artifactId>
       <groupId>org.tinylog</groupId>
       <scope>provided</scope>
-      <version>2.7.0</version>
+      <version>${tinylog.version}</version>
     </dependency>
   </dependencies>
   <description>Mock loggers for tinylog backed by Mockito.</description>
@@ -80,6 +80,22 @@
       <build>
         <plugins>
           <plugin>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <configuration>
+              <links>
+                <link>https://javadoc.io/doc/org.tinylog/tinylog-api/${tinylog.version}</link>
+              </links>
+            </configuration>
+            <groupId>org.apache.maven.plugins</groupId>
+          </plugin>
+        </plugins>
+      </build>
+      <id>release</id>
+    </profile>
+    <profile>
+      <build>
+        <plugins>
+          <plugin>
             <artifactId>maven-invoker-plugin</artifactId>
             <groupId>org.apache.maven.plugins</groupId>
           </plugin>
@@ -88,4 +104,7 @@
       <id>run-its</id>
     </profile>
   </profiles>
+  <properties>
+    <tinylog.version>2.7.0</tinylog.version>
+  </properties>
 </project>

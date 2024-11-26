@@ -34,7 +34,7 @@ import org.apache.commons.logging.LogFactory;
 import org.jetbrains.annotations.VisibleForTesting;
 
 /**
- * Uses {@link org.mockito.Mockito#mock(Class, String)} to get a mock that is adapted for {@link System.Logger}.
+ * Uses {@link org.mockito.Mockito#mock(Class, String)} to get a mock that is adapted for {@link Log}.
  * <p>
  * Example:
  * <pre><code class="language-java">

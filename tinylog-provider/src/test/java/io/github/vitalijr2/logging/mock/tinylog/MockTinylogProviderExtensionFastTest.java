@@ -86,6 +86,7 @@ class MockTinylogProviderExtensionFastTest {
 
   static class JustTest {
 
+    @SuppressWarnings("unused")
     @MockTinylogProvider
     private LoggingProvider provider;
 

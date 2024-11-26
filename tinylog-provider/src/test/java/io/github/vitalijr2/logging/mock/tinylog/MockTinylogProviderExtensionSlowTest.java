@@ -69,6 +69,7 @@ class MockTinylogProviderExtensionSlowTest {
 
   static class HappyTest {
 
+    @SuppressWarnings("unused")
     @MockTinylogProvider
     private LoggingProvider loggingProvider;
 
@@ -76,12 +77,14 @@ class MockTinylogProviderExtensionSlowTest {
 
   static class UnannotatedFieldTest {
 
+    @SuppressWarnings("unused")
     private LoggingProvider loggingProvider;
 
   }
 
   static class WrongTypeTest {
 
+    @SuppressWarnings("unused")
     @MockTinylogProvider
     private String loggingProvider;
 
