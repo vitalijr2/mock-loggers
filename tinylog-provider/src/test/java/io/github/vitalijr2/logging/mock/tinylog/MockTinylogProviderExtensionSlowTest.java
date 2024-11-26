@@ -29,7 +29,7 @@ class MockTinylogProviderExtensionSlowTest {
 
   @DisplayName("Happy path")
   @Test
-  void happyPath() throws IllegalAccessException {
+  void happyPath() {
     // given
     var testInstance = new HappyTest();
 
@@ -43,7 +43,7 @@ class MockTinylogProviderExtensionSlowTest {
 
   @DisplayName("Unannotated field")
   @Test
-  void unannotatedField() throws IllegalAccessException {
+  void unannotatedField() {
     // given
     var testInstance = new UnannotatedFieldTest();
 
@@ -56,7 +56,7 @@ class MockTinylogProviderExtensionSlowTest {
 
   @DisplayName("Wrong type")
   @Test
-  void wrongType() throws IllegalAccessException {
+  void wrongType() {
     // given
     var testInstance = new WrongTypeTest();
 

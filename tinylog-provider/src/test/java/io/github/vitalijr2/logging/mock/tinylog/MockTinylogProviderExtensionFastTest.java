@@ -3,8 +3,10 @@ package io.github.vitalijr2.logging.mock.tinylog;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsInstanceOf.instanceOf;
 import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 
@@ -69,6 +71,24 @@ class MockTinylogProviderExtensionFastTest {
     // then
     assertAll("Resolved parameter", () -> assertNotNull(value),
         () -> assertThat(value, instanceOf(LoggingProvider.class)));
+  }
+
+  @DisplayName("Throw an exception on injection")
+  @Test
+  void throwExceptionOnInjection() {
+    // when
+    var exception = assertThrows(MockLoggerException.class,
+        () -> MockTinylogProviderExtension.injectMockProvider(null, JustTest.class));
+
+    // then
+    assertEquals("Cannot inject a mock provider", exception.getMessage());
+  }
+
+  static class JustTest {
+
+    @MockTinylogProvider
+    private LoggingProvider provider;
+
   }
 
 }
