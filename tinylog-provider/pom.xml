@@ -25,12 +25,22 @@
       <groupId>org.jetbrains</groupId>
     </dependency>
     <dependency>
+      <artifactId>junit-jupiter-api</artifactId>
+      <groupId>org.junit.jupiter</groupId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
       <artifactId>junit-jupiter-engine</artifactId>
       <groupId>org.junit.jupiter</groupId>
     </dependency>
     <dependency>
       <artifactId>junit-jupiter-params</artifactId>
       <groupId>org.junit.jupiter</groupId>
+    </dependency>
+    <dependency>
+      <artifactId>junit-platform-commons</artifactId>
+      <groupId>org.junit.platform</groupId>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <artifactId>mock-loggers-core</artifactId>
