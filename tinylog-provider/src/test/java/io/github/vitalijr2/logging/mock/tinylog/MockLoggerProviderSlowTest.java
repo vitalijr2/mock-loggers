@@ -1,6 +1,5 @@
 package io.github.vitalijr2.logging.mock.tinylog;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.clearInvocations;
 import static org.mockito.Mockito.reset;
 import static org.mockito.Mockito.verifyNoInteractions;
