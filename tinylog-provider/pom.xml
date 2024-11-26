@@ -25,6 +25,10 @@
       <groupId>org.jetbrains</groupId>
     </dependency>
     <dependency>
+      <artifactId>hamcrest</artifactId>
+      <groupId>org.hamcrest</groupId>
+    </dependency>
+    <dependency>
       <artifactId>junit-jupiter-api</artifactId>
       <groupId>org.junit.jupiter</groupId>
       <scope>provided</scope>

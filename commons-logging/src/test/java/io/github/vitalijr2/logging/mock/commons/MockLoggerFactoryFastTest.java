@@ -93,7 +93,7 @@ class MockLoggerFactoryFastTest {
   @ValueSource(strings = {" ", "test"})
   void getAttributes(String name) {
     // given
-    var loggerFactory = new MockLoggerFactory(new HashMap<String, Log>());
+    var loggerFactory = new MockLoggerFactory(new HashMap<>());
 
     // when and then
     assertDoesNotThrow(() -> loggerFactory.getAttribute(name));
@@ -103,7 +103,7 @@ class MockLoggerFactoryFastTest {
   @Test
   void getAttributeNames() {
     // given
-    var loggerFactory = new MockLoggerFactory(new HashMap<String, Log>());
+    var loggerFactory = new MockLoggerFactory(new HashMap<>());
 
     // when and then
     assertDoesNotThrow(loggerFactory::getAttributeNames);
@@ -115,7 +115,7 @@ class MockLoggerFactoryFastTest {
   @ValueSource(strings = {" ", "test"})
   void removeAttribute(String name) {
     // given
-    var loggerFactory = new MockLoggerFactory(new HashMap<String, Log>());
+    var loggerFactory = new MockLoggerFactory(new HashMap<>());
 
     // when and then
     assertDoesNotThrow(() -> loggerFactory.removeAttribute(name));
