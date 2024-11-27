@@ -124,6 +124,12 @@ class HelloServiceAnnotationTest {
 ```
 See more details at [HelloServiceAnnotationTest.java](src/it/hello-tinylog-world/src/test/java/example/hello/HelloServiceAnnotationTest.java)
 
+### Configuration
+
+If your application is bundled with another tinylog provider and it is present on the test classpath,
+use the configuration to specify the use of the mock provider.
+See [tinylog.properties](src/it/hello-custom-tinylog-world/src/test/resources/tinylog.properties).
+
 [tinylog]: https://tinylog.org/v2/
 
 [Mockito]: https://site.mockito.org
