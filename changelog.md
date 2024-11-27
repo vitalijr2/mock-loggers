@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
-- Add tinylog modules
+- Add tinylog modules: provider and writer
 - Fix dependencies' scopes
 
 ## 1.0.0 - 2024-11-13 - Mock Loggers

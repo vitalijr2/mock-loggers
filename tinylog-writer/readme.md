@@ -1,6 +1,6 @@
-# Mock provider for tinylog
+# Mock writer for tinylog
 
-[Tinylog][tinylog] provider with a mock instance backed by [Mockito][].
+[Tinylog][tinylog] writer with a mock instance backed by [Mockito][].
 
 > [!WARNING]
 > This library does not support _parallel test execution_.
@@ -12,17 +12,12 @@
 [![Maven Central][maven-central]][maven-central-link]
 [![Javadoc][javadoc]][javadoc-link]
 
-## Foreword
-
-Using a provider is complicated by the need to set the results of additional methods.
-Therefore, I recommend using testing using [Writer](../tinylog-writer).
-
 ## How to use
 
 Just put a test dependency to your POM:
 ```xml
 <dependency>
-    <artifactId>mock-loggers-tinylog-provider</artifactId>
+    <artifactId>mock-loggers-tinylog-writer</artifactId>
     <groupId>io.github.vitalijr2.logging</groupId>
     <scope>test</scope>
     <version>1.1.0</version>
@@ -33,13 +28,11 @@ The simplest usage example looks like this:
 ```java
 @Test
 void helloWorld() {
-    when(logger.getMinimumLevel(isNull())).thenReturn(Level.INFO);
-
     var helloService = new HelloService();
 
     assertDoesNotThrow(helloService::sayHelloWorld);
 
-    verify(logger).log(anyInt(), isNull(), eq(Level.INFO), isNull(), isNull(), anyString(), isNull());
+    verify(writer).write(isA(LogEntry.class));
 }
 ```
 See more details at [HelloServiceBasicTest.java](src/it/hello-tinylog-world/src/test/java/example/hello/HelloServiceBasicTest.java)
@@ -50,8 +43,10 @@ See more details at [HelloServiceBasicTest.java](src/it/hello-tinylog-world/src/
 Therefore, a more complex example cleans the loggers after (or before) each test:
 ```java
 // the static logger instance
-@MockTinylogProvider
-private static LoggingProvider logger;
+@Captor
+private ArgumentCaptor<LogEntry> logEntryCaptor;
+@MockTinylogWriter
+private static Writer writer;
 
 // clean the mock logger after each test
 @AfterEach
@@ -64,23 +59,24 @@ void tearDown() {
 @ParameterizedTest(name = "<{0}>")
 @ValueSource(strings = {"John", "Jane"})
 void names(String name) {
-    when(logger.getMinimumLevel(isNull())).thenReturn(Level.INFO);
-
     var helloService = new HelloService();
 
     assertDoesNotThrow(() -> helloService.sayHello(name));
 
-    verify(logger).log(anyInt(), isNull(), eq(Level.INFO), isNull(), isNull(),
-            eq("Hello " + name + "!"), isNull());
+    verify(writer).write(logEntryCaptor.capture());
+
+    assertEquals("Hello " + name + "!", logEntryCaptor.getValue().getMessage());
 }
 ```
 See more details at [HelloServiceFullTest.java](src/it/hello-tinylog-world/src/test/java/example/hello/HelloServiceFullTest.java)
 
 To avoid manual cleaning of mock loggers you can use the [jUnit extension][junit-extension] for automation:
 ```java
-@ExtendWith(MockLoggerExtension.class)
+@ExtendWith({MockitoExtension.class, MockLoggerExtension.class})
 class HelloServiceExtensionTest {
 
+    @Captor
+    private ArgumentCaptor<LogEntry> logEntryCaptor;
     @MockTinylogProvider
     private static LoggingProvider logger;
 
@@ -88,14 +84,13 @@ class HelloServiceExtensionTest {
     @ParameterizedTest(name = "<{0}>")
     @ValueSource(strings = {"John", "Jane"})
     void names(String name) {
-        when(logger.getMinimumLevel(isNull())).thenReturn(Level.INFO);
-
         var helloService = new HelloService();
 
         assertDoesNotThrow(() -> helloService.sayHello(name));
 
-        verify(logger).log(anyInt(), isNull(), eq(Level.INFO), isNull(), isNull(),
-                eq("Hello " + name + "!"), isNull());
+        verify(writer).write(logEntryCaptor.capture());
+
+        assertEquals("Hello " + name + "!", logEntryCaptor.getValue().getMessage());
     }
 
 }
@@ -104,9 +99,12 @@ See more details at [HelloServiceExtensionTest.java](src/it/hello-tinylog-world/
 
 Also you can use the annotation for automation:
 ```java
+@ExtendWith(MockitoExtension.class)
 @MockLoggers
 class HelloServiceAnnotationTest {
 
+    @Captor
+    private ArgumentCaptor<LogEntry> logEntryCaptor;
     @MockTinylogProvider
     private static LoggingProvider logger;
 
@@ -120,8 +118,9 @@ class HelloServiceAnnotationTest {
 
         assertDoesNotThrow(() -> helloService.sayHello(name));
 
-        verify(logger).log(anyInt(), isNull(), eq(Level.INFO), isNull(), isNull(),
-                eq("Hello " + name + "!"), isNull());
+        verify(writer).write(logEntryCaptor.capture());
+
+        assertEquals("Hello " + name + "!", logEntryCaptor.getValue().getMessage());
     }
 
 }
@@ -144,7 +143,7 @@ class HelloServiceParameterTest {
 
     assertDoesNotThrow(helloService::sayHelloWorld);
 
-    verify(logger).log(anyInt(), isNull(), eq(Level.INFO), isNull(), isNull(), anyString(), isNull());
+    verify(writer).write(isA(LogEntry.class));
   }
 
 }
@@ -153,9 +152,10 @@ See more details ad [HelloServiceParameterTest.java](src/it/hello-tinylog-world/
 
 ### Configuration
 
-If your application is bundled with another tinylog provider and it is present on the test classpath,
-use the configuration to specify the use of the mock provider.
-See [tinylog.properties](src/it/hello-custom-tinylog-world/src/test/resources/tinylog.properties).
+> [!IMPORTANT]
+> It is necessary to specify the use of this writer in the configuration.
+
+See [tinylog.properties](src/it/hello-tinylog-world/src/test/resources/tinylog.properties).
 
 [tinylog]: https://tinylog.org/v2/
 
