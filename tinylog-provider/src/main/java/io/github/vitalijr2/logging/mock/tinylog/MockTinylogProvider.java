@@ -40,7 +40,7 @@ import org.tinylog.provider.LoggingProvider;
  *
  *     assertDoesNotThrow(helloService::sayHelloWorld);
  *
- *     verify(logger).log(eq(Level.INFO.ordinal()), isNull(), eq(Level.INFO), isNull(), isNull(), anyString(), isNull());
+ *     verify(logger).log(anyInt(), isNull(), eq(Level.INFO), isNull(), isNull(), anyString(), isNull());
  *   }
  * </code></pre>
  *

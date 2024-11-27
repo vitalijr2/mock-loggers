@@ -1,6 +1,7 @@
 package example.hello;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isNull;
 import static org.mockito.Mockito.verify;
@@ -35,7 +36,7 @@ class HelloServiceExtensionTest {
 
     assertDoesNotThrow(() -> helloService.sayHello(name));
 
-    verify(logger).log(eq(Level.INFO.ordinal()), isNull(), eq(Level.INFO), isNull(), isNull(),
+    verify(logger).log(anyInt(), isNull(), eq(Level.INFO), isNull(), isNull(),
         eq("Hello " + name + "!"), isNull());
   }
 

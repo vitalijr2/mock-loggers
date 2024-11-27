@@ -1,5 +1,6 @@
 package io.github.vitalijr2.logging.mock.tinylog;
 
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isNull;
 import static org.mockito.Mockito.atLeastOnce;
@@ -59,7 +60,7 @@ class MockLoggingProviderSlowTest {
 
     // then
     verify(MockLoggingProvider.MOCK_INSTANCE, atLeastOnce()).getMinimumLevel(isNull());
-    verify(MockLoggingProvider.MOCK_INSTANCE).log(eq(Level.INFO.ordinal()), isNull(), eq(Level.INFO), isNull(), isNull(),
+    verify(MockLoggingProvider.MOCK_INSTANCE).log(anyInt(), isNull(), eq(Level.INFO), isNull(), isNull(),
         eq("test message"), isNull());
     verifyNoMoreInteractions(MockLoggingProvider.MOCK_INSTANCE);
   }

@@ -4,6 +4,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.StringStartsWith.startsWith;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isNull;
 import static org.mockito.Mockito.clearInvocations;
@@ -42,7 +43,7 @@ class HelloServiceFullTest {
 
     assertDoesNotThrow(() -> helloService.sayHello(name));
 
-    verify(logger).log(eq(Level.INFO.ordinal()), isNull(), eq(Level.INFO), isNull(), isNull(),
+    verify(logger).log(anyInt(), isNull(), eq(Level.INFO), isNull(), isNull(),
         eq("Hello " + name + "!"), isNull());
   }
 
