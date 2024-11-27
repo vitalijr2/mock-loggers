@@ -375,6 +375,7 @@
     <module>jdk-platform-logging</module>
     <module>slf4j</module>
     <module>tinylog-provider</module>
+    <module>tinylog-writer</module>
   </modules>
   <name>Mock Loggers</name>
   <packaging>pom</packaging>

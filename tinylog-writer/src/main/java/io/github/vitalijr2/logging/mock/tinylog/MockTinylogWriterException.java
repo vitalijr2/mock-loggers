@@ -19,15 +19,14 @@
  */
 package io.github.vitalijr2.logging.mock.tinylog;
 
-import org.tinylog.provider.LoggingProvider;
-
 /**
- * This exception is thrown then {@link MockTinylogProviderExtension} cannot inject a mock {@link LoggingProvider}
- * instance.
+ * This exception is thrown when {@link MockTinylogWriterExtension} annot inject a mock {@link MockWriter} instance.
+ *
+ * @since 1.1.0
  */
-public class MockLoggerException extends RuntimeException {
+public class MockTinylogWriterException extends RuntimeException {
 
-  public MockLoggerException(String message, Throwable cause) {
+  public MockTinylogWriterException(String message, Throwable cause) {
     super(message, cause);
   }
 

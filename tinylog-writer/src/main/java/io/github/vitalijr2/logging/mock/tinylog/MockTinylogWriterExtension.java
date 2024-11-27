@@ -26,48 +26,48 @@ import org.junit.jupiter.api.extension.ParameterContext;
 import org.junit.jupiter.api.extension.ParameterResolutionException;
 import org.junit.jupiter.api.extension.ParameterResolver;
 import org.junit.jupiter.api.extension.TestInstancePostProcessor;
-import org.tinylog.provider.LoggingProvider;
+import org.tinylog.writers.Writer;
 
 /**
- * A JUnit extension for injecting an instance of a mock {@link LoggingProvider} instance.
+ * A JUnit extension for injecting an instance of a mock {@link Writer} instance.
  * <p>
- * This extension is used alongside an annotation. A field of type {@link LoggingProvider} marked with the
- * {@link MockTinylogProvider} annotation will be assigned a mock instance. This mock can then be used to test logging
+ * This extension is used alongside an annotation. A field of type {@link Writer} marked with the
+ * {@link MockTinylogWriter} annotation will be assigned a mock instance. This mock can then be used to test logging
  * behavior.
  *
  * @since 1.1.0
  */
-public class MockTinylogProviderExtension implements TestInstancePostProcessor, ParameterResolver {
+public class MockTinylogWriterExtension implements TestInstancePostProcessor, ParameterResolver {
 
   @VisibleForTesting
-  static void injectMockProvider(Object testInstance, Class<?> testClass) {
+  static void injectMockWriter(Object testInstance, Class<?> testClass) {
     Stream.of(testClass.getDeclaredFields()).filter(
-        field -> field.isAnnotationPresent(MockTinylogProvider.class) && field.getType()
-            .isAssignableFrom(LoggingProvider.class)).forEach(field -> {
+        field -> field.isAnnotationPresent(MockTinylogWriter.class) && field.getType()
+            .isAssignableFrom(Writer.class)).forEach(field -> {
       field.setAccessible(true);
       try {
-        field.set(testInstance, MockLoggingProvider.MOCK_INSTANCE);
+        field.set(testInstance, MockWriter.MOCK_INSTANCE);
       } catch (IllegalAccessException | RuntimeException exception) {
-        throw new MockTinylogProviderException("Cannot inject a mock provider", exception);
+        throw new MockTinylogWriterException("Cannot inject a mock writer", exception);
       }
     });
   }
 
   @Override
   public void postProcessTestInstance(Object testInstance, ExtensionContext context) {
-    injectMockProvider(testInstance, testInstance.getClass());
+    injectMockWriter(testInstance, testInstance.getClass());
   }
 
   @Override
   public Object resolveParameter(ParameterContext parameterContext, ExtensionContext extensionContext)
       throws ParameterResolutionException {
-    return MockLoggingProvider.MOCK_INSTANCE;
+    return MockWriter.MOCK_INSTANCE;
   }
 
   @Override
   public boolean supportsParameter(ParameterContext parameterContext, ExtensionContext extensionContext)
       throws ParameterResolutionException {
-    return LoggingProvider.class.isAssignableFrom(parameterContext.getParameter().getType());
+    return Writer.class.isAssignableFrom(parameterContext.getParameter().getType());
   }
 
 }

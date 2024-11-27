@@ -13,7 +13,6 @@ import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.reset;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.AfterEach;
@@ -43,17 +42,6 @@ class MockLoggingProviderFastTest {
   void tearDown() {
     clearInvocations(MockLoggingProvider.MOCK_INSTANCE);
     reset(MockLoggingProvider.MOCK_INSTANCE);
-  }
-
-  // Move to slow
-  @DisplayName("Clear and reset the mock instance")
-  @Test
-  void cleanAndReset() {
-    // when
-    provider.cleanAndReset();
-
-    // then
-    verifyNoInteractions(MockLoggingProvider.MOCK_INSTANCE);
   }
 
   @DisplayName("Get a context provider")

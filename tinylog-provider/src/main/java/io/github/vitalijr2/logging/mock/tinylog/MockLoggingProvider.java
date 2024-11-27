@@ -31,7 +31,7 @@ import org.tinylog.provider.ContextProvider;
 import org.tinylog.provider.LoggingProvider;
 
 /**
- * Wraps a mock logger provider.
+ * Wraps a mock logging provider.
  * <p>
  * Use {@link MockTinylogProvider} to get access to a mock {@link LoggingProvider} instance.
  *

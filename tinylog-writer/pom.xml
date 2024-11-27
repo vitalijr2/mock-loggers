@@ -2,7 +2,7 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <artifactId>mock-loggers-tinylog-provider</artifactId>
+  <artifactId>mock-loggers-tinylog-writer</artifactId>
   <build>
     <plugins>
       <plugin>
@@ -66,10 +66,15 @@
       <scope>provided</scope>
       <version>${tinylog.version}</version>
     </dependency>
+    <dependency>
+      <artifactId>tinylog-impl</artifactId>
+      <groupId>org.tinylog</groupId>
+      <version>${tinylog.version}</version>
+    </dependency>
   </dependencies>
-  <description>Mock provider for tinylog backed by Mockito.</description>
+  <description>Mock writer for tinylog backed by Mockito.</description>
   <modelVersion>4.0.0</modelVersion>
-  <name>Mock provider for tinylog</name>
+  <name>Mock writer for tinylog</name>
   <parent>
     <artifactId>mock-loggers</artifactId>
     <groupId>io.github.vitalijr2.logging</groupId>
@@ -83,7 +88,7 @@
             <artifactId>maven-javadoc-plugin</artifactId>
             <configuration>
               <links>
-                <link>https://javadoc.io/doc/org.tinylog/tinylog-api/${tinylog.version}</link>
+                <link>https://javadoc.io/doc/org.tinylog/tinylog-impl/${tinylog.version}</link>
               </links>
             </configuration>
             <groupId>org.apache.maven.plugins</groupId>

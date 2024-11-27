@@ -18,11 +18,11 @@ import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.ParameterContext;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.tinylog.provider.LoggingProvider;
+import org.tinylog.writers.Writer;
 
 @Tag("fast")
 @ExtendWith(MockitoExtension.class)
-class MockTinylogProviderExtensionFastTest {
+class MockTinylogWriterExtensionFastTest {
 
   @Mock
   private ExtensionContext extensionContext;
@@ -31,11 +31,11 @@ class MockTinylogProviderExtensionFastTest {
   @Mock
   private ParameterContext parameterContext;
 
-  private MockTinylogProviderExtension extension;
+  private MockTinylogWriterExtension extension;
 
   @BeforeEach
   void setUp() {
-    extension = new MockTinylogProviderExtension();
+    extension = new MockTinylogWriterExtension();
   }
 
   @DisplayName("Unsupported parameter")
@@ -53,7 +53,7 @@ class MockTinylogProviderExtensionFastTest {
   @Test
   void supportedParameter() {
     // given
-    when(parameter.getType()).thenAnswer(invocationOnMock -> LoggingProvider.class);
+    when(parameter.getType()).thenAnswer(invocationOnMock -> Writer.class);
     when(parameterContext.getParameter()).thenReturn(parameter);
 
     // when and then
@@ -68,7 +68,7 @@ class MockTinylogProviderExtensionFastTest {
 
     // then
     assertAll("Resolved parameter", () -> assertNotNull(value),
-        () -> assertThat(value, instanceOf(LoggingProvider.class)));
+        () -> assertThat(value, instanceOf(Writer.class)));
   }
 
 }

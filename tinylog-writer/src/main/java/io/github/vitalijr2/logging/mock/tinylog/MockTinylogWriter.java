@@ -24,34 +24,32 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.tinylog.provider.LoggingProvider;
+import org.tinylog.writers.Writer;
 
 /**
- * An annotation for injecting an instance of a mock {@link LoggingProvider} instance.
+ * An annotation for injecting an instance of a mock {@link Writer} instance.
  * <p>
- * A field of type {@link LoggingProvider} marked with the {@link MockTinylogProvider} annotation will be assigned a
- * mock instance. This mock can then be used to test logging behavior.
+ * A field of type {@link Writer} marked with the {@link MockTinylogWriter} annotation will be assigned a mock instance.
+ * This mock can then be used to test logging behavior.
  * <p>
  * Example:
  * <pre><code class="language-java">
- *   {@literal @}MockTinylogProvider
- *   private LoggingProvider provider;
+ *   {@literal @}MockTinylogWriter
+ *   private Writer writer;
  *
  *   {@literal @}Test
- *   void helloWorld() {
- *     when(logger.getMinimumLevel(isNull())).thenReturn(Level.INFO);
- *
+ *   void helloWorld() throws Exception {
  *     assertDoesNotThrow(helloService::sayHelloWorld);
  *
- *     verify(provider).log(anyInt(), isNull(), eq(Level.INFO), isNull(), isNull(), anyString(), isNull());
+ *     verify(writer).write(isA(LogEntry.class));
  *   }
  * </code></pre>
  *
  * @since 1.1.0
  */
-@ExtendWith(MockTinylogProviderExtension.class)
+@ExtendWith(MockTinylogWriterExtension.class)
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.FIELD})
-public @interface MockTinylogProvider {
+@Target(ElementType.FIELD)
+public @interface MockTinylogWriter {
 
 }

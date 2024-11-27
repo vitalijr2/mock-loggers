@@ -12,24 +12,21 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
-import org.tinylog.provider.LoggingProvider;
+import org.tinylog.writers.Writer;
 
 @Tag("slow")
-@ExtendWith(MockitoExtension.class)
-class MockTinylogProviderExtensionSlowTest {
+class MockTinylogWriterExtensionSlowTest {
 
   @Mock
   private ExtensionContext extensionContext;
 
-  private MockTinylogProviderExtension extension;
+  private MockTinylogWriterExtension extension;
 
   @BeforeEach
   void setUp() {
-    extension = new MockTinylogProviderExtension();
+    extension = new MockTinylogWriterExtension();
   }
 
   @DisplayName("Happy path")
@@ -42,19 +39,19 @@ class MockTinylogProviderExtensionSlowTest {
     extension.postProcessTestInstance(testInstance, extensionContext);
 
     // then
-    assertAll("Mock is injected", () -> assertNotNull(testInstance.loggingProvider),
-        () -> assertThat(testInstance.loggingProvider, instanceOf(LoggingProvider.class)));
+    assertAll("Mock is injected", () -> assertNotNull(testInstance.writer),
+        () -> assertThat(testInstance.writer, instanceOf(Writer.class)));
   }
 
   @DisplayName("Throw an exception on injection")
   @Test
   void throwExceptionOnInjection() {
     // when
-    var exception = assertThrows(MockTinylogProviderException.class,
-        () -> MockTinylogProviderExtension.injectMockProvider(null, HappyTest.class));
+    var exception = assertThrows(MockTinylogWriterException.class,
+        () -> MockTinylogWriterExtension.injectMockWriter(null, HappyTest.class));
 
     // then
-    assertEquals("Cannot inject a mock provider", exception.getMessage());
+    assertEquals("Cannot inject a mock writer", exception.getMessage());
   }
 
   @DisplayName("Unannotated field")
@@ -67,7 +64,7 @@ class MockTinylogProviderExtensionSlowTest {
     extension.postProcessTestInstance(testInstance, extensionContext);
 
     // then
-    assertNull(testInstance.loggingProvider);
+    assertNull(testInstance.writer);
   }
 
   @DisplayName("Wrong type")
@@ -80,29 +77,29 @@ class MockTinylogProviderExtensionSlowTest {
     extension.postProcessTestInstance(testInstance, extensionContext);
 
     // then
-    assertNull(testInstance.loggingProvider);
+    assertNull(testInstance.writer);
   }
 
   static class HappyTest {
 
     @SuppressWarnings("unused")
-    @MockTinylogProvider
-    private LoggingProvider loggingProvider;
+    @MockTinylogWriter
+    private Writer writer;
 
   }
 
   static class UnannotatedFieldTest {
 
     @SuppressWarnings("unused")
-    private LoggingProvider loggingProvider;
+    private Writer writer;
 
   }
 
   static class WrongTypeTest {
 
     @SuppressWarnings("unused")
-    @MockTinylogProvider
-    private String loggingProvider;
+    @MockTinylogWriter
+    private String writer;
 
   }
 
