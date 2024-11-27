@@ -124,6 +124,29 @@ class HelloServiceAnnotationTest {
 ```
 See more details at [HelloServiceAnnotationTest.java](src/it/hello-tinylog-world/src/test/java/example/hello/HelloServiceAnnotationTest.java)
 
+### LoggingProvider as a parameter
+
+This library can also inject a mock provider instance as a parameter of a test method
+```java
+@ExtendWith({MockLoggerExtension.class,MockTinylogProviderExtension.class})
+class HelloServiceParameterTest {
+
+  @DisplayName("Hello world")
+  @Test
+  void helloWorld(LoggingProvider logger) {
+    when(logger.getMinimumLevel(isNull())).thenReturn(Level.INFO);
+
+    var helloService = new HelloService();
+
+    assertDoesNotThrow(helloService::sayHelloWorld);
+
+    verify(logger).log(anyInt(), isNull(), eq(Level.INFO), isNull(), isNull(), anyString(), isNull());
+  }
+
+}
+```
+See more details ad [HelloServiceParameterTest.java](src/it/hello-tinylog-world/src/test/java/example/hello/HelloServiceParameterTest.java)
+
 ### Configuration
 
 If your application is bundled with another tinylog provider and it is present on the test classpath,
