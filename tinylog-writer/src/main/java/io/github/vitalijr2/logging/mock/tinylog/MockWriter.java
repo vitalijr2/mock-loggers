@@ -50,11 +50,12 @@ public class MockWriter implements Writer, MockLoggerCleaner {
 
   @VisibleForTesting
   MockWriter() {
+    subscribeToNotifications();
   }
 
   @SuppressWarnings("PMD.UnusedFormalParameter")
   public MockWriter(Map<String, String> properties) {
-    // do nothing
+    this();
   }
 
   private static void prepareMockInstance() {
