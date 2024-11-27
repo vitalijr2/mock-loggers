@@ -77,8 +77,8 @@ class HelloServiceExtensionTest {
 
     @Captor
     private ArgumentCaptor<LogEntry> logEntryCaptor;
-    @MockTinylogProvider
-    private static LoggingProvider logger;
+    @MockTinylogWriter
+    private static Writer writer;
 
     @DisplayName("Names")
     @ParameterizedTest(name = "<{0}>")
@@ -105,8 +105,8 @@ class HelloServiceAnnotationTest {
 
     @Captor
     private ArgumentCaptor<LogEntry> logEntryCaptor;
-    @MockTinylogProvider
-    private static LoggingProvider logger;
+    @MockTinylogWriter
+    private static Writer writer;
 
     @DisplayName("Names")
     @ParameterizedTest(name = "<{0}>")
@@ -127,16 +127,16 @@ class HelloServiceAnnotationTest {
 ```
 See more details at [HelloServiceAnnotationTest.java](src/it/hello-tinylog-world/src/test/java/example/hello/HelloServiceAnnotationTest.java)
 
-### LoggingProvider as a parameter
+### Writer as a parameter
 
-This library can also inject a mock provider instance as a parameter of a test method:
+This library can also inject a mock writer instance as a parameter of a test method:
 ```java
-@ExtendWith({MockLoggerExtension.class,MockTinylogProviderExtension.class})
+@ExtendWith({MockLoggerExtension.class,MockTinylogWriterExtension.class})
 class HelloServiceParameterTest {
 
   @DisplayName("Hello world")
   @Test
-  void helloWorld(LoggingProvider logger) {
+  void helloWorld(Writer writer) {
     when(logger.getMinimumLevel(isNull())).thenReturn(Level.INFO);
 
     var helloService = new HelloService();
@@ -169,14 +169,14 @@ See [tinylog.properties](src/it/hello-tinylog-world/src/test/resources/tinylog.p
 
 [mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.14.2&color=blue&logoColor=E23D28
 
-[maven-central-last-update]: https://img.shields.io/maven-central/last-update/io.github.vitalijr2.logging/mock-loggers-tinylog-provider
+[maven-central-last-update]: https://img.shields.io/maven-central/last-update/io.github.vitalijr2.logging/mock-loggers-tinylog-writer
 
-[maven-central]: https://img.shields.io/maven-central/v/io.github.vitalijr2.logging/mock-loggers-tinylog-provider
+[maven-central]: https://img.shields.io/maven-central/v/io.github.vitalijr2.logging/mock-loggers-tinylog-writer
 
-[maven-central-link]: https://central.sonatype.com/artifact/io.github.vitalijr2.logging/mock-loggers-tinylog-provider?smo=true
+[maven-central-link]: https://central.sonatype.com/artifact/io.github.vitalijr2.logging/mock-loggers-tinylog-writer?smo=true
 
-[javadoc]: https://javadoc.io/badge2/io.github.vitalijr2.logging/mock-loggers-tinylog-provider/javadoc.svg
+[javadoc]: https://javadoc.io/badge2/io.github.vitalijr2.logging/mock-loggers-tinylog-writer/javadoc.svg
 
-[javadoc-link]: https://javadoc.io/doc/io.github.vitalijr2.logging/mock-loggers-tinylog-provider
+[javadoc-link]: https://javadoc.io/doc/io.github.vitalijr2.logging/mock-loggers-tinylog-writer
 
 [junit-extension]: ../core/
