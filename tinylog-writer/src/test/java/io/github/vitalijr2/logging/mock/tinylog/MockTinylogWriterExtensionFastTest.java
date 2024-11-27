@@ -1,0 +1,74 @@
+package io.github.vitalijr2.logging.mock.tinylog;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.IsInstanceOf.instanceOf;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.when;
+
+import java.lang.reflect.Parameter;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.extension.ExtensionContext;
+import org.junit.jupiter.api.extension.ParameterContext;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.tinylog.writers.Writer;
+
+@Tag("fast")
+@ExtendWith(MockitoExtension.class)
+class MockTinylogWriterExtensionFastTest {
+
+  @Mock
+  private ExtensionContext extensionContext;
+  @Mock
+  private Parameter parameter;
+  @Mock
+  private ParameterContext parameterContext;
+
+  private MockTinylogWriterExtension extension;
+
+  @BeforeEach
+  void setUp() {
+    extension = new MockTinylogWriterExtension();
+  }
+
+  @DisplayName("Unsupported parameter")
+  @Test
+  void unsupportedParameter() {
+    // given
+    when(parameter.getType()).thenAnswer(invocationOnMock -> String.class);
+    when(parameterContext.getParameter()).thenReturn(parameter);
+
+    // when and then
+    assertFalse(extension.supportsParameter(parameterContext, extensionContext));
+  }
+
+  @DisplayName("Supported parameter")
+  @Test
+  void supportedParameter() {
+    // given
+    when(parameter.getType()).thenAnswer(invocationOnMock -> Writer.class);
+    when(parameterContext.getParameter()).thenReturn(parameter);
+
+    // when and then
+    assertTrue(extension.supportsParameter(parameterContext, extensionContext));
+  }
+
+  @DisplayName("Resolve parameter")
+  @Test
+  void resolveParameter() {
+    // when
+    var value = extension.resolveParameter(parameterContext, extensionContext);
+
+    // then
+    assertAll("Resolved parameter", () -> assertNotNull(value),
+        () -> assertThat(value, instanceOf(Writer.class)));
+  }
+
+}

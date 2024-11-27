@@ -48,7 +48,7 @@ public class MockTinylogProviderExtension implements TestInstancePostProcessor, 
       try {
         field.set(testInstance, MockLoggingProvider.MOCK_INSTANCE);
       } catch (IllegalAccessException | RuntimeException exception) {
-        throw new MockLoggerException("Cannot inject a mock provider", exception);
+        throw new MockTinylogProviderException("Cannot inject a mock provider", exception);
       }
     });
   }

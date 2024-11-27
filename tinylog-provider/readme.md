@@ -1,4 +1,4 @@
-# Mock loggers for tinylog
+# Mock provider for tinylog
 
 [Tinylog][tinylog] provider with a mock instance backed by [Mockito][].
 
@@ -11,6 +11,11 @@
 ![Maven Central Last Update][maven-central-last-update]
 [![Maven Central][maven-central]][maven-central-link]
 [![Javadoc][javadoc]][javadoc-link]
+
+## Foreword
+
+Using a provider is complicated by the need to set the results of additional methods.
+Therefore, I recommend using testing using [Writer](../tinylog-writer).
 
 ## How to use
 

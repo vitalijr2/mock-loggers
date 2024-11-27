@@ -1,5 +1,5 @@
 
-Lists of 12 third-party dependencies.
+Lists of 13 third-party dependencies.
      (Apache License version 2.0) Apache Commons Logging (commons-logging:commons-logging:1.3.4 - https://commons.apache.org/proper/commons-logging/)
      (Apache License version 2.0) Byte Buddy (without dependencies) (net.bytebuddy:byte-buddy:1.15.4 - https://bytebuddy.net/byte-buddy)
      (Apache License version 2.0) Byte Buddy agent (net.bytebuddy:byte-buddy-agent:1.15.4 - https://bytebuddy.net/byte-buddy-agent)
@@ -12,3 +12,4 @@ Lists of 12 third-party dependencies.
      (Apache License version 2.0) org.opentest4j:opentest4j (org.opentest4j:opentest4j:1.3.0 - https://github.com/ota4j-team/opentest4j)
      (MIT License) SLF4J API Module (org.slf4j:slf4j-api:2.0.16 - http://www.slf4j.org)
      (Apache License version 2.0) tinylog API (org.tinylog:tinylog-api:2.7.0 - https://tinylog.org/)
+     (Apache License version 2.0) tinylog implementation (org.tinylog:tinylog-impl:2.7.0 - https://tinylog.org/)

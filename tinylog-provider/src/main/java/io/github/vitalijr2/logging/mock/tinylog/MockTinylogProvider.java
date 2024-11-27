@@ -34,13 +34,16 @@ import org.tinylog.provider.LoggingProvider;
  * <p>
  * Example:
  * <pre><code class="language-java">
+ *   {@literal @}MockTinylogProvider
+ *   private LoggingProvider provider;
+ *
  *   {@literal @}Test
  *   void helloWorld() {
  *     when(logger.getMinimumLevel(isNull())).thenReturn(Level.INFO);
  *
  *     assertDoesNotThrow(helloService::sayHelloWorld);
  *
- *     verify(logger).log(anyInt(), isNull(), eq(Level.INFO), isNull(), isNull(), anyString(), isNull());
+ *     verify(provider).log(anyInt(), isNull(), eq(Level.INFO), isNull(), isNull(), anyString(), isNull());
  *   }
  * </code></pre>
  *
