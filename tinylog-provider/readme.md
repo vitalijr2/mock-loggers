@@ -71,8 +71,7 @@ void names(String name) {
 ```
 See more details at [HelloServiceFullTest.java](src/it/hello-tinylog-world/src/test/java/example/hello/HelloServiceFullTest.java)
 
-To avoid manual cleaning of mock loggers you can use the [jUnit extension][junit-extension] for automation.
-
+To avoid manual cleaning of mock loggers you can use the [jUnit extension][junit-extension] for automation:
 ```java
 @ExtendWith(MockLoggerExtension.class)
 class HelloServiceExtensionTest {
@@ -98,7 +97,7 @@ class HelloServiceExtensionTest {
 ```
 See more details at [HelloServiceExtensionTest.java](src/it/hello-tinylog-world/src/test/java/example/hello/HelloServiceExtensionTest.java)
 
-Also you can use the annotation for automation.
+Also you can use the annotation for automation:
 ```java
 @MockLoggers
 class HelloServiceAnnotationTest {
@@ -126,7 +125,7 @@ See more details at [HelloServiceAnnotationTest.java](src/it/hello-tinylog-world
 
 ### LoggingProvider as a parameter
 
-This library can also inject a mock provider instance as a parameter of a test method
+This library can also inject a mock provider instance as a parameter of a test method:
 ```java
 @ExtendWith({MockLoggerExtension.class,MockTinylogProviderExtension.class})
 class HelloServiceParameterTest {
