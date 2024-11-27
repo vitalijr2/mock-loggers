@@ -27,7 +27,6 @@
     <dependency>
       <artifactId>commons-logging</artifactId>
       <groupId>commons-logging</groupId>
-      <scope>provided</scope>
       <version>${commons-logging.version}</version>
     </dependency>
     <dependency>

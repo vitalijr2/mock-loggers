@@ -63,7 +63,6 @@
     <dependency>
       <artifactId>tinylog-api</artifactId>
       <groupId>org.tinylog</groupId>
-      <scope>provided</scope>
       <version>${tinylog.version}</version>
     </dependency>
     <dependency>
