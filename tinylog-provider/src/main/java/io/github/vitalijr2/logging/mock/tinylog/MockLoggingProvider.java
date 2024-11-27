@@ -37,7 +37,7 @@ import org.tinylog.provider.LoggingProvider;
  *
  * @since 1.1.0
  */
-public class MockLoggerProvider implements LoggingProvider, MockLoggerCleaner {
+public class MockLoggingProvider implements LoggingProvider, MockLoggerCleaner {
 
   static final LoggingProvider MOCK_INSTANCE;
 
@@ -46,7 +46,7 @@ public class MockLoggerProvider implements LoggingProvider, MockLoggerCleaner {
     prepareMockInstance();
   }
 
-  public MockLoggerProvider() {
+  public MockLoggingProvider() {
     subscribeToNotifications();
   }
 

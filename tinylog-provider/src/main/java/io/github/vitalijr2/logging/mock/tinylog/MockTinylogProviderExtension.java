@@ -46,7 +46,7 @@ public class MockTinylogProviderExtension implements TestInstancePostProcessor, 
             .isAssignableFrom(LoggingProvider.class)).forEach(field -> {
       field.setAccessible(true);
       try {
-        field.set(testInstance, MockLoggerProvider.MOCK_INSTANCE);
+        field.set(testInstance, MockLoggingProvider.MOCK_INSTANCE);
       } catch (IllegalAccessException | RuntimeException exception) {
         throw new MockLoggerException("Cannot inject a mock provider", exception);
       }
@@ -61,7 +61,7 @@ public class MockTinylogProviderExtension implements TestInstancePostProcessor, 
   @Override
   public Object resolveParameter(ParameterContext parameterContext, ExtensionContext extensionContext)
       throws ParameterResolutionException {
-    return MockLoggerProvider.MOCK_INSTANCE;
+    return MockLoggingProvider.MOCK_INSTANCE;
   }
 
   @Override

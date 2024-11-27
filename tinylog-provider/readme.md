@@ -34,7 +34,7 @@ void helloWorld() {
 
     assertDoesNotThrow(helloService::sayHelloWorld);
 
-    verify(logger).log(eq(Level.INFO.ordinal()), isNull(), eq(Level.INFO), isNull(), isNull(), anyString(), isNull());
+    verify(logger).log(anyInt(), isNull(), eq(Level.INFO), isNull(), isNull(), anyString(), isNull());
 }
 ```
 See more details at [HelloServiceBasicTest.java](src/it/hello-tinylog-world/src/test/java/example/hello/HelloServiceBasicTest.java)
@@ -65,7 +65,7 @@ void names(String name) {
 
     assertDoesNotThrow(() -> helloService.sayHello(name));
 
-    verify(logger).log(eq(Level.INFO.ordinal()), isNull(), eq(Level.INFO), isNull(), isNull(),
+    verify(logger).log(anyInt(), isNull(), eq(Level.INFO), isNull(), isNull(),
             eq("Hello " + name + "!"), isNull());
 }
 ```
@@ -90,7 +90,7 @@ class HelloServiceExtensionTest {
 
         assertDoesNotThrow(() -> helloService.sayHello(name));
 
-        verify(logger).log(eq(Level.INFO.ordinal()), isNull(), eq(Level.INFO), isNull(), isNull(),
+        verify(logger).log(anyInt(), isNull(), eq(Level.INFO), isNull(), isNull(),
                 eq("Hello " + name + "!"), isNull());
     }
 
@@ -116,13 +116,19 @@ class HelloServiceAnnotationTest {
 
         assertDoesNotThrow(() -> helloService.sayHello(name));
 
-        verify(logger).log(eq(Level.INFO.ordinal()), isNull(), eq(Level.INFO), isNull(), isNull(),
+        verify(logger).log(anyInt(), isNull(), eq(Level.INFO), isNull(), isNull(),
                 eq("Hello " + name + "!"), isNull());
     }
 
 }
 ```
 See more details at [HelloServiceAnnotationTest.java](src/it/hello-tinylog-world/src/test/java/example/hello/HelloServiceAnnotationTest.java)
+
+### Configuration
+
+If your application is bundled with another tinylog provider and it is present on the test classpath,
+use the configuration to specify the use of the mock provider.
+See [tinylog.properties](src/it/hello-custom-tinylog-world/src/test/resources/tinylog.properties).
 
 [tinylog]: https://tinylog.org/v2/
 

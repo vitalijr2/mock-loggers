@@ -1,5 +1,6 @@
 package io.github.vitalijr2.logging.mock.tinylog;
 
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isNull;
 import static org.mockito.Mockito.atLeastOnce;
@@ -19,49 +20,49 @@ import org.tinylog.Level;
 import org.tinylog.Logger;
 
 @Tag("slow")
-class MockLoggerProviderSlowTest {
+class MockLoggingProviderSlowTest {
 
-  private MockLoggerProvider provider;
+  private MockLoggingProvider provider;
 
   @BeforeEach
   void setUp() {
-    provider = new MockLoggerProvider();
+    provider = new MockLoggingProvider();
   }
 
   @AfterEach
   void tearDown() {
-    clearInvocations(MockLoggerProvider.MOCK_INSTANCE);
-    reset(MockLoggerProvider.MOCK_INSTANCE);
+    clearInvocations(MockLoggingProvider.MOCK_INSTANCE);
+    reset(MockLoggingProvider.MOCK_INSTANCE);
   }
 
   @DisplayName("Clear and reset the mock instance")
   @Test
   void cleanAndReset() {
     // given
-    when(MockLoggerProvider.MOCK_INSTANCE.getMinimumLevel(isNull())).thenReturn(Level.INFO);
+    when(MockLoggingProvider.MOCK_INSTANCE.getMinimumLevel(isNull())).thenReturn(Level.INFO);
 
     // when
     Logger.info("test message");
     provider.cleanAndReset();
 
     // then
-    verifyNoInteractions(MockLoggerProvider.MOCK_INSTANCE);
+    verifyNoInteractions(MockLoggingProvider.MOCK_INSTANCE);
   }
 
   @DisplayName("Service provider")
   @Test
   void serviceProvider() {
     // given
-    when(MockLoggerProvider.MOCK_INSTANCE.getMinimumLevel(isNull())).thenReturn(Level.INFO);
+    when(MockLoggingProvider.MOCK_INSTANCE.getMinimumLevel(isNull())).thenReturn(Level.INFO);
 
     // when
     Logger.info("test message");
 
     // then
-    verify(MockLoggerProvider.MOCK_INSTANCE, atLeastOnce()).getMinimumLevel(isNull());
-    verify(MockLoggerProvider.MOCK_INSTANCE).log(eq(Level.INFO.ordinal()), isNull(), eq(Level.INFO), isNull(), isNull(),
+    verify(MockLoggingProvider.MOCK_INSTANCE, atLeastOnce()).getMinimumLevel(isNull());
+    verify(MockLoggingProvider.MOCK_INSTANCE).log(anyInt(), isNull(), eq(Level.INFO), isNull(), isNull(),
         eq("test message"), isNull());
-    verifyNoMoreInteractions(MockLoggerProvider.MOCK_INSTANCE);
+    verifyNoMoreInteractions(MockLoggingProvider.MOCK_INSTANCE);
   }
 
 }

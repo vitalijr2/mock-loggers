@@ -30,19 +30,19 @@ import org.tinylog.provider.NopContextProvider;
 
 
 @Tag("fast")
-class MockLoggerProviderFastTest {
+class MockLoggingProviderFastTest {
 
-  private MockLoggerProvider provider;
+  private MockLoggingProvider provider;
 
   @BeforeEach
   void setUp() {
-    provider = new MockLoggerProvider();
+    provider = new MockLoggingProvider();
   }
 
   @AfterEach
   void tearDown() {
-    clearInvocations(MockLoggerProvider.MOCK_INSTANCE);
-    reset(MockLoggerProvider.MOCK_INSTANCE);
+    clearInvocations(MockLoggingProvider.MOCK_INSTANCE);
+    reset(MockLoggingProvider.MOCK_INSTANCE);
   }
 
   // Move to slow
@@ -53,19 +53,19 @@ class MockLoggerProviderFastTest {
     provider.cleanAndReset();
 
     // then
-    verifyNoInteractions(MockLoggerProvider.MOCK_INSTANCE);
+    verifyNoInteractions(MockLoggingProvider.MOCK_INSTANCE);
   }
 
   @DisplayName("Get a context provider")
   @Test
   void getContextProvider() {
     // given
-    when(MockLoggerProvider.MOCK_INSTANCE.getContextProvider()).thenReturn(new NopContextProvider());
+    when(MockLoggingProvider.MOCK_INSTANCE.getContextProvider()).thenReturn(new NopContextProvider());
 
     // when and then
     assertNotNull(provider.getContextProvider());
 
-    verify(MockLoggerProvider.MOCK_INSTANCE).getContextProvider();
+    verify(MockLoggingProvider.MOCK_INSTANCE).getContextProvider();
   }
 
   @DisplayName("Get a minimum level")
@@ -73,13 +73,13 @@ class MockLoggerProviderFastTest {
   @ValueSource(strings = {"TRACE", "DEBUG", "INFO", "WARN", "ERROR", "OFF"})
   void getMinimumLevel(Level expectedlevel) {
     // given
-    when(MockLoggerProvider.MOCK_INSTANCE.getMinimumLevel()).thenReturn(expectedlevel);
+    when(MockLoggingProvider.MOCK_INSTANCE.getMinimumLevel()).thenReturn(expectedlevel);
 
     // when
     var actualLevel = provider.getMinimumLevel();
 
     // then
-    verify(MockLoggerProvider.MOCK_INSTANCE).getMinimumLevel();
+    verify(MockLoggingProvider.MOCK_INSTANCE).getMinimumLevel();
 
     assertEquals(expectedlevel, actualLevel);
   }
@@ -89,13 +89,13 @@ class MockLoggerProviderFastTest {
   @ValueSource(strings = {"TRACE", "DEBUG", "INFO", "WARN", "ERROR", "OFF"})
   void getMinimumLevelByTagWithCustomLevel(Level expectedlevel) {
     // given
-    when(MockLoggerProvider.MOCK_INSTANCE.getMinimumLevel(anyString())).thenReturn(expectedlevel);
+    when(MockLoggingProvider.MOCK_INSTANCE.getMinimumLevel(anyString())).thenReturn(expectedlevel);
 
     // when
     var actualLevel = provider.getMinimumLevel("test tag");
 
     // then
-    verify(MockLoggerProvider.MOCK_INSTANCE).getMinimumLevel("test tag");
+    verify(MockLoggingProvider.MOCK_INSTANCE).getMinimumLevel("test tag");
 
     assertEquals(expectedlevel, actualLevel);
   }
@@ -106,14 +106,14 @@ class MockLoggerProviderFastTest {
       "WARN,false", "ERROR,true", "ERROR,false", "OFF,true", "OFF,false"})
   void isEnabled(Level level, boolean expectedResult) {
     // given
-    when(MockLoggerProvider.MOCK_INSTANCE.isEnabled(anyInt(), anyString(), isA(Level.class))).thenReturn(
+    when(MockLoggingProvider.MOCK_INSTANCE.isEnabled(anyInt(), anyString(), isA(Level.class))).thenReturn(
         expectedResult);
 
     // when
     var actualResult = provider.isEnabled(123, "test tag", level);
 
     // then
-    verify(MockLoggerProvider.MOCK_INSTANCE).isEnabled(123, "test tag", level);
+    verify(MockLoggingProvider.MOCK_INSTANCE).isEnabled(123, "test tag", level);
 
     assertEquals(expectedResult, actualResult);
   }
@@ -124,14 +124,14 @@ class MockLoggerProviderFastTest {
       "WARN,false", "ERROR,true", "ERROR,false", "OFF,true", "OFF,false"}, nullValues = "N/A")
   void isEnabledForClassname(Level level, boolean expectedResult) {
     // given
-    when(MockLoggerProvider.MOCK_INSTANCE.isEnabled(anyString(), anyString(), isA(Level.class))).thenReturn(
+    when(MockLoggingProvider.MOCK_INSTANCE.isEnabled(anyString(), anyString(), isA(Level.class))).thenReturn(
         expectedResult);
 
     // when
     var actualResult = provider.isEnabled("test.class", "test tag", level);
 
     // then
-    verify(MockLoggerProvider.MOCK_INSTANCE).isEnabled("test.class", "test tag", level);
+    verify(MockLoggingProvider.MOCK_INSTANCE).isEnabled("test.class", "test tag", level);
 
     assertEquals(expectedResult, actualResult);
   }
@@ -144,7 +144,7 @@ class MockLoggerProviderFastTest {
         "b", "c");
 
     // then
-    verify(MockLoggerProvider.MOCK_INSTANCE).log(eq(123), eq("test tag"), eq(Level.TRACE), isA(Throwable.class),
+    verify(MockLoggingProvider.MOCK_INSTANCE).log(eq(123), eq("test tag"), eq(Level.TRACE), isA(Throwable.class),
         isA(MessageFormatter.class), notNull(), eq("a"), eq("b"), eq("c"));
   }
 
@@ -156,7 +156,7 @@ class MockLoggerProviderFastTest {
         this, "a", "b", "c");
 
     // then
-    verify(MockLoggerProvider.MOCK_INSTANCE).log(eq("test.class"), eq("test tag"), eq(Level.TRACE),
+    verify(MockLoggingProvider.MOCK_INSTANCE).log(eq("test.class"), eq("test tag"), eq(Level.TRACE),
         isA(Throwable.class), isA(MessageFormatter.class), notNull(), eq("a"), eq("b"), eq("c"));
   }
 
@@ -167,14 +167,14 @@ class MockLoggerProviderFastTest {
     provider.shutdown();
 
     // then
-    verify(MockLoggerProvider.MOCK_INSTANCE).shutdown();
+    verify(MockLoggingProvider.MOCK_INSTANCE).shutdown();
   }
 
   @DisplayName("Shutdown with an exception")
   @Test
   void shutdownWithException() throws InterruptedException {
     // given
-    doThrow(new InterruptedException("test")).when(MockLoggerProvider.MOCK_INSTANCE).shutdown();
+    doThrow(new InterruptedException("test")).when(MockLoggingProvider.MOCK_INSTANCE).shutdown();
 
     // when and then
     var exception = assertThrows(InterruptedException.class, () -> provider.shutdown());
