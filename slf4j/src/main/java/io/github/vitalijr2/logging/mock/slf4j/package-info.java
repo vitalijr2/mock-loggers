@@ -1,5 +1,6 @@
 /**
- * Mock loggers for SLF4J backed by <a href="https://site.mockito.org/">Mockito</a>.
+ * Mock loggers for <a href="https://www.slf4j.org/">SLF4J</a> backed by <a
+ * href="https://site.mockito.org/">Mockito</a>.
  *
  * @since 1.0.0
  */

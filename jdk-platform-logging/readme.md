@@ -19,7 +19,7 @@ Just put a test dependency to your POM:
     <artifactId>mock-loggers-jdk-platform-logging</artifactId>
     <groupId>io.github.vitalijr2.logging</groupId>
     <scope>test</scope>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
 </dependency>
 ```
 
@@ -73,7 +73,7 @@ void names(String name) {
 ```
 See more details at [HelloServiceFullTest.java](src/it/hello-jdk-platform-logging-world/src/test/java/example/hello/HelloServiceFullTest.java)
 
-To avoid manual cleaning of mock loggers you can use the [jUnit extension][junit-extension] for automation.
+To avoid manual cleaning of mock loggers you can use the [jUnit extension][junit-extension] for automation:
 ```java
 @ExtendWith(MockLoggerExtension.class)
 class HelloServiceExtensionTest {
@@ -103,7 +103,7 @@ class HelloServiceExtensionTest {
 ```
 See more details at [HelloServiceExtensionTest.java](src/it/hello-jdk-platform-logging-world/src/test/java/example/hello/HelloServiceExtensionTest.java)
 
-Also you can use the annotation for automation.
+Also you can use the annotation for automation:
 ```java
 @MockLoggers
 class HelloServiceAnnotationTest {

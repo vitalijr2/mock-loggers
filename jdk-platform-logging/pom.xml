@@ -1,19 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-	Copyright 2024 Vitalij Berdinskih
-
-	Licensed under the Apache License, Version 2.0 (the "License");
-	you may not use this file except in compliance with the License.
-	You may obtain a copy of the License at
-
-	    http://www.apache.org/licenses/LICENSE-2.0
-
-	Unless required by applicable law or agreed to in writing, software
-	distributed under the License is distributed on an "AS IS" BASIS,
-	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	See the License for the specific language governing permissions and
-	limitations under the License.
--->
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -35,42 +20,35 @@
     </plugins>
   </build>
   <dependencies>
-    <!-- main -->
     <dependency>
       <artifactId>annotations</artifactId>
       <groupId>org.jetbrains</groupId>
-      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <artifactId>hamcrest</artifactId>
+      <groupId>org.hamcrest</groupId>
+    </dependency>
+    <dependency>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <groupId>org.junit.jupiter</groupId>
+    </dependency>
+    <dependency>
+      <artifactId>junit-jupiter-params</artifactId>
+      <groupId>org.junit.jupiter</groupId>
     </dependency>
     <dependency>
       <artifactId>mock-loggers-core</artifactId>
       <groupId>io.github.vitalijr2.logging</groupId>
-      <version>1.0.0</version>
+      <version>1.1.0</version>
     </dependency>
     <dependency>
       <artifactId>mockito-core</artifactId>
       <groupId>org.mockito</groupId>
       <scope>provided</scope>
     </dependency>
-    <!-- test -->
-    <dependency>
-      <artifactId>hamcrest</artifactId>
-      <groupId>org.hamcrest</groupId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <artifactId>junit-jupiter-engine</artifactId>
-      <groupId>org.junit.jupiter</groupId>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <artifactId>junit-jupiter-params</artifactId>
-      <groupId>org.junit.jupiter</groupId>
-      <scope>provided</scope>
-    </dependency>
     <dependency>
       <artifactId>mockito-junit-jupiter</artifactId>
       <groupId>org.mockito</groupId>
-      <scope>provided</scope>
     </dependency>
   </dependencies>
   <description>Mock loggers for JDK Platform Logging backed by Mockito.</description>
@@ -80,7 +58,7 @@
     <artifactId>mock-loggers</artifactId>
     <groupId>io.github.vitalijr2.logging</groupId>
     <relativePath>../pom.xml</relativePath>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
   </parent>
   <profiles>
     <profile>

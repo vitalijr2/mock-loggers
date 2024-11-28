@@ -1,19 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-	Copyright 2024 Vitalij Berdinskih
-
-	Licensed under the Apache License, Version 2.0 (the "License");
-	you may not use this file except in compliance with the License.
-	You may obtain a copy of the License at
-
-	    http://www.apache.org/licenses/LICENSE-2.0
-
-	Unless required by applicable law or agreed to in writing, software
-	distributed under the License is distributed on an "AS IS" BASIS,
-	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	See the License for the specific language governing permissions and
-	limitations under the License.
--->
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -138,36 +123,6 @@
           </configuration>
           <groupId>org.apache.maven.plugins</groupId>
           <version>3.13.0</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-enforcer-plugin</artifactId>
-          <configuration>
-            <rules>
-              <requireJavaVersion>
-                <version>[${java.version},)</version>
-              </requireJavaVersion>
-              <requireMavenVersion>
-                <version>[3.9.0,)</version>
-              </requireMavenVersion>
-            </rules>
-          </configuration>
-          <executions>
-            <execution>
-              <goals>
-                <goal>enforce</goal>
-              </goals>
-              <id>enforce-maven</id>
-            </execution>
-            <execution>
-              <goals>
-                <goal>enforce</goal>
-              </goals>
-              <id>enforce-clean</id>
-              <phase>pre-clean</phase>
-            </execution>
-          </executions>
-          <groupId>org.apache.maven.plugins</groupId>
-          <version>3.5.0</version>
         </plugin>
         <plugin>
           <artifactId>maven-failsafe-plugin</artifactId>
@@ -297,6 +252,38 @@
         </plugin>
       </plugins>
     </pluginManagement>
+    <plugins>
+      <plugin>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <configuration>
+          <rules>
+            <requireJavaVersion>
+              <version>[${java.version},)</version>
+            </requireJavaVersion>
+            <requireMavenVersion>
+              <version>[3.9.0,)</version>
+            </requireMavenVersion>
+          </rules>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <id>enforce-maven</id>
+          </execution>
+          <execution>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <id>enforce-clean</id>
+            <phase>pre-clean</phase>
+          </execution>
+        </executions>
+        <groupId>org.apache.maven.plugins</groupId>
+        <version>3.5.0</version>
+      </plugin>
+    </plugins>
   </build>
   <ciManagement>
     <system>GitHub Actions</system>
@@ -304,36 +291,23 @@
   </ciManagement>
   <dependencyManagement>
     <dependencies>
-      <!-- main -->
       <dependency>
         <artifactId>annotations</artifactId>
         <groupId>org.jetbrains</groupId>
+        <scope>provided</scope>
         <version>26.0.1</version>
       </dependency>
-      <dependency>
-        <artifactId>junit-jupiter-api</artifactId>
-        <groupId>org.junit.jupiter</groupId>
-        <scope>provided</scope>
-        <version>${junit.version}</version>
-      </dependency>
-      <dependency>
-        <artifactId>junit-platform-commons</artifactId>
-        <groupId>org.junit.platform</groupId>
-        <scope>provided</scope>
-        <version>1.11.3</version>
-      </dependency>
-      <dependency>
-        <artifactId>mockito-core</artifactId>
-        <groupId>org.mockito</groupId>
-        <scope>provided</scope>
-        <version>${mockito.version}</version>
-      </dependency>
-      <!-- test -->
       <dependency>
         <artifactId>hamcrest</artifactId>
         <groupId>org.hamcrest</groupId>
         <scope>test</scope>
         <version>3.0</version>
+      </dependency>
+      <dependency>
+        <artifactId>junit-jupiter-api</artifactId>
+        <groupId>org.junit.jupiter</groupId>
+        <scope>test</scope>
+        <version>${junit.version}</version>
       </dependency>
       <dependency>
         <artifactId>junit-jupiter-engine</artifactId>
@@ -346,6 +320,18 @@
         <groupId>org.junit.jupiter</groupId>
         <scope>test</scope>
         <version>${junit.version}</version>
+      </dependency>
+      <dependency>
+        <artifactId>junit-platform-commons</artifactId>
+        <groupId>org.junit.platform</groupId>
+        <scope>test</scope>
+        <version>1.11.3</version>
+      </dependency>
+      <dependency>
+        <artifactId>mockito-core</artifactId>
+        <groupId>org.mockito</groupId>
+        <scope>test</scope>
+        <version>${mockito.version}</version>
       </dependency>
       <dependency>
         <artifactId>mockito-junit-jupiter</artifactId>
@@ -388,10 +374,57 @@
     <module>core</module>
     <module>jdk-platform-logging</module>
     <module>slf4j</module>
+    <module>tinylog-provider</module>
+    <module>tinylog-writer</module>
   </modules>
   <name>Mock Loggers</name>
   <packaging>pom</packaging>
   <profiles>
+    <profile>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>license-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <configuration>
+                  <addJavaLicenseAfterPackage>false</addJavaLicenseAfterPackage>
+                  <excludeTransitiveDependencies>true</excludeTransitiveDependencies>
+                  <excludedScopes>test</excludedScopes>
+                  <excludes>
+                    <exclude>**/package-info.java</exclude>
+                  </excludes>
+                  <excludedGroups>io\.github\.vitalijr2\.logging</excludedGroups>
+                  <inceptionYear>${project.inceptionYear}</inceptionYear>
+                  <!-- @formatter:off -->
+                  <licenseMerges>
+                    <licenseMerge>Apache License version 2.0|The Apache Software License, Version 2.0|The Apache License, Version 2.0|Apache License, Version 2.0|Apache-2.0|Apache 2</licenseMerge>
+                    <licenseMerge>Eclipse Public License - v 2.0|Eclipse Public License v2.0</licenseMerge>
+                    <licenseMerge>MIT License|MIT</licenseMerge>
+                  </licenseMerges>
+                  <licenseName>apache_v2</licenseName>
+                  <!-- @formatter:on -->
+                  <organizationName>Vitalij Berdinskih</organizationName>
+                  <outputDirectory>${project.basedir}</outputDirectory>
+                  <processEndTag>---------------LICENSE_END-------------------</processEndTag>
+                  <processStartTag>---------------LICENSE_START-----------------</processStartTag>
+                  <projectName>Mock Loggers</projectName>
+                  <roots>
+                    <root>src/main/java</root>
+                  </roots>
+                  <sectionDelimiter>---------------------------------------------</sectionDelimiter>
+                  <trimHeaderLine>true</trimHeaderLine>
+                </configuration>
+                <id>default-cli</id>
+              </execution>
+            </executions>
+            <groupId>org.codehaus.mojo</groupId>
+            <version>2.4.0</version>
+          </plugin>
+        </plugins>
+      </build>
+      <id>prepare-and-check</id>
+    </profile>
     <profile>
       <build>
         <defaultGoal>clean deploy</defaultGoal>
@@ -493,5 +526,5 @@
     <url>https://github.com/vitalijr2/mock-loggers</url>
   </scm>
   <url>https://github.com/vitalijr2/mock-loggers</url>
-  <version>1.0.0</version>
+  <version>1.1.0</version>
 </project>
