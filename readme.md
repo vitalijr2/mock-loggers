@@ -37,7 +37,7 @@ See more examples in the relevant modules of this project:
 - for Apache Commons Logging in [mock-loggers-commons-logging](commons-logging)
 - for JDK Platform Logging in [mock-loggers-jdk-platform-logging](jdk-platform-logging)
 - for SLF4J in [mock-loggers-slf4j](slf4j)
-- for tinylog in [mock-loggers-tinylog-provider](tinylog-provider)
+- for tinylog in [mock-loggers-tinylog-writer](tinylog-writer) and [mock-loggers-tinylog-provider](tinylog-provider)
 
 ## Other logging libraries and frameworks
 
