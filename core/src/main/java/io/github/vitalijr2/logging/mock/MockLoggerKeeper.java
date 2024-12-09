@@ -42,6 +42,11 @@ public class MockLoggerKeeper {
     cleaners = new CopyOnWriteArraySet<>();
   }
 
+  /**
+   * Get a singleton.
+   *
+   * @return instance of logger keeper
+   */
   @NotNull
   public static MockLoggerKeeper getInstance() {
     return INSTANCE;

@@ -26,6 +26,12 @@ package io.github.vitalijr2.logging.mock.tinylog;
  */
 public class MockTinylogWriterException extends RuntimeException {
 
+  /**
+   * Common exception.
+   *
+   * @param message message
+   * @param cause   cause
+   */
   public MockTinylogWriterException(String message, Throwable cause) {
     super(message, cause);
   }

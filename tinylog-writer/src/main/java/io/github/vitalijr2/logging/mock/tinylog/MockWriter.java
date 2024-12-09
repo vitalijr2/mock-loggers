@@ -53,6 +53,11 @@ public class MockWriter implements Writer, MockLoggerCleaner {
     subscribeToNotifications();
   }
 
+  /**
+   * Create a writer.
+   *
+   * @param properties configuration, not used in a mock
+   */
   @SuppressWarnings("PMD.UnusedFormalParameter")
   public MockWriter(Map<String, String> properties) {
     this();

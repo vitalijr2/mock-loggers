@@ -29,6 +29,12 @@ import org.tinylog.provider.LoggingProvider;
  */
 public class MockTinylogProviderException extends RuntimeException {
 
+  /**
+   * Common exception.
+   *
+   * @param message message
+   * @param cause   cause
+   */
   public MockTinylogProviderException(String message, Throwable cause) {
     super(message, cause);
   }
