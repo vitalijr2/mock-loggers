@@ -46,6 +46,9 @@ public class MockLoggingProvider implements LoggingProvider, MockLoggerCleaner {
     prepareMockInstance();
   }
 
+  /**
+   * Create a provider.
+   */
   public MockLoggingProvider() {
     subscribeToNotifications();
   }
