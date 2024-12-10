@@ -31,6 +31,9 @@ Just put a test dependency to your POM:
 
 Use the `MockTinylogWriter` annotation to access the mock writer. The simplest usage example looks like this:
 ```java
+@MockTinylogWriter
+private static Writer writer;
+
 @Test
 void helloWorld() {
     var helloService = new HelloService();
