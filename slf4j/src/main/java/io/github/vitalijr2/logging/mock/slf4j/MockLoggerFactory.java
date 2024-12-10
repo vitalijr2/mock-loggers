@@ -61,7 +61,7 @@ public class MockLoggerFactory implements ILoggerFactory, MockLoggerCleaner {
   }
 
   @VisibleForTesting
-  public MockLoggerFactory(Map<String, Logger> loggers) {
+  MockLoggerFactory(Map<String, Logger> loggers) {
     this.loggers = loggers;
     subscribeToNotifications();
   }

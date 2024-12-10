@@ -14,8 +14,9 @@
 
 ## Foreword
 
-Using a provider is complicated by the need to set the results of additional methods.
-Therefore, I recommend using testing using [Writer](../tinylog-writer).
+Unlike the traditional approach where each class or even instance has its own named logger,
+tinylog uses a singleton logger. And the provider implementation is a bit complicated to check access to the logger.
+Therefore, I recommend using the [Writer](../tinylog-writer) for testing.
 
 ## How to use
 
@@ -29,8 +30,11 @@ Just put a test dependency to your POM:
 </dependency>
 ```
 
-The simplest usage example looks like this:
+Use the `MockTinylogProvider` annotation to access the mock provider. The simplest usage example looks like this:
 ```java
+@MockTinylogProvider
+private static LoggingProvider logger;
+
 @Test
 void helloWorld() {
     when(logger.getMinimumLevel(isNull())).thenReturn(Level.INFO);
@@ -45,9 +49,9 @@ void helloWorld() {
 See more details at [HelloServiceBasicTest.java](src/it/hello-tinylog-world/src/test/java/example/hello/HelloServiceBasicTest.java)
 
 > [!IMPORTANT]
-> Keep in mind that all loggers are initialized only once during the test run.
+> Keep in mind that the logger is initialized only once during the test run.
 
-Therefore, a more complex example cleans the loggers after (or before) each test:
+Therefore, a more complex example cleans the logger after (or before) each test:
 ```java
 // the static logger instance
 @MockTinylogProvider
@@ -76,7 +80,7 @@ void names(String name) {
 ```
 See more details at [HelloServiceFullTest.java](src/it/hello-tinylog-world/src/test/java/example/hello/HelloServiceFullTest.java)
 
-To avoid manual cleaning of mock loggers you can use the [jUnit extension][junit-extension] for automation:
+To avoid manual cleaning of the mock logger you can use the [jUnit extension][junit-extension] for automation:
 ```java
 @ExtendWith(MockLoggerExtension.class)
 class HelloServiceExtensionTest {

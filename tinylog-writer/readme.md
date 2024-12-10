@@ -12,6 +12,11 @@
 [![Maven Central][maven-central]][maven-central-link]
 [![Javadoc][javadoc]][javadoc-link]
 
+## Foreword
+
+Unlike the traditional approach where each class or even instance has its own named logger,
+tinylog uses a singleton logger. Keep this in mind when testing logger calls.
+
 ## How to use
 
 Just put a test dependency to your POM:
@@ -24,7 +29,7 @@ Just put a test dependency to your POM:
 </dependency>
 ```
 
-The simplest usage example looks like this:
+Use the `MockTinylogWriter` annotation to access the mock writer. The simplest usage example looks like this:
 ```java
 @Test
 void helloWorld() {
@@ -38,9 +43,9 @@ void helloWorld() {
 See more details at [HelloServiceBasicTest.java](src/it/hello-tinylog-world/src/test/java/example/hello/HelloServiceBasicTest.java)
 
 > [!IMPORTANT]
-> Keep in mind that all loggers are initialized only once during the test run.
+> Keep in mind that the writer are initialized only once during the test run.
 
-Therefore, a more complex example cleans the loggers after (or before) each test:
+Therefore, a more complex example cleans the writer after (or before) each test:
 ```java
 // the static logger instance
 @Captor
@@ -70,7 +75,7 @@ void names(String name) {
 ```
 See more details at [HelloServiceFullTest.java](src/it/hello-tinylog-world/src/test/java/example/hello/HelloServiceFullTest.java)
 
-To avoid manual cleaning of mock loggers you can use the [jUnit extension][junit-extension] for automation:
+To avoid manual cleaning of mock writer you can use the [jUnit extension][junit-extension] for automation:
 ```java
 @ExtendWith({MockitoExtension.class, MockLoggerExtension.class})
 class HelloServiceExtensionTest {
