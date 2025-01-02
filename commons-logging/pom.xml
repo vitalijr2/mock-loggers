@@ -55,7 +55,7 @@
     <dependency>
       <artifactId>mock-loggers-core</artifactId>
       <groupId>io.github.vitalijr2.logging</groupId>
-      <version>1.1.1-SNAPSHOT</version>
+      <version>1.1.1</version>
     </dependency>
     <dependency>
       <artifactId>mockito-core</artifactId>
@@ -73,7 +73,7 @@
   <parent>
     <artifactId>mock-loggers</artifactId>
     <groupId>io.github.vitalijr2.logging</groupId>
-    <version>1.1.1-SNAPSHOT</version>
+    <version>1.1.1</version>
   </parent>
   <profiles>
     <profile>
