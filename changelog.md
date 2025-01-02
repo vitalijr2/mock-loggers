@@ -56,7 +56,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Update jUnit Jupiter and Platform
 - Update Mockito to 5.14
-- Update a bunch of Maven plugins: javadoc, surefire, failsafe, invoker, central-publishing, jetbrains annotations
+- Update a bunch of Maven plugins: javadoc, surefire, failsafe, invoker,
+  central-publishing, jetbrains annotations
 
 ## 1.1.1 - 2024-08-20
 

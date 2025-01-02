@@ -8,7 +8,7 @@ Different logging services can be tested using mock loggers backed by [Mockito][
 [![Java Version][java-version]][jdk-download]
 ![jUnit Version][junit-version]
 ![Mockito Version][mockito-version]
-[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0.html)  
+[![License][license-badge]][license-link]  
 [![GitHub master check runs][github-master-check-runs]][github-master-check-runs-link]
 [![Codacy Badge][codacy-badge]][codacy-badge-link]
 [![Codacy Coverage][codacy-coverage]][codacy-coverage-link]
@@ -62,19 +62,21 @@ See [Changelog](changelog.md)
 
 ## License
 
-> Copyright (C) 2024 Vitalij Berdinskih
->
-> Licensed under the Apache License, Version 2.0 (the "License");
-> you may not use this file except in compliance with the License.
-> You may obtain a copy of the License at
->
->      https://www.apache.org/licenses/LICENSE-2.0
->
-> Unless required by applicable law or agreed to in writing, software
-> distributed under the License is distributed on an "AS IS" BASIS,
-> WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-> See the License for the specific language governing permissions and
-> limitations under the License.
+```text
+Copyright (C) 2024 Vitalij Berdinskih
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+     https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
 
 See full text [here](LICENSE "the LICENSE file").
 
@@ -121,3 +123,7 @@ See full text [here](LICENSE "the LICENSE file").
 [slf4j-mock]: https://github.com/s4u/slf4j-mock
 
 [mock-slf4j-impl]: https://github.com/ocarlsen/mock-slf4j-impl
+
+[license-badge]: https://img.shields.io/badge/license-Apache%202.0-blue.svg?style=flat)
+
+[license-link]: https://www.apache.org/licenses/LICENSE-2.0.html
