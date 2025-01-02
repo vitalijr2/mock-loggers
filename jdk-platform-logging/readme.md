@@ -1,6 +1,7 @@
 # Mock loggers for JDK Platform Logging
 
-[JDK Platform Logging][jdk-logging] service with mock loggers backed by [Mockito][].
+[JDK Platform Logging][jdk-logging] service with mock loggers
+backed by [Mockito][].
 
 > [!WARNING]
 > This library does not support _parallel test execution_.
@@ -14,16 +15,18 @@
 ## How to use
 
 Just put a test dependency to your POM:
+
 ```xml
 <dependency>
     <artifactId>mock-loggers-jdk-platform-logging</artifactId>
     <groupId>io.github.vitalijr2.logging</groupId>
     <scope>test</scope>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
 </dependency>
 ```
 
 The simplest usage example looks like this:
+
 ```java
 @Test
 void helloWorld() {
@@ -34,12 +37,15 @@ void helloWorld() {
     verify(System.getLogger("HelloService")).log(Level.INFO, "Hello World!");
 }
 ```
+
 See more details at [HelloServiceBasicTest.java](src/it/hello-jdk-platform-logging-world/src/test/java/example/hello/HelloServiceBasicTest.java)
 
 > [!IMPORTANT]
 > Keep in mind that all loggers are initialized only once during the test run.
 
-Therefore, a more complex example cleans the loggers after (or before) each test:
+Therefore, a more complex example cleans the loggers after (or before)
+each test:
+
 ```java
 // the static logger instance
 private static Logger logger;
@@ -71,9 +77,12 @@ void names(String name) {
     verifyNoMoreInteractions(logger);
 }
 ```
+
 See more details at [HelloServiceFullTest.java](src/it/hello-jdk-platform-logging-world/src/test/java/example/hello/HelloServiceFullTest.java)
 
-To avoid manual cleaning of mock loggers you can use the [jUnit extension][junit-extension] for automation:
+To avoid manual cleaning of mock loggers you can use
+the [jUnit extension][junit-extension] for automation:
+
 ```java
 @ExtendWith(MockLoggerExtension.class)
 class HelloServiceExtensionTest {
@@ -101,9 +110,11 @@ class HelloServiceExtensionTest {
 
 }
 ```
+
 See more details at [HelloServiceExtensionTest.java](src/it/hello-jdk-platform-logging-world/src/test/java/example/hello/HelloServiceExtensionTest.java)
 
 Also you can use the annotation for automation:
+
 ```java
 @MockLoggers
 class HelloServiceAnnotationTest {
@@ -131,6 +142,7 @@ class HelloServiceAnnotationTest {
 
 }
 ```
+
 See more details at [HelloServiceAnnotationTest.java](src/it/hello-jdk-platform-logging-world/src/test/java/example/hello/HelloServiceAnnotationTest.java)
 
 [jdk-logging]: https://www.baeldung.com/java-9-logging-api "Java Platform Logging API"
@@ -141,7 +153,7 @@ See more details at [HelloServiceAnnotationTest.java](src/it/hello-jdk-platform-
 
 [jdk-download]: https://www.oracle.com/java/technologies/downloads/#java11
 
-[mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.14.2&color=blue&logoColor=E23D28
+[mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.15.2&color=blue&logoColor=E23D28
 
 [maven-central-last-update]: https://img.shields.io/maven-central/last-update/io.github.vitalijr2.logging/mock-loggers-jdk-platform-logging
 

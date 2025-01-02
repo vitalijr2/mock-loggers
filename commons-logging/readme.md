@@ -1,6 +1,7 @@
 # Mock loggers for Apache Commons Logging
 
-[Apache Commons Logging][commons-logging] factory with mock loggers backed by [Mockito][].
+[Apache Commons Logging][commons-logging] factory with mock loggers
+backed by [Mockito][].
 
 > [!WARNING]
 > This library does not support _parallel test execution_.
@@ -15,16 +16,18 @@
 ## How to use
 
 Just put a test dependency to your POM:
+
 ```xml
 <dependency>
     <artifactId>mock-loggers-commons-logging</artifactId>
     <groupId>io.github.vitalijr2.logging</groupId>
     <scope>test</scope>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
 </dependency>
 ```
 
 The simplest usage example looks like this:
+
 ```java
 @Test
 void helloWorld() {
@@ -35,12 +38,15 @@ void helloWorld() {
     verify(LogFactory.getLog(helloService.getClass())).info("Hello World!");
 }
 ```
+
 See more details at [HelloServiceBasicTest.java](src/it/hello-commons-logging-world/src/test/java/example/hello/HelloServiceBasicTest.java)
 
 > [!IMPORTANT]
 > Keep in mind that all loggers are initialized only once during the test run.
 
-Therefore, a more complex example cleans the loggers after (or before) each test:
+Therefore, a more complex example cleans the loggers after (or before)
+each test:
+
 ```java
 // the static logger instance
 private static Log log;
@@ -72,9 +78,12 @@ void names(String name) {
     verifyNoMoreInteractions(actualLog);
 }
 ```
+
 See more details at [HelloServiceFullTest.java](src/it/hello-commons-logging-world/src/test/java/example/hello/HelloServiceFullTest.java)
 
-To avoid manual cleaning of mock loggers you can use the [jUnit extension][junit-extension] for automation:
+To avoid manual cleaning of mock loggers you can use
+the [jUnit extension][junit-extension] for automation:
+
 ```java
 @ExtendWith(MockLoggerExtension.class)
 class HelloServiceExtensionTest {
@@ -102,9 +111,11 @@ class HelloServiceExtensionTest {
 
 }
 ```
+
 See more details at [HelloServiceExtensionTest.java](src/it/hello-commons-logging-world/src/test/java/example/hello/HelloServiceExtensionTest.java)
 
 Also you can use the annotation for automation:
+
 ```java
 @MockLoggers
 class HelloServiceAnnotationTest {
@@ -132,6 +143,7 @@ class HelloServiceAnnotationTest {
 
 }
 ```
+
 See more details at [HelloServiceAnnotationTest.java](src/it/hello-commons-logging-world/src/test/java/example/hello/HelloServiceAnnotationTest.java)
 
 [commons-logging]: https://commons.apache.org/proper/commons-logging/
@@ -144,7 +156,7 @@ See more details at [HelloServiceAnnotationTest.java](src/it/hello-commons-loggi
 
 [commons-logging-version]: https://img.shields.io/static/v1?label=commons-logging&message=1.3.4&color=blue&logoColor=E23D28
 
-[mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.14.2&color=blue&logoColor=E23D28
+[mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.15.2&color=blue&logoColor=E23D28
 
 [maven-central-last-update]: https://img.shields.io/maven-central/last-update/io.github.vitalijr2.logging/mock-loggers-commons-logging
 

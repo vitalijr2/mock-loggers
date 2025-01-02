@@ -14,22 +14,26 @@
 
 ## Foreword
 
-Unlike the traditional approach where each class or even instance has its own named logger,
-tinylog uses a singleton logger. Keep this in mind when testing logger calls.
+Unlike the traditional approach where each class or even instance has
+its own named logger, tinylog uses a singleton logger.
+Keep this in mind when testing logger calls.
 
 ## How to use
 
 Just put a test dependency to your POM:
+
 ```xml
 <dependency>
     <artifactId>mock-loggers-tinylog-writer</artifactId>
     <groupId>io.github.vitalijr2.logging</groupId>
     <scope>test</scope>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
 </dependency>
 ```
 
-Use the `MockTinylogWriter` annotation to access the mock writer. The simplest usage example looks like this:
+Use the `MockTinylogWriter` annotation to access the mock writer.
+The simplest usage example looks like this:
+
 ```java
 @MockTinylogWriter
 private static Writer writer;
@@ -43,12 +47,15 @@ void helloWorld() {
     verify(writer).write(isA(LogEntry.class));
 }
 ```
+
 See more details at [HelloServiceBasicTest.java](src/it/hello-tinylog-world/src/test/java/example/hello/HelloServiceBasicTest.java)
 
 > [!IMPORTANT]
 > Keep in mind that the writer are initialized only once during the test run.
 
-Therefore, a more complex example cleans the writer after (or before) each test:
+Therefore, a more complex example cleans the writer after (or before)
+each test:
+
 ```java
 // the static logger instance
 @Captor
@@ -76,9 +83,12 @@ void names(String name) {
     assertEquals("Hello " + name + "!", logEntryCaptor.getValue().getMessage());
 }
 ```
+
 See more details at [HelloServiceFullTest.java](src/it/hello-tinylog-world/src/test/java/example/hello/HelloServiceFullTest.java)
 
-To avoid manual cleaning of mock writer you can use the [jUnit extension][junit-extension] for automation:
+To avoid manual cleaning of mock writer you can use
+the [jUnit extension][junit-extension] for automation:
+
 ```java
 @ExtendWith({MockitoExtension.class, MockLoggerExtension.class})
 class HelloServiceExtensionTest {
@@ -103,9 +113,11 @@ class HelloServiceExtensionTest {
 
 }
 ```
+
 See more details at [HelloServiceExtensionTest.java](src/it/hello-tinylog-world/src/test/java/example/hello/HelloServiceExtensionTest.java)
 
 Also you can use the annotation for automation:
+
 ```java
 @ExtendWith(MockitoExtension.class)
 @MockLoggers
@@ -133,11 +145,14 @@ class HelloServiceAnnotationTest {
 
 }
 ```
+
 See more details at [HelloServiceAnnotationTest.java](src/it/hello-tinylog-world/src/test/java/example/hello/HelloServiceAnnotationTest.java)
 
 ### Writer as a parameter
 
-This library can also inject a mock writer instance as a parameter of a test method:
+This library can also inject a mock writer instance
+as a parameter of a test method:
+
 ```java
 @ExtendWith({MockLoggerExtension.class,MockTinylogWriterExtension.class})
 class HelloServiceParameterTest {
@@ -156,6 +171,7 @@ class HelloServiceParameterTest {
 
 }
 ```
+
 See more details ad [HelloServiceParameterTest.java](src/it/hello-tinylog-world/src/test/java/example/hello/HelloServiceParameterTest.java)
 
 ### Configuration
@@ -175,7 +191,7 @@ See [tinylog.properties](src/it/hello-tinylog-world/src/test/resources/tinylog.p
 
 [tinylog-version]: https://img.shields.io/static/v1?label=tinylog&message=2.7.0&color=blue&logoColor=E23D28
 
-[mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.14.2&color=blue&logoColor=E23D28
+[mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.15.2&color=blue&logoColor=E23D28
 
 [maven-central-last-update]: https://img.shields.io/maven-central/last-update/io.github.vitalijr2.logging/mock-loggers-tinylog-writer
 

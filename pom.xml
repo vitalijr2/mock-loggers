@@ -120,6 +120,7 @@
             <release>${java.version}</release>
             <source>${java.version}</source>
             <target>${java.version}</target>
+            <showDeprecation>true</showDeprecation>
           </configuration>
           <groupId>org.apache.maven.plugins</groupId>
           <version>3.13.0</version>
@@ -283,6 +284,10 @@
         <groupId>org.apache.maven.plugins</groupId>
         <version>3.5.0</version>
       </plugin>
+      <plugin>
+        <artifactId>flatten-maven-plugin</artifactId>
+        <groupId>org.codehaus.mojo</groupId>
+      </plugin>
     </plugins>
   </build>
   <ciManagement>
@@ -320,12 +325,6 @@
         <groupId>org.junit.jupiter</groupId>
         <scope>test</scope>
         <version>${junit.version}</version>
-      </dependency>
-      <dependency>
-        <artifactId>junit-platform-commons</artifactId>
-        <groupId>org.junit.platform</groupId>
-        <scope>test</scope>
-        <version>1.11.4</version>
       </dependency>
       <dependency>
         <artifactId>mockito-core</artifactId>
@@ -382,42 +381,54 @@
   <profiles>
     <profile>
       <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <artifactId>license-maven-plugin</artifactId>
+              <executions>
+                <execution>
+                  <configuration>
+                    <addJavaLicenseAfterPackage>false</addJavaLicenseAfterPackage>
+                    <excludeTransitiveDependencies>true</excludeTransitiveDependencies>
+                    <excludedScopes>test</excludedScopes>
+                    <excludes>
+                      <exclude>**/package-info.java</exclude>
+                    </excludes>
+                    <excludedGroups>io\.github\.vitalijr2\.logging</excludedGroups>
+                    <inceptionYear>${project.inceptionYear}</inceptionYear>
+                    <!-- @formatter:off -->
+                    <licenseMerges>
+                      <licenseMerge>Apache License version 2.0|The Apache Software License, Version 2.0|The Apache License, Version 2.0|Apache License, Version 2.0|Apache-2.0|Apache 2</licenseMerge>
+                      <licenseMerge>Eclipse Public License - v 2.0|Eclipse Public License v2.0</licenseMerge>
+                      <licenseMerge>MIT License|MIT</licenseMerge>
+                    </licenseMerges>
+                    <licenseName>apache_v2</licenseName>
+                    <!-- @formatter:on -->
+                    <organizationName>Vitalij Berdinskih</organizationName>
+                    <outputDirectory>${project.basedir}</outputDirectory>
+                    <processEndTag>---------------LICENSE_END-------------------</processEndTag>
+                    <processStartTag>---------------LICENSE_START-----------------</processStartTag>
+                    <projectName>Mock Loggers</projectName>
+                    <roots>
+                      <root>src/main/java</root>
+                    </roots>
+                    <sectionDelimiter>---------------------------------------------</sectionDelimiter>
+                    <trimHeaderLine>true</trimHeaderLine>
+                  </configuration>
+                  <id>default-cli</id>
+                </execution>
+              </executions>
+              <groupId>org.codehaus.mojo</groupId>
+              <version>2.5.0</version>
+            </plugin>
+          </plugins>
+        </pluginManagement>
         <plugins>
           <plugin>
             <artifactId>license-maven-plugin</artifactId>
-            <executions>
-              <execution>
-                <configuration>
-                  <addJavaLicenseAfterPackage>false</addJavaLicenseAfterPackage>
-                  <excludeTransitiveDependencies>true</excludeTransitiveDependencies>
-                  <excludedScopes>test</excludedScopes>
-                  <excludes>
-                    <exclude>**/package-info.java</exclude>
-                  </excludes>
-                  <excludedGroups>io\.github\.vitalijr2\.logging</excludedGroups>
-                  <inceptionYear>${project.inceptionYear}</inceptionYear>
-                  <!-- @formatter:off -->
-                  <licenseMerges>
-                    <licenseMerge>Apache License version 2.0|The Apache Software License, Version 2.0|The Apache License, Version 2.0|Apache License, Version 2.0|Apache-2.0|Apache 2</licenseMerge>
-                    <licenseMerge>Eclipse Public License - v 2.0|Eclipse Public License v2.0</licenseMerge>
-                    <licenseMerge>MIT License|MIT</licenseMerge>
-                  </licenseMerges>
-                  <licenseName>apache_v2</licenseName>
-                  <!-- @formatter:on -->
-                  <organizationName>Vitalij Berdinskih</organizationName>
-                  <outputDirectory>${project.basedir}</outputDirectory>
-                  <processEndTag>---------------LICENSE_END-------------------</processEndTag>
-                  <processStartTag>---------------LICENSE_START-----------------</processStartTag>
-                  <projectName>Mock Loggers</projectName>
-                  <roots>
-                    <root>src/main/java</root>
-                  </roots>
-                  <sectionDelimiter>---------------------------------------------</sectionDelimiter>
-                  <trimHeaderLine>true</trimHeaderLine>
-                </configuration>
-                <id>default-cli</id>
-              </execution>
-            </executions>
+            <configuration>
+              <skipCheckLicense>true</skipCheckLicense>
+            </configuration>
             <groupId>org.codehaus.mojo</groupId>
             <version>2.5.0</version>
           </plugin>
@@ -517,7 +528,7 @@
     <java.version>11</java.version>
     <javadoc-plugin.version>3.11.2</javadoc-plugin.version>
     <junit.version>5.11.4</junit.version>
-    <mockito.version>5.14.2</mockito.version>
+    <mockito.version>5.15.2</mockito.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <scm>
@@ -526,5 +537,5 @@
     <url>https://github.com/vitalijr2/mock-loggers</url>
   </scm>
   <url>https://github.com/vitalijr2/mock-loggers</url>
-  <version>1.1.1-SNAPSHOT</version>
+  <version>1.1.1</version>
 </project>
