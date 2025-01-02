@@ -124,6 +124,6 @@ See full text [here](LICENSE "the LICENSE file").
 
 [mock-slf4j-impl]: https://github.com/ocarlsen/mock-slf4j-impl
 
-[license-badge]: https://img.shields.io/badge/license-Apache%202.0-blue.svg?style=flat)
+[license-badge]: https://img.shields.io/badge/license-Apache%202.0-blue.svg?style=flat
 
 [license-link]: https://www.apache.org/licenses/LICENSE-2.0.html
