@@ -95,7 +95,7 @@ See full text [here](LICENSE "the LICENSE file").
 
 [junit-version]: https://img.shields.io/static/v1?label=jUnit&message=5.11.3&color=blue&logo=junit5&logoColor=E23D28
 
-[mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.14.2&color=blue&logoColor=E23D28
+[mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.15.2&color=blue&logoColor=E23D28
 
 [github-master-check-runs]: https://img.shields.io/github/check-runs/vitalijr2/mock-loggers/master
 

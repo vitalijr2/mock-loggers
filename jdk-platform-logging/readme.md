@@ -141,7 +141,7 @@ See more details at [HelloServiceAnnotationTest.java](src/it/hello-jdk-platform-
 
 [jdk-download]: https://www.oracle.com/java/technologies/downloads/#java11
 
-[mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.14.2&color=blue&logoColor=E23D28
+[mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.15.2&color=blue&logoColor=E23D28
 
 [maven-central-last-update]: https://img.shields.io/maven-central/last-update/io.github.vitalijr2.logging/mock-loggers-jdk-platform-logging
 
