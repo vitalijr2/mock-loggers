@@ -1,6 +1,7 @@
 # Mock loggers for Apache Commons Logging
 
-[Apache Commons Logging][commons-logging] factory with mock loggers backed by [Mockito][].
+[Apache Commons Logging][commons-logging] factory with mock loggers
+backed by [Mockito][].
 
 > [!WARNING]
 > This library does not support _parallel test execution_.
@@ -43,7 +44,8 @@ See more details at [HelloServiceBasicTest.java](src/it/hello-commons-logging-wo
 > [!IMPORTANT]
 > Keep in mind that all loggers are initialized only once during the test run.
 
-Therefore, a more complex example cleans the loggers after (or before) each test:
+Therefore, a more complex example cleans the loggers after (or before)
+each test:
 
 ```java
 // the static logger instance
@@ -79,7 +81,8 @@ void names(String name) {
 
 See more details at [HelloServiceFullTest.java](src/it/hello-commons-logging-world/src/test/java/example/hello/HelloServiceFullTest.java)
 
-To avoid manual cleaning of mock loggers you can use the [jUnit extension][junit-extension] for automation:
+To avoid manual cleaning of mock loggers you can use
+the [jUnit extension][junit-extension] for automation:
 
 ```java
 @ExtendWith(MockLoggerExtension.class)

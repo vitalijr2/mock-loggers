@@ -14,8 +14,10 @@
 
 ## Foreword
 
-Unlike the traditional approach where each class or even instance has its own named logger,
-tinylog uses a singleton logger. And the provider implementation is a bit complicated to check access to the logger.
+Unlike the traditional approach where each class or even instance has
+its own named logger, tinylog uses a singleton logger.
+And the provider implementation is a bit complicated
+to check access to the logger.
 Therefore, I recommend using the [Writer](../tinylog-writer) for testing.
 
 ## How to use
@@ -31,7 +33,8 @@ Just put a test dependency to your POM:
 </dependency>
 ```
 
-Use the `MockTinylogProvider` annotation to access the mock provider. The simplest usage example looks like this:
+Use the `MockTinylogProvider` annotation to access the mock provider.
+The simplest usage example looks like this:
 
 ```java
 @MockTinylogProvider
@@ -54,7 +57,8 @@ See more details at [HelloServiceBasicTest.java](src/it/hello-tinylog-world/src/
 > [!IMPORTANT]
 > Keep in mind that the logger is initialized only once during the test run.
 
-Therefore, a more complex example cleans the logger after (or before) each test:
+Therefore, a more complex example cleans the logger after (or before)
+each test:
 
 ```java
 // the static logger instance
@@ -85,7 +89,8 @@ void names(String name) {
 
 See more details at [HelloServiceFullTest.java](src/it/hello-tinylog-world/src/test/java/example/hello/HelloServiceFullTest.java)
 
-To avoid manual cleaning of the mock logger you can use the [jUnit extension][junit-extension] for automation:
+To avoid manual cleaning of the mock logger you can use
+the [jUnit extension][junit-extension] for automation:
 
 ```java
 @ExtendWith(MockLoggerExtension.class)
@@ -143,7 +148,8 @@ See more details at [HelloServiceAnnotationTest.java](src/it/hello-tinylog-world
 
 ### LoggingProvider as a parameter
 
-This library can also inject a mock provider instance as a parameter of a test method:
+This library can also inject a mock provider instance
+as a parameter of a test method:
 
 ```java
 @ExtendWith({MockLoggerExtension.class,MockTinylogProviderExtension.class})
@@ -168,8 +174,9 @@ See more details ad [HelloServiceParameterTest.java](src/it/hello-tinylog-world/
 
 ### Configuration
 
-If your application is bundled with another tinylog provider and it is present on the test classpath,
-use the configuration to specify the use of the mock provider.
+If your application is bundled with another tinylog provider,
+and it is present on the test classpath, use the configuration
+to specify the use of the mock provider.
 See [tinylog.properties](src/it/hello-custom-tinylog-world/src/test/resources/tinylog.properties).
 
 [tinylog]: https://tinylog.org/v2/
