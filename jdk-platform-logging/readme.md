@@ -14,6 +14,7 @@
 ## How to use
 
 Just put a test dependency to your POM:
+
 ```xml
 <dependency>
     <artifactId>mock-loggers-jdk-platform-logging</artifactId>
@@ -24,6 +25,7 @@ Just put a test dependency to your POM:
 ```
 
 The simplest usage example looks like this:
+
 ```java
 @Test
 void helloWorld() {
@@ -34,12 +36,14 @@ void helloWorld() {
     verify(System.getLogger("HelloService")).log(Level.INFO, "Hello World!");
 }
 ```
+
 See more details at [HelloServiceBasicTest.java](src/it/hello-jdk-platform-logging-world/src/test/java/example/hello/HelloServiceBasicTest.java)
 
 > [!IMPORTANT]
 > Keep in mind that all loggers are initialized only once during the test run.
 
 Therefore, a more complex example cleans the loggers after (or before) each test:
+
 ```java
 // the static logger instance
 private static Logger logger;
@@ -71,9 +75,11 @@ void names(String name) {
     verifyNoMoreInteractions(logger);
 }
 ```
+
 See more details at [HelloServiceFullTest.java](src/it/hello-jdk-platform-logging-world/src/test/java/example/hello/HelloServiceFullTest.java)
 
 To avoid manual cleaning of mock loggers you can use the [jUnit extension][junit-extension] for automation:
+
 ```java
 @ExtendWith(MockLoggerExtension.class)
 class HelloServiceExtensionTest {
@@ -101,9 +107,11 @@ class HelloServiceExtensionTest {
 
 }
 ```
+
 See more details at [HelloServiceExtensionTest.java](src/it/hello-jdk-platform-logging-world/src/test/java/example/hello/HelloServiceExtensionTest.java)
 
 Also you can use the annotation for automation:
+
 ```java
 @MockLoggers
 class HelloServiceAnnotationTest {
@@ -131,6 +139,7 @@ class HelloServiceAnnotationTest {
 
 }
 ```
+
 See more details at [HelloServiceAnnotationTest.java](src/it/hello-jdk-platform-logging-world/src/test/java/example/hello/HelloServiceAnnotationTest.java)
 
 [jdk-logging]: https://www.baeldung.com/java-9-logging-api "Java Platform Logging API"
