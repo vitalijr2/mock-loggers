@@ -17,8 +17,8 @@ jobs:
       - name: Setup Java JDK
         uses: actions/setup-java@v4
         with:
-          distribution: 'corretto'
-          java-version: 11
+          distribution: 'zulu'
+          java-version: '11'
       - name: Build and publish with Maven
         env:
           SIGN_KEY: ${{ secrets.SIGN_KEY }}

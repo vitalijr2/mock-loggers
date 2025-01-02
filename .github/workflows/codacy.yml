@@ -21,8 +21,8 @@ jobs:
       - name: Setup Java JDK
         uses: actions/setup-java@v4
         with:
-          distribution: 'corretto'
-          java-version: 11
+          distribution: 'zulu'
+          java-version: '11'
       - name: Build with Maven
         run: ./mvnw --batch-mode
       - name: Temporarily save target and test requests
