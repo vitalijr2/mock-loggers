@@ -19,12 +19,11 @@
  */
 package io.github.vitalijr2.logging.mock;
 
+import java.lang.System.Logger.Level;
 import org.jetbrains.annotations.VisibleForTesting;
 import org.junit.jupiter.api.extension.AfterEachCallback;
 import org.junit.jupiter.api.extension.BeforeEachCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
-import org.junit.platform.commons.logging.Logger;
-import org.junit.platform.commons.logging.LoggerFactory;
 
 /**
  * A jUnit extension to clean and reset mock loggers.
@@ -64,18 +63,18 @@ import org.junit.platform.commons.logging.LoggerFactory;
  */
 public class MockLoggerExtension implements AfterEachCallback, BeforeEachCallback {
 
-  private final Logger extensionLogger;
+  private final System.Logger extensionLogger;
   private final MockLoggerKeeper loggerKeeper;
 
   /**
    * Create an extension.
    */
   public MockLoggerExtension() {
-    this(MockLoggerKeeper.getInstance(), LoggerFactory.getLogger(MockLoggerExtension.class));
+    this(MockLoggerKeeper.getInstance(), System.getLogger(MockLoggerExtension.class.getName()));
   }
 
   @VisibleForTesting
-  MockLoggerExtension(MockLoggerKeeper loggerKeeper, Logger extensionLogger) {
+  MockLoggerExtension(MockLoggerKeeper loggerKeeper, System.Logger extensionLogger) {
     this.loggerKeeper = loggerKeeper;
     this.extensionLogger = extensionLogger;
   }
@@ -90,7 +89,7 @@ public class MockLoggerExtension implements AfterEachCallback, BeforeEachCallbac
   public void afterEach(ExtensionContext context) {
     var loggerNames = loggerKeeper.cleanAndReset();
 
-    extensionLogger.debug(() -> "Clean and reset the loggers: " + String.join(", ", loggerNames));
+    extensionLogger.log(Level.DEBUG, () -> "Clean and reset the loggers: " + String.join(", ", loggerNames));
   }
 
   /**
@@ -103,7 +102,7 @@ public class MockLoggerExtension implements AfterEachCallback, BeforeEachCallbac
   public void beforeEach(ExtensionContext context) {
     var loggerNames = loggerKeeper.cleanAndReset();
 
-    extensionLogger.debug(() -> "Clean and reset the loggers: " + String.join(", ", loggerNames));
+    extensionLogger.log(Level.DEBUG, () -> "Clean and reset the loggers: " + String.join(", ", loggerNames));
   }
 
 }

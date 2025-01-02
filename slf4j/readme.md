@@ -15,16 +15,18 @@
 ## How to use
 
 Just put a test dependency to your POM:
+
 ```xml
 <dependency>
     <artifactId>mock-loggers-slf4j</artifactId>
     <groupId>io.github.vitalijr2.logging</groupId>
     <scope>test</scope>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
 </dependency>
 ```
 
 The simplest usage example looks like this:
+
 ```java
 @Test
 void helloWorld() {
@@ -35,12 +37,15 @@ void helloWorld() {
     verify(LoggerFactory.getLogger(helloService.getClass())).info("Hello World!");
 }
 ```
+
 See more details at [HelloServiceBasicTest.java](src/it/hello-slf4j-world/src/test/java/example/hello/HelloServiceBasicTest.java)
 
 > [!IMPORTANT]
 > Keep in mind that all loggers are initialized only once during the test run.
 
-Therefore, a more complex example cleans the loggers after (or before) each test:
+Therefore, a more complex example cleans the loggers after (or before)
+each test:
+
 ```java
 // the static logger instance
 private static Logger logger;
@@ -72,9 +77,12 @@ void names(String name) {
     verifyNoMoreInteractions(actualLogger);
 }
 ```
+
 See more details at [HelloServiceFullTest.java](src/it/hello-slf4j-world/src/test/java/example/hello/HelloServiceFullTest.java)
 
-To avoid manual cleaning of mock loggers you can use the [jUnit extension][junit-extension] for automation:
+To avoid manual cleaning of mock loggers you can use
+the [jUnit extension][junit-extension] for automation:
+
 ```java
 @ExtendWith(MockLoggerExtension.class)
 class HelloServiceExtensionTest {
@@ -102,9 +110,11 @@ class HelloServiceExtensionTest {
 
 }
 ```
+
 See more details at [HelloServiceExtensionTest.java](src/it/hello-slf4j-world/src/test/java/example/hello/HelloServiceExtensionTest.java)
 
 Also you can use the annotation for automation:
+
 ```java
 @MockLoggers
 class HelloServiceAnnotationTest {
@@ -132,6 +142,7 @@ class HelloServiceAnnotationTest {
 
 }
 ```
+
 See more details at [HelloServiceAnnotationTest.java](src/it/hello-slf4j-world/src/test/java/example/hello/HelloServiceAnnotationTest.java)
 
 [slf4j]: https://www.slf4j.org/
@@ -144,7 +155,7 @@ See more details at [HelloServiceAnnotationTest.java](src/it/hello-slf4j-world/s
 
 [slf4j-version]: https://img.shields.io/static/v1?label=SLF4J&message=2.0.16&color=blue&logoColor=E23D28
 
-[mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.14.2&color=blue&logoColor=E23D28
+[mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.15.2&color=blue&logoColor=E23D28
 
 [maven-central-last-update]: https://img.shields.io/maven-central/last-update/io.github.vitalijr2.logging/mock-loggers-slf4j
 

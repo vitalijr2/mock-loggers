@@ -2,10 +2,12 @@ package io.github.vitalijr2.logging.mock;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.eq;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
 
+import java.lang.System.Logger.Level;
 import java.util.List;
 import java.util.function.Supplier;
 import org.junit.jupiter.api.BeforeEach;
@@ -30,7 +32,7 @@ class MockLoggerExtensionFastTest {
   @Mock
   private ExtensionContext extensionContext;
   @Mock
-  private org.junit.platform.commons.logging.Logger extensionLogger;
+  private System.Logger extensionLogger;
 
 
   private MockLoggerExtension extension;
@@ -51,7 +53,7 @@ class MockLoggerExtensionFastTest {
 
     // then
     verifyNoInteractions(extensionContext);
-    verify(extensionLogger).debug(messageCaptor.capture());
+    verify(extensionLogger).log(eq(Level.DEBUG), messageCaptor.capture());
     verify(loggerKeeper).cleanAndReset();
 
     assertEquals("Clean and reset the loggers: a, b, c", messageCaptor.getValue().get(),
@@ -69,7 +71,7 @@ class MockLoggerExtensionFastTest {
 
     // then
     verifyNoInteractions(extensionContext);
-    verify(extensionLogger).debug(messageCaptor.capture());
+    verify(extensionLogger).log(eq(Level.DEBUG), messageCaptor.capture());
     verify(loggerKeeper).cleanAndReset();
 
     assertEquals("Clean and reset the loggers: a, b, c", messageCaptor.getValue().get(),

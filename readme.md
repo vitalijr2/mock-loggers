@@ -8,7 +8,7 @@ Different logging services can be tested using mock loggers backed by [Mockito][
 [![Java Version][java-version]][jdk-download]
 ![jUnit Version][junit-version]
 ![Mockito Version][mockito-version]
-[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0.html)  
+[![License][license-badge]][license-link]  
 [![GitHub master check runs][github-master-check-runs]][github-master-check-runs-link]
 [![Codacy Badge][codacy-badge]][codacy-badge-link]
 [![Codacy Coverage][codacy-coverage]][codacy-coverage-link]
@@ -18,6 +18,7 @@ Different logging services can be tested using mock loggers backed by [Mockito][
 ## How to use
 
 The simplest usage example looks like this:
+
 ```java
 @Test
 void helloWorld() {
@@ -61,7 +62,7 @@ See [Changelog](changelog.md)
 
 ## License
 
-```
+```text
 Copyright (C) 2024 Vitalij Berdinskih
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -95,7 +96,7 @@ See full text [here](LICENSE "the LICENSE file").
 
 [junit-version]: https://img.shields.io/static/v1?label=jUnit&message=5.11.3&color=blue&logo=junit5&logoColor=E23D28
 
-[mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.14.2&color=blue&logoColor=E23D28
+[mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.15.2&color=blue&logoColor=E23D28
 
 [github-master-check-runs]: https://img.shields.io/github/check-runs/vitalijr2/mock-loggers/master
 
@@ -122,3 +123,7 @@ See full text [here](LICENSE "the LICENSE file").
 [slf4j-mock]: https://github.com/s4u/slf4j-mock
 
 [mock-slf4j-impl]: https://github.com/ocarlsen/mock-slf4j-impl
+
+[license-badge]: https://img.shields.io/badge/license-Apache%202.0-blue.svg?style=flat
+
+[license-link]: https://www.apache.org/licenses/LICENSE-2.0.html

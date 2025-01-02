@@ -14,23 +14,28 @@
 
 ## Foreword
 
-Unlike the traditional approach where each class or even instance has its own named logger,
-tinylog uses a singleton logger. And the provider implementation is a bit complicated to check access to the logger.
+Unlike the traditional approach where each class or even instance has
+its own named logger, tinylog uses a singleton logger.
+And the provider implementation is a bit complicated
+to check access to the logger.
 Therefore, I recommend using the [Writer](../tinylog-writer) for testing.
 
 ## How to use
 
 Just put a test dependency to your POM:
+
 ```xml
 <dependency>
     <artifactId>mock-loggers-tinylog-provider</artifactId>
     <groupId>io.github.vitalijr2.logging</groupId>
     <scope>test</scope>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
 </dependency>
 ```
 
-Use the `MockTinylogProvider` annotation to access the mock provider. The simplest usage example looks like this:
+Use the `MockTinylogProvider` annotation to access the mock provider.
+The simplest usage example looks like this:
+
 ```java
 @MockTinylogProvider
 private static LoggingProvider logger;
@@ -46,12 +51,15 @@ void helloWorld() {
     verify(logger).log(anyInt(), isNull(), eq(Level.INFO), isNull(), isNull(), anyString(), isNull());
 }
 ```
+
 See more details at [HelloServiceBasicTest.java](src/it/hello-tinylog-world/src/test/java/example/hello/HelloServiceBasicTest.java)
 
 > [!IMPORTANT]
 > Keep in mind that the logger is initialized only once during the test run.
 
-Therefore, a more complex example cleans the logger after (or before) each test:
+Therefore, a more complex example cleans the logger after (or before)
+each test:
+
 ```java
 // the static logger instance
 @MockTinylogProvider
@@ -78,9 +86,12 @@ void names(String name) {
             eq("Hello " + name + "!"), isNull());
 }
 ```
+
 See more details at [HelloServiceFullTest.java](src/it/hello-tinylog-world/src/test/java/example/hello/HelloServiceFullTest.java)
 
-To avoid manual cleaning of the mock logger you can use the [jUnit extension][junit-extension] for automation:
+To avoid manual cleaning of the mock logger you can use
+the [jUnit extension][junit-extension] for automation:
+
 ```java
 @ExtendWith(MockLoggerExtension.class)
 class HelloServiceExtensionTest {
@@ -104,9 +115,11 @@ class HelloServiceExtensionTest {
 
 }
 ```
+
 See more details at [HelloServiceExtensionTest.java](src/it/hello-tinylog-world/src/test/java/example/hello/HelloServiceExtensionTest.java)
 
 Also you can use the annotation for automation:
+
 ```java
 @MockLoggers
 class HelloServiceAnnotationTest {
@@ -130,11 +143,14 @@ class HelloServiceAnnotationTest {
 
 }
 ```
+
 See more details at [HelloServiceAnnotationTest.java](src/it/hello-tinylog-world/src/test/java/example/hello/HelloServiceAnnotationTest.java)
 
 ### LoggingProvider as a parameter
 
-This library can also inject a mock provider instance as a parameter of a test method:
+This library can also inject a mock provider instance
+as a parameter of a test method:
+
 ```java
 @ExtendWith({MockLoggerExtension.class,MockTinylogProviderExtension.class})
 class HelloServiceParameterTest {
@@ -153,12 +169,14 @@ class HelloServiceParameterTest {
 
 }
 ```
+
 See more details ad [HelloServiceParameterTest.java](src/it/hello-tinylog-world/src/test/java/example/hello/HelloServiceParameterTest.java)
 
 ### Configuration
 
-If your application is bundled with another tinylog provider and it is present on the test classpath,
-use the configuration to specify the use of the mock provider.
+If your application is bundled with another tinylog provider,
+and it is present on the test classpath, use the configuration
+to specify the use of the mock provider.
 See [tinylog.properties](src/it/hello-custom-tinylog-world/src/test/resources/tinylog.properties).
 
 [tinylog]: https://tinylog.org/v2/
@@ -171,7 +189,7 @@ See [tinylog.properties](src/it/hello-custom-tinylog-world/src/test/resources/ti
 
 [tinylog-version]: https://img.shields.io/static/v1?label=tinylog&message=2.7.0&color=blue&logoColor=E23D28
 
-[mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.14.2&color=blue&logoColor=E23D28
+[mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.15.2&color=blue&logoColor=E23D28
 
 [maven-central-last-update]: https://img.shields.io/maven-central/last-update/io.github.vitalijr2.logging/mock-loggers-tinylog-provider
 
