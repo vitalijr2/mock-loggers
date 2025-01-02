@@ -26,7 +26,7 @@ jobs:
       - name: Build with Maven
         run: ./mvnw --batch-mode
       - name: Temporarily save target and test requests
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4.5.0
         with:
           name: targets
           path: |
@@ -65,7 +65,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Retrieve saved test requests and target
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v4.1.8
         with:
           name: targets
           path: .
