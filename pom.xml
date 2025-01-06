@@ -118,9 +118,9 @@
           <artifactId>maven-compiler-plugin</artifactId>
           <configuration>
             <release>${java.version}</release>
+            <showDeprecation>true</showDeprecation>
             <source>${java.version}</source>
             <target>${java.version}</target>
-            <showDeprecation>true</showDeprecation>
           </configuration>
           <groupId>org.apache.maven.plugins</groupId>
           <version>3.13.0</version>
@@ -247,6 +247,11 @@
           <version>3.5.2</version>
         </plugin>
         <plugin>
+          <artifactId>semver-maven-plugin</artifactId>
+          <groupId>io.github.q3769</groupId>
+          <version>20240116.0.202411140438</version>
+        </plugin>
+        <plugin>
           <artifactId>sign-maven-plugin</artifactId>
           <groupId>org.simplify4u.plugins</groupId>
           <version>1.1.0</version>
@@ -369,6 +374,7 @@
   </licenses>
   <modelVersion>4.0.0</modelVersion>
   <modules>
+    <module>bom</module>
     <module>commons-logging</module>
     <module>core</module>
     <module>jdk-platform-logging</module>
@@ -390,11 +396,11 @@
                   <configuration>
                     <addJavaLicenseAfterPackage>false</addJavaLicenseAfterPackage>
                     <excludeTransitiveDependencies>true</excludeTransitiveDependencies>
+                    <excludedGroups>io\.github\.vitalijr2\.logging</excludedGroups>
                     <excludedScopes>test</excludedScopes>
                     <excludes>
                       <exclude>**/package-info.java</exclude>
                     </excludes>
-                    <excludedGroups>io\.github\.vitalijr2\.logging</excludedGroups>
                     <inceptionYear>${project.inceptionYear}</inceptionYear>
                     <!-- @formatter:off -->
                     <licenseMerges>
@@ -536,5 +542,5 @@
     <url>https://github.com/vitalijr2/mock-loggers</url>
   </scm>
   <url>https://github.com/vitalijr2/mock-loggers</url>
-  <version>1.1.1</version>
+  <version>1.2.0-SNAPSHOT</version>
 </project>
