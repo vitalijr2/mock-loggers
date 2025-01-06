@@ -44,9 +44,9 @@
     </dependencies>
   </dependencyManagement>
   <description>Bill of materials for Mock Loggers</description>
-  <packaging>pom</packaging>
   <modelVersion>4.0.0</modelVersion>
   <name>Mock Loggers (Bill of Materials)</name>
+  <packaging>pom</packaging>
   <parent>
     <artifactId>mock-loggers</artifactId>
     <groupId>io.github.vitalijr2.logging</groupId>
@@ -57,11 +57,11 @@
       <build>
         <plugins>
           <plugin>
-            <groupId>org.codehaus.mojo</groupId>
             <artifactId>flatten-maven-plugin</artifactId>
             <configuration>
               <flattenMode>bom</flattenMode>
             </configuration>
+            <groupId>org.codehaus.mojo</groupId>
           </plugin>
         </plugins>
       </build>
