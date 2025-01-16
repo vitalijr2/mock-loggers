@@ -332,8 +332,8 @@
         <version>${junit.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.junit.platform</groupId>
         <artifactId>junit-platform-launcher</artifactId>
+        <groupId>org.junit.platform</groupId>
       </dependency>
       <dependency>
         <artifactId>mockito-core</artifactId>
