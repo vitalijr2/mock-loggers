@@ -32,7 +32,6 @@
       <artifactId>@project.artifactId@</artifactId>
       <groupId>@project.groupId@</groupId>
       <scope>test</scope>
-      <version>@project.version@</version>
     </dependency>
     <dependency>
       <artifactId>hamcrest</artifactId>
@@ -44,13 +43,13 @@
       <artifactId>junit-jupiter-engine</artifactId>
       <groupId>org.junit.jupiter</groupId>
       <scope>test</scope>
-      <version>${junit-jupiter.version}</version>
+      <version>${junit.version}</version>
     </dependency>
     <dependency>
       <artifactId>junit-jupiter-params</artifactId>
       <groupId>org.junit.jupiter</groupId>
       <scope>test</scope>
-      <version>${junit-jupiter.version}</version>
+      <version>${junit.version}</version>
     </dependency>
     <dependency>
       <artifactId>mockito-core</artifactId>
@@ -70,12 +69,23 @@
       <version>2.0.16</version>
     </dependency>
   </dependencies>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <artifactId>mock-loggers-bom</artifactId>
+        <groupId>@project.groupId@</groupId>
+        <scope>import</scope>
+        <type>pom</type>
+        <version>1.2.0-SNAPSHOT</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
   <description>Basic example</description>
   <groupId>example.hello</groupId>
   <modelVersion>4.0.0</modelVersion>
   <properties>
     <java.version>11</java.version>
-    <junit-jupiter.version>5.11.3</junit-jupiter.version>
+    <junit.version>5.11.4</junit.version>
     <mockito.version>5.15.2</mockito.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
