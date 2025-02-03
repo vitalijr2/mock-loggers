@@ -18,8 +18,6 @@ Different logging services can be tested using mock loggers backed by [Mockito][
 ## Table of Contents
 
 <!--ts-->
-* [Mock Loggers](#mock-loggers)
-   * [Table of Contents](#table-of-contents)
    * [How to use](#how-to-use)
    * [Other logging libraries and frameworks](#other-logging-libraries-and-frameworks)
    * [Credits](#credits)
@@ -28,7 +26,7 @@ Different logging services can be tested using mock loggers backed by [Mockito][
    * [License](#license)
 
 <!-- Created by https://github.com/ekalinin/github-markdown-toc -->
-<!-- Added by: r2, at: Mon Feb  3 06:49:25 PM EET 2025 -->
+<!-- Added by: r2, at: Mon Feb  3 06:54:26 PM EET 2025 -->
 
 <!--te-->
 
