@@ -12,6 +12,19 @@
 [![Maven Central][maven-central]][maven-central-link]
 [![Javadoc][javadoc]][javadoc-link]
 
+## Table of Contents
+
+<!--ts-->
+* [Foreword](#foreword)
+* [How to use](#how-to-use)
+* [Writer as a parameter](#writer-as-a-parameter)
+* [Configuration](#configuration)
+
+<!-- Created by https://github.com/ekalinin/github-markdown-toc -->
+<!-- Added by: r2, at: Sun Feb  9 09:27:56 PM EET 2025 -->
+
+<!--te-->
+
 ## Foreword
 
 Unlike the traditional approach where each class or even instance has
