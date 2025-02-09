@@ -12,6 +12,16 @@
 [![Maven Central][maven-central]][maven-central-link]
 [![Javadoc][javadoc]][javadoc-link]
 
+## Table of Contents
+
+<!--ts-->
+* [How to use](#how-to-use)
+
+<!-- Created by https://github.com/ekalinin/github-markdown-toc -->
+<!-- Added by: r2, at: Sun Feb  9 09:27:55 PM EET 2025 -->
+
+<!--te-->
+
 ## How to use
 
 Just put a test dependency to your POM:

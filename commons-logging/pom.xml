@@ -119,7 +119,7 @@
     </profile>
   </profiles>
   <properties>
-    <commons-logging.version>1.3.4</commons-logging.version>
+    <commons-logging.version>1.3.5</commons-logging.version>
   </properties>
   <version>1.2.0-SNAPSHOT</version>
 </project>

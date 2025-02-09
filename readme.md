@@ -15,6 +15,21 @@ Different logging services can be tested using mock loggers backed by [Mockito][
 ![GitHub commit activity][github-commit-activity]
 [![Today's hits][today-hits]][today-hits-link]
 
+## Table of Contents
+
+<!--ts-->
+* [How to use](#how-to-use)
+* [Other logging libraries and frameworks](#other-logging-libraries-and-frameworks)
+* [Credits](#credits)
+* [Contributing](#contributing)
+* [History](#history)
+* [License](#license)
+
+<!-- Created by https://github.com/ekalinin/github-markdown-toc -->
+<!-- Added by: r2, at: Sun Feb  9 09:27:54 PM EET 2025 -->
+
+<!--te-->
+
 ## How to use
 
 The simplest usage example looks like this:
