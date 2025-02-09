@@ -154,7 +154,7 @@ See more details at [HelloServiceAnnotationTest.java](src/it/hello-commons-loggi
 
 [jdk-download]: https://www.oracle.com/java/technologies/downloads/#java11
 
-[commons-logging-version]: https://img.shields.io/static/v1?label=commons-logging&message=1.3.4&color=blue&logoColor=E23D28
+[commons-logging-version]: https://img.shields.io/static/v1?label=commons-logging&message=1.3.5&color=blue&logoColor=E23D28
 
 [mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.15.2&color=blue&logoColor=E23D28
 
