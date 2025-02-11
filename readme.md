@@ -15,6 +15,21 @@ Different logging services can be tested using mock loggers backed by [Mockito][
 ![GitHub commit activity][github-commit-activity]
 [![Today's hits][today-hits]][today-hits-link]
 
+## Table of Contents
+
+<!--ts-->
+* [How to use](#how-to-use)
+* [Other logging libraries and frameworks](#other-logging-libraries-and-frameworks)
+* [Credits](#credits)
+* [Contributing](#contributing)
+* [History](#history)
+* [License](#license)
+
+<!-- Created by https://github.com/ekalinin/github-markdown-toc -->
+<!-- Added by: r2, at: Sun Feb  9 09:27:54 PM EET 2025 -->
+
+<!--te-->
+
 ## How to use
 
 The simplest usage example looks like this:
@@ -35,22 +50,22 @@ Now this library implements services for [JDK Platform Logging][jdk-logging],
 
 See more examples in the relevant modules of this project:
 
-- for Apache Commons Logging in [mock-loggers-commons-logging](commons-logging)
-- for JDK Platform Logging in [mock-loggers-jdk-platform-logging](jdk-platform-logging)
-- for SLF4J in [mock-loggers-slf4j](slf4j)
-- for tinylog in [mock-loggers-tinylog-writer](tinylog-writer) and [mock-loggers-tinylog-provider](tinylog-provider)
+* for Apache Commons Logging in [mock-loggers-commons-logging](commons-logging)
+* for JDK Platform Logging in [mock-loggers-jdk-platform-logging](jdk-platform-logging)
+* for SLF4J in [mock-loggers-slf4j](slf4j)
+* for tinylog in [mock-loggers-tinylog-writer](tinylog-writer) and [mock-loggers-tinylog-provider](tinylog-provider)
 
 ## Other logging libraries and frameworks
 
-- [Apache Log4j: Unit Testing in Maven][log4j-unit-testing-in-maven]
-- [Unit Test logback Using JUnit][logback-unit-test-using-junit], it's old but gold
+* [Apache Log4j: Unit Testing in Maven][log4j-unit-testing-in-maven]
+* [Unit Test logback Using JUnit][logback-unit-test-using-junit], it's old but gold
 
 ## Credits
 
 There are two projects which inspired me to make this library:
 
-- [s4u/slf4j-mock][slf4j-mock]
-- [ocarlsen/mock-slf4j-impl][mock-slf4j-impl]
+* [s4u/slf4j-mock][slf4j-mock]
+* [ocarlsen/mock-slf4j-impl][mock-slf4j-impl]
 
 ## Contributing
 
