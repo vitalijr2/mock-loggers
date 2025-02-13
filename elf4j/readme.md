@@ -63,5 +63,3 @@ void helloWorld() {
 [javadoc]: https://javadoc.io/badge2/io.github.vitalijr2.logging/mock-loggers-elf4j/javadoc.svg
 
 [javadoc-link]: https://javadoc.io/doc/io.github.vitalijr2.logging/mock-loggers-elf4j
-
-[junit-extension]: ../core/
