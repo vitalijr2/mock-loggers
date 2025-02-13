@@ -40,7 +40,7 @@ import org.jetbrains.annotations.VisibleForTesting;
  *
  *     assertDoesNotThrow(helloService::sayHelloWorld);
  *
- *     verify(LoggerFactory.getLogger("HelloService")).log(Level.INFO, "Hello World!");
+ *     verify(Logger.instance()).atInfo().log("Hello World!");
  *   }
  * </code></pre>
  *

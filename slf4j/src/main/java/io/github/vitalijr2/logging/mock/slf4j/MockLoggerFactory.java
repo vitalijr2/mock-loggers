@@ -43,7 +43,7 @@ import org.slf4j.Logger;
  *
  *     assertDoesNotThrow(helloService::sayHelloWorld);
  *
- *     verify(Logger.instance()).atInfo().log("Hello World!");
+ *     verify(LoggerFactory.getLogger("HelloService")).log(Level.INFO, "Hello World!");
  *   }
  * </code></pre>
  *
