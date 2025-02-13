@@ -17,20 +17,17 @@
  * limitations under the License.
  * ---------------LICENSE_END-------------------
  */
-package io.github.vitalijr2.logging.mock.slf4j;
+package io.github.vitalijr2.logging.mock.elf4j;
 
 import static org.mockito.Mockito.clearInvocations;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.reset;
 
+import elf4j.Logger;
+import elf4j.spi.LogServiceProvider;
 import io.github.vitalijr2.logging.mock.MockLoggerCleaner;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 import org.jetbrains.annotations.VisibleForTesting;
-import org.slf4j.ILoggerFactory;
-import org.slf4j.Logger;
 
 /**
  * Uses {@link org.mockito.Mockito#mock(Class, String)} to get a mock that is adapted for {@link Logger}.
@@ -43,51 +40,44 @@ import org.slf4j.Logger;
  *
  *     assertDoesNotThrow(helloService::sayHelloWorld);
  *
- *     verify(Logger.instance()).atInfo().log("Hello World!");
+ *     verify(LoggerFactory.getLogger("HelloService")).log(Level.INFO, "Hello World!");
  *   }
  * </code></pre>
  *
- * @since 1.0.0
+ * @since 1.2.0
  */
-public class MockLoggerFactory implements ILoggerFactory, MockLoggerCleaner {
+public class MockLoggerProvider implements LogServiceProvider, MockLoggerCleaner {
 
-  private final Map<String, Logger> loggers;
+  private final Logger logger;
 
   /**
-   * Create a map-based logger finder. The finder uses a concurrent map: a logger name is a key.
+   * Create a logger provider with a common mock logger.
    */
-  public MockLoggerFactory() {
-    this(new ConcurrentHashMap<>());
+  public MockLoggerProvider() {
+    this(mock(Logger.class, "Mock logger"));
   }
 
   @VisibleForTesting
-  MockLoggerFactory(Map<String, Logger> loggers) {
-    this.loggers = loggers;
+  MockLoggerProvider(Logger logger) {
+    this.logger = logger;
     subscribeToNotifications();
   }
 
   @Override
   public List<String> cleanAndReset() {
-    var processedLoggers = new ArrayList<String>();
-
-    loggers.forEach((loggerName, logger) -> {
-      clearInvocations(logger);
-      reset(logger);
-      processedLoggers.add(loggerName);
-    });
-
-    return processedLoggers;
+    clearInvocations(logger);
+    reset(logger);
+    return List.of("default");
   }
 
   /**
-   * Returns an instance of Logger for the given name.
+   * Returns an instance of Logger.
    *
-   * @param name logging name
    * @return mock logger
    */
   @Override
-  public Logger getLogger(String name) {
-    return loggers.computeIfAbsent(name, key -> mock(Logger.class, "Mock for logger " + key));
+  public Logger logger() {
+    return logger;
   }
 
 }
