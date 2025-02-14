@@ -32,15 +32,129 @@ Just put a test dependency to your POM:
 The simplest usage example looks like this:
 
 ```java
+import elf4j.Logger;
+
 @Test
 void helloWorld() {
     var helloService = new HelloService();
 
     assertDoesNotThrow(helloService::sayHelloWorld);
 
-    verify(Logger.instance()).atInfo().log("Hello World!");
+    verify(Logger.instance()).atInfo();
+    verify(Logger.instance()).log("Hello World!");
 }
 ```
+
+See more details at [HelloServiceBasicTest.java](src/it/hello-elf4j-world/src/test/java/example/hello/HelloServiceBasicTest.java)
+
+> [!IMPORTANT]
+> Keep in mind that all loggers are initialized only once during the test run.
+
+Therefore, a more complex example cleans the loggers after (or before)
+each test:
+
+```java
+// the static logger instance
+private static Logger logger;
+
+// initialize the mock logger once
+@BeforeAll
+static void setUpClass() {
+    logger = Logger.instance();
+}
+
+// clean the mock logger after each test
+@AfterEach
+void tearDown() {
+    clearInvocations(logger);
+}
+
+// use the mock logger in a test
+@DisplayName("Names")
+@ParameterizedTest(name = "<{0}>")
+@ValueSource(strings = {"John", "Jane"})
+void names(String name) {
+    var helloService = new HelloService();
+
+    when(Logger.instance().atInfo()).thenReturn(logger);
+
+    assertDoesNotThrow(() -> helloService.sayHello(name));
+
+    verify(Logger.instance()).atInfo();
+    verify(Logger.instance()).log("Hello " + name + "!");
+    verifyNoMoreInteractions(Logger.instance());
+}
+```
+
+See more details at [HelloServiceFullTest.java](src/it/hello-elf4j-world/src/test/java/example/hello/HelloServiceFullTest.java)
+
+To avoid manual cleaning of mock loggers you can use
+the [jUnit extension][junit-extension] for automation:
+
+```java
+@ExtendWith(MockLoggerExtension.class)
+class HelloServiceExtensionTest {
+
+    private static Logger logger;
+
+    @BeforeAll
+    static void setUpClass() {
+        logger = Logger.instance();
+    }
+
+    @DisplayName("Names")
+    @ParameterizedTest(name = "<{0}>")
+    @ValueSource(strings = {"John", "Jane"})
+    void names(String name) {
+        var helloService = new HelloService();
+
+        when(Logger.instance().atInfo()).thenReturn(logger);
+
+        assertDoesNotThrow(() -> helloService.sayHello(name));
+
+        verify(Logger.instance()).atInfo();
+        verify(Logger.instance()).log("Hello " + name + "!");
+        verifyNoMoreInteractions(Logger.instance());
+    }
+    
+}
+```
+
+See more details at [HelloServiceExtensionTest.java](src/it/hello-elf4j-world/src/test/java/example/hello/HelloServiceExtensionTest.java)
+
+Also you can use the annotation for automation:
+
+```java
+@MockLoggers
+class HelloServiceAnnotationTest {
+
+    private static Logger logger;
+
+    @BeforeAll
+    static void setUpClass() {
+        logger = Logger.instance();
+    }
+
+    @DisplayName("Names")
+    @ParameterizedTest(name = "<{0}>")
+    @ValueSource(strings = {"John", "Jane"})
+    void names(String name) {
+        var helloService = new HelloService();
+
+        when(Logger.instance().atInfo()).thenReturn(logger);
+
+        assertDoesNotThrow(() -> helloService.sayHello(name));
+
+        verify(Logger.instance()).atInfo();
+        verify(Logger.instance()).log("Hello " + name + "!");
+        verifyNoMoreInteractions(Logger.instance());
+    }
+
+}
+```
+
+See more details at [HelloServiceAnnotationTest.java](src/it/hello-elf4j-world/src/test/java/example/hello/HelloServiceAnnotationTest.java)
+
 
 [elf4j]: https://github.com/elf4j/elf4j
 
@@ -63,3 +177,5 @@ void helloWorld() {
 [javadoc]: https://javadoc.io/badge2/io.github.vitalijr2.logging/mock-loggers-elf4j/javadoc.svg
 
 [javadoc-link]: https://javadoc.io/doc/io.github.vitalijr2.logging/mock-loggers-elf4j
+
+[junit-extension]: ../core/
