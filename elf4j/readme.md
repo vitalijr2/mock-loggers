@@ -155,7 +155,6 @@ class HelloServiceAnnotationTest {
 
 See more details at [HelloServiceAnnotationTest.java](src/it/hello-elf4j-world/src/test/java/example/hello/HelloServiceAnnotationTest.java)
 
-
 [elf4j]: https://github.com/elf4j/elf4j
 
 [Mockito]: https://site.mockito.org
