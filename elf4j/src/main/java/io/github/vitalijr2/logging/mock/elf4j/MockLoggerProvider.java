@@ -51,7 +51,7 @@ public class MockLoggerProvider implements LogServiceProvider, MockLoggerCleaner
   private final Logger logger;
 
   /**
-   * Create a logger provider with a common mock logger.
+   * Create a logger provider with a default mock logger.
    */
   public MockLoggerProvider() {
     this(mock(Logger.class, "Mock logger"));
