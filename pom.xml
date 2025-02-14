@@ -377,6 +377,7 @@
     <module>bom</module>
     <module>commons-logging</module>
     <module>core</module>
+    <module>elf4j</module>
     <module>jdk-platform-logging</module>
     <module>slf4j</module>
     <module>tinylog-provider</module>

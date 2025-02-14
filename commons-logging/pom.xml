@@ -62,10 +62,6 @@
       <groupId>org.mockito</groupId>
       <scope>provided</scope>
     </dependency>
-    <dependency>
-      <artifactId>mockito-junit-jupiter</artifactId>
-      <groupId>org.mockito</groupId>
-    </dependency>
   </dependencies>
   <description>Mock loggers for Apache Commons Logging backed by Mockito.</description>
   <modelVersion>4.0.0</modelVersion>

@@ -1,0 +1,6 @@
+level, message,trace count,debug count,info count,warning count,error count
+TRACE, test trace message,1,0,0,0,0
+DEBUG, test debug message,0,1,0,0,0
+INFO, test info message,0,0,1,0,0
+WARNING, test warning message,0,0,0,1,0
+ERROR, test error message,0,0,0,0,1
