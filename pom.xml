@@ -112,7 +112,7 @@
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
           <groupId>org.apache.maven.plugins</groupId>
-          <version>3.4.0</version>
+          <version>3.4.1</version>
         </plugin>
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
@@ -123,7 +123,7 @@
             <target>${java.version}</target>
           </configuration>
           <groupId>org.apache.maven.plugins</groupId>
-          <version>3.13.0</version>
+          <version>3.14.0</version>
         </plugin>
         <plugin>
           <artifactId>maven-failsafe-plugin</artifactId>
@@ -377,6 +377,7 @@
     <module>bom</module>
     <module>commons-logging</module>
     <module>core</module>
+    <module>elf4j</module>
     <module>jdk-platform-logging</module>
     <module>slf4j</module>
     <module>tinylog-provider</module>
@@ -448,6 +449,7 @@
           <plugin>
             <artifactId>central-publishing-maven-plugin</artifactId>
             <configuration>
+              <ignorePublishedComponents>true</ignorePublishedComponents>
               <publishingServerId>central</publishingServerId>
             </configuration>
             <extensions>true</extensions>
@@ -542,5 +544,5 @@
     <url>https://github.com/vitalijr2/mock-loggers</url>
   </scm>
   <url>https://github.com/vitalijr2/mock-loggers</url>
-  <version>1.2.0-SNAPSHOT</version>
+  <version>1.2.0</version>
 </project>

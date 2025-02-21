@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 @Tag("fast")
-class MockLoggerServiceProviderTest {
+class MockLoggerServiceProviderFastTest {
 
   private MockLoggerServiceProvider provider;
 
