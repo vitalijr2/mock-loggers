@@ -18,7 +18,7 @@
 * [How to use](#how-to-use)
 
 <!-- Created by https://github.com/ekalinin/github-markdown-toc -->
-<!-- Added by: r2, at: Fri Feb 21 08:39:41 AM EET 2025 -->
+<!-- Added by: r2, at: Fri Feb 21 08:07:44 PM EET 2025 -->
 
 <!--te-->
 
@@ -31,7 +31,7 @@ Just put a test dependency to your POM:
     <artifactId>mock-loggers-elf4j</artifactId>
     <groupId>io.github.vitalijr2.logging</groupId>
     <scope>test</scope>
-    <version>1.1.1</version>
+    <version>1.2.0</version>
 </dependency>
 ```
 
