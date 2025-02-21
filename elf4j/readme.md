@@ -15,6 +15,12 @@
 ## Table of Contents
 
 <!--ts-->
+* [How to use](#how-to-use)
+
+<!-- Created by https://github.com/ekalinin/github-markdown-toc -->
+<!-- Added by: r2, at: Fri Feb 21 08:39:41 AM EET 2025 -->
+
+<!--te-->
 
 ## How to use
 
@@ -32,8 +38,6 @@ Just put a test dependency to your POM:
 The simplest usage example looks like this:
 
 ```java
-import elf4j.Logger;
-
 @Test
 void helloWorld() {
     var helloService = new HelloService();
