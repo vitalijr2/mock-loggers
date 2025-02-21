@@ -1,4 +1,4 @@
-package io.github.vitalijr2.logging.mock.commons;
+package io.github.vitalijr2.logging.mock.elf4j;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.collection.IsIterableContainingInOrder.contains;
@@ -7,10 +7,10 @@ import static org.mockito.Mockito.clearInvocations;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoInteractions;
+import static org.mockito.Mockito.when;
 
+import elf4j.Logger;
 import io.github.vitalijr2.logging.mock.MockLoggerKeeper;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
@@ -20,73 +20,76 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
 @Tag("slow")
-class MockLoggerFactorySlowTest {
+class MockLoggerProviderSlowTest {
 
-  private static Log log;
+  private static Logger logger;
 
   @BeforeAll
-  static void setUpClass() {
-    log = LogFactory.getLog(MockLoggerFactorySlowTest.class);
+  static void beforeAll() {
+    logger = Logger.instance();
   }
 
   @AfterEach
-  void tearDown() {
-    clearInvocations(log);
+  void afterEach() {
+    clearInvocations(logger);
   }
 
   @DisplayName("Test")
   @ParameterizedTest
-  @CsvFileSource(resources = "commons-logging.csv", numLinesToSkip = 1)
+  @CsvFileSource(resources = "elf4j.csv", numLinesToSkip = 1)
   void test(String level, String message, int traceCount, int debugCount, int infoCount, int warningCount,
-      int errorCount, int fatalCount, String logName) {
+      int errorCount) {
     // given
-    verifyNoInteractions(log);
+    verifyNoInteractions(logger);
+    when(logger.atTrace()).thenReturn(logger);
+    when(logger.atDebug()).thenReturn(logger);
+    when(logger.atInfo()).thenReturn(logger);
+    when(logger.atWarn()).thenReturn(logger);
+    when(logger.atError()).thenReturn(logger);
 
     // when
     switch (level) {
       case "TRACE":
-        LogFactory.getLog(logName).trace(message);
+        logger.atTrace().log(message);
         break;
       case "DEBUG":
-        LogFactory.getLog(logName).debug(message);
+        logger.atDebug().log(message);
         break;
       case "INFO":
-        LogFactory.getLog(logName).info(message);
+        logger.atInfo().log(message);
         break;
       case "WARNING":
-        LogFactory.getLog(logName).warn(message);
+        logger.atWarn().log(message);
         break;
       case "ERROR":
-        LogFactory.getLog(logName).error(message);
-        break;
-      case "FATAL":
-        LogFactory.getLog(logName).fatal(message);
+        logger.atError().log(message);
         break;
       default:
         fail("Unknown level");
     }
 
-    // then
-    verify(log, times(traceCount)).trace("test trace message");
-    verify(log, times(debugCount)).debug("test debug message");
-    verify(log, times(infoCount)).info("test info message");
-    verify(log, times(warningCount)).warn("test warning message");
-    verify(log, times(errorCount)).error("test error message");
-    verify(log, times(fatalCount)).fatal("test fatal message");
+    verify(logger, times(traceCount)).log("test trace message");
+    verify(logger, times(debugCount)).log("test debug message");
+    verify(logger, times(infoCount)).log("test info message");
+    verify(logger, times(warningCount)).log("test warning message");
+    verify(logger, times(errorCount)).log("test error message");
   }
 
   @DisplayName("Clean and reset mock loggers")
   @Test
   void cleanAndResetMockLoggers() {
+    // given
+    when(logger.atInfo()).thenReturn(logger);
+
     // when
-    log.info("test message");
+    logger.atInfo().log("test message");
 
     var names = MockLoggerKeeper.getInstance().cleanAndReset();
 
     // then
-    assertThat(names, contains(MockLoggerFactorySlowTest.class.getName()));
+    assertThat(names, contains("default"));
 
-    verifyNoInteractions(log);
+    verifyNoInteractions(logger);
   }
 
 }

@@ -1,5 +1,7 @@
 package io.github.vitalijr2.logging.mock.platform;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.collection.IsIterableContainingInOrder.contains;
 import static org.mockito.Mockito.clearInvocations;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoInteractions;
@@ -48,14 +50,14 @@ class MockLoggerFinderSlowTest {
   @Test
   void cleanAndResetMockLoggers() {
     // when
-    var loggerFinder = new MockLoggerFinder();
+    logger.log(Level.INFO, "test message");
 
-    loggerFinder.getLogger("test", null).log(Level.INFO, "test message");
-
-    MockLoggerKeeper.getInstance().cleanAndReset();
+    var names = MockLoggerKeeper.getInstance().cleanAndReset();
 
     // then
-    verifyNoInteractions(loggerFinder.getLogger("test", null));
+    assertThat(names, contains("test"));
+
+    verifyNoInteractions(logger);
   }
 
 }
