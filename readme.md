@@ -26,7 +26,7 @@ Different logging services can be tested using mock loggers backed by [Mockito][
 * [License](#license)
 
 <!-- Created by https://github.com/ekalinin/github-markdown-toc -->
-<!-- Added by: r2, at: Sun Feb  9 09:27:54 PM EET 2025 -->
+<!-- Added by: r2, at: Fri Feb 21 08:07:42 PM EET 2025 -->
 
 <!--te-->
 
