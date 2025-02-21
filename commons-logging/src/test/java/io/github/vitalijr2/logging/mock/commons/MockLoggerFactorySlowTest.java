@@ -1,5 +1,7 @@
 package io.github.vitalijr2.logging.mock.commons;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.collection.IsIterableContainingInOrder.contains;
 import static org.junit.jupiter.api.Assertions.fail;
 import static org.mockito.Mockito.clearInvocations;
 import static org.mockito.Mockito.times;
@@ -77,14 +79,14 @@ class MockLoggerFactorySlowTest {
   @Test
   void cleanAndResetMockLoggers() {
     // when
-    var loggerFactory = new MockLoggerFactory();
+    log.info("test message");
 
-    loggerFactory.getInstance("test").info("test message");
-
-    MockLoggerKeeper.getInstance().cleanAndReset();
+    var names = MockLoggerKeeper.getInstance().cleanAndReset();
 
     // then
-    verifyNoInteractions(loggerFactory.getInstance("test"));
+    assertThat(names, contains(MockLoggerFactorySlowTest.class.getName()));
+
+    verifyNoInteractions(log);
   }
 
 }
