@@ -46,11 +46,12 @@ void helloWorld() {
 ```
 
 Now this library implements services for [JDK Platform Logging][jdk-logging],
-[Apache Commons Logging][commons-logging], [SLF4J][slf4j] and [tinylog][].
+[Apache Commons Logging][commons-logging], [elf4j][], [SLF4J][slf4j] and [tinylog][].
 
 See more examples in the relevant modules of this project:
 
 * for Apache Commons Logging in [mock-loggers-commons-logging](commons-logging)
+* for elf4j in [mock-loggers-elf4j](elf4j)
 * for JDK Platform Logging in [mock-loggers-jdk-platform-logging](jdk-platform-logging)
 * for SLF4J in [mock-loggers-slf4j](slf4j)
 * for tinylog in [mock-loggers-tinylog-writer](tinylog-writer) and [mock-loggers-tinylog-provider](tinylog-provider)
@@ -99,11 +100,13 @@ See full text [here](LICENSE "the LICENSE file").
 
 [jdk-logging]: https://www.baeldung.com/java-9-logging-api "Java Platform Logging API"
 
-[commons-logging]: https://commons.apache.org/proper/commons-logging/
+[commons-logging]: https://commons.apache.org/proper/commons-logging/ "Apache Commons Logging"
 
-[slf4j]: https://www.slf4j.org/
+[elf4j]: https://github.com/elf4j "Easy Logging Facade for Java"
 
-[tinylog]: https://tinylog.org/v2/
+[slf4j]: https://www.slf4j.org/ "Simple Logging Facade for Java"
+
+[tinylog]: https://tinylog.org/v2/ "The lightweight logging framework"
 
 [java-version]: https://img.shields.io/static/v1?label=Java&message=11&color=blue&logoColor=E23D28
 
