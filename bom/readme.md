@@ -36,7 +36,7 @@ Just put a test dependency to your POM:
             <groupId>io.github.vitalijr2.logging</groupId>
             <scope>import</scope>
             <type>pom</type>
-            <version>1.2.0</version>
+            <version>1.2.1</version>
         </dependency>
     </dependencies>
 </dependencyManagement>
