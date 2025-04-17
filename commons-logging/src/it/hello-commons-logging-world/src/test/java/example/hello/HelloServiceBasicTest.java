@@ -14,12 +14,14 @@ class HelloServiceBasicTest {
   @DisplayName("Hello world")
   @Test
   void helloWorld() {
-    var actualLog = LogFactory.getLog(HelloService.class);
+    var mockLog = LogFactory.getLog(HelloService.class);
     var helloService = new HelloService();
 
-    when(actualLog.isInfoEnabled()).thenReturn(true);
+    when(mockLog.isInfoEnabled()).thenReturn(true);
 
     assertDoesNotThrow(helloService::sayHelloWorld);
+
+    var actualLog = LogFactory.getLog(helloService.getClass());
 
     verify(actualLog).isInfoEnabled();
     verify(actualLog).info("Hello World!");
