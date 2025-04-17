@@ -5,6 +5,8 @@ import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isNull;
+import static org.mockito.Mockito.clearInvocations;
+import static org.mockito.Mockito.reset;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -17,18 +19,20 @@ import org.tinylog.provider.LoggingProvider;
 class HelloServiceBasicTest {
 
   @MockTinylogProvider
-  private static LoggingProvider logger;
+  private static LoggingProvider mockLog;
 
   @DisplayName("Hello world")
   @Test
   void helloWorld() {
-    when(logger.getMinimumLevel(isNull())).thenReturn(Level.INFO);
+    reset(mockLog);
+    clearInvocations(mockLog);
+    when(mockLog.getMinimumLevel(isNull())).thenReturn(Level.INFO);
 
     var helloService = new HelloService();
 
     assertDoesNotThrow(helloService::sayHelloWorld);
 
-    verify(logger).log(anyInt(), isNull(), eq(Level.INFO), isNull(), isNull(), anyString(), isNull());
+    verify(mockLog).log(anyInt(), isNull(), eq(Level.INFO), isNull(), isNull(), anyString(), isNull());
   }
 
 }

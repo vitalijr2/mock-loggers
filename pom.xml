@@ -169,6 +169,11 @@
               <pomInclude>*/pom.xml</pomInclude>
             </pomIncludes>
             <postBuildHookScript>verify</postBuildHookScript>
+            <properties>
+              <java.version>${java.version}</java.version>
+              <junit.version>${junit.version}</junit.version>
+              <mockito.version>${mockito.version}</mockito.version>
+            </properties>
             <settingsFile>src/it/settings.xml</settingsFile>
           </configuration>
           <executions>
