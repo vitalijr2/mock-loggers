@@ -457,7 +457,7 @@
           <plugin>
             <artifactId>central-publishing-maven-plugin</artifactId>
             <configuration>
-              <deploymentName>${project.name}</deploymentName>
+              <deploymentName>Mock Loggers</deploymentName>
               <ignorePublishedComponents>true</ignorePublishedComponents>
               <publishingServerId>central</publishingServerId>
             </configuration>
