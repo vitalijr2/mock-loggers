@@ -1,6 +1,8 @@
 package example.hello;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.mockito.Mockito.clearInvocations;
+import static org.mockito.Mockito.reset;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
@@ -15,9 +17,11 @@ class HelloServiceBasicTest {
   @Test
   void helloWorld() {
     var helloService = new HelloService();
-    var logger = Logger.instance();
+    var mockLog = Logger.instance();
 
-    when(Logger.instance().atInfo()).thenReturn(logger);
+    reset(mockLog);
+    clearInvocations(mockLog);
+    when(Logger.instance().atInfo()).thenReturn(mockLog);
 
     assertDoesNotThrow(helloService::sayHelloWorld);
 

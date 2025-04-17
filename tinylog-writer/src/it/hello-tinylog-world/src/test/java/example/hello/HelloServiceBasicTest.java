@@ -2,6 +2,8 @@ package example.hello;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.mockito.ArgumentMatchers.isA;
+import static org.mockito.Mockito.clearInvocations;
+import static org.mockito.Mockito.reset;
 import static org.mockito.Mockito.verify;
 
 import io.github.vitalijr2.logging.mock.tinylog.MockTinylogWriter;
@@ -13,16 +15,19 @@ import org.tinylog.writers.Writer;
 class HelloServiceBasicTest {
 
   @MockTinylogWriter
-  private static Writer writer;
+  private static Writer mockWriter;
 
   @DisplayName("Hello world")
   @Test
   void helloWorld() throws Exception {
+    reset(mockWriter);
+    clearInvocations(mockWriter);
+
     var helloService = new HelloService();
 
     assertDoesNotThrow(helloService::sayHelloWorld);
 
-    verify(writer).write(isA(LogEntry.class));
+    verify(mockWriter).write(isA(LogEntry.class));
   }
 
 }
