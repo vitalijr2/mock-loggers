@@ -32,9 +32,11 @@ jobs:
           path: |
             commons-logging/target
             core/target
+            elf4j/target
             jdk-platform-logging/target
             slf4j/target
             tinylog-provider/target
+            tinylog-writer/target
           retention-days: 1
   codacy-security-scan:
     name: Codacy Security Scan
