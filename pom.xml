@@ -157,6 +157,9 @@
           <artifactId>maven-invoker-plugin</artifactId>
           <configuration>
             <cloneProjectsTo>${project.build.directory}/it</cloneProjectsTo>
+            <extraArtifacts>
+              <extraArtifact>${project.groupId}:mock-loggers-bom:${project.version}:pom</extraArtifact>
+            </extraArtifacts>
             <goals>
               <goal>clean</goal>
               <goal>verify</goal>
