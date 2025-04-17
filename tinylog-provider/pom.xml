@@ -116,6 +116,11 @@
         <plugins>
           <plugin>
             <artifactId>maven-invoker-plugin</artifactId>
+            <configuration>
+              <properties>
+                <tinylog.version>${tinylog.version}</tinylog.version>
+              </properties>
+            </configuration>
             <groupId>org.apache.maven.plugins</groupId>
           </plugin>
         </plugins>
