@@ -107,7 +107,7 @@
             </execution>
           </executions>
           <groupId>org.jacoco</groupId>
-          <version>0.8.12</version>
+          <version>0.8.13</version>
         </plugin>
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
@@ -146,7 +146,7 @@
             </execution>
           </executions>
           <groupId>org.apache.maven.plugins</groupId>
-          <version>3.5.2</version>
+          <version>3.5.3</version>
         </plugin>
         <plugin>
           <artifactId>maven-install-plugin</artifactId>
@@ -244,7 +244,7 @@
             </properties>
           </configuration>
           <groupId>org.apache.maven.plugins</groupId>
-          <version>3.5.2</version>
+          <version>3.5.3</version>
         </plugin>
         <plugin>
           <artifactId>semver-maven-plugin</artifactId>
@@ -535,8 +535,8 @@
   <properties>
     <java.version>11</java.version>
     <javadoc-plugin.version>3.11.2</javadoc-plugin.version>
-    <junit.version>5.12.1</junit.version>
-    <mockito.version>5.16.1</mockito.version>
+    <junit.version>5.12.2</junit.version>
+    <mockito.version>5.17.0</mockito.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <scm>
@@ -545,5 +545,5 @@
     <url>https://github.com/vitalijr2/mock-loggers</url>
   </scm>
   <url>https://github.com/vitalijr2/mock-loggers</url>
-  <version>1.2.1</version>
+  <version>1.2.2</version>
 </project>

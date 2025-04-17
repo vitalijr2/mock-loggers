@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.2.2 - 2025-04-17
+
+### Changed
+
+#### Updated dependencies
+
+- Bump Mockito to 5.17.0
+- Bump jUnit to 5.12.2
+
+#### Updated development dependencies
+
+- Bump org.apache.maven.plugins:maven-failsafe-plugin to 3.5.3
+- Bump org.apache.maven.plugins:maven-surefire-plugin to 3.5.3
+- Bump org.jacoco:jacoco-maven-plugin to 0.8.13
+
 ## 1.2.1 - 2025-03-26
 
 ### Changed
