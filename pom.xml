@@ -268,6 +268,10 @@
     </pluginManagement>
     <plugins>
       <plugin>
+        <artifactId>flatten-maven-plugin</artifactId>
+        <groupId>org.codehaus.mojo</groupId>
+      </plugin>
+      <plugin>
         <artifactId>maven-enforcer-plugin</artifactId>
         <configuration>
           <rules>
@@ -296,10 +300,6 @@
         </executions>
         <groupId>org.apache.maven.plugins</groupId>
         <version>3.5.0</version>
-      </plugin>
-      <plugin>
-        <artifactId>flatten-maven-plugin</artifactId>
-        <groupId>org.codehaus.mojo</groupId>
       </plugin>
     </plugins>
   </build>
@@ -553,5 +553,5 @@
     <url>https://github.com/vitalijr2/mock-loggers</url>
   </scm>
   <url>https://github.com/vitalijr2/mock-loggers</url>
-  <version>1.2.2</version>
+  <version>1.2.4-SNAPSHOT</version>
 </project>
