@@ -169,7 +169,7 @@ See more details at [HelloServiceAnnotationTest.java](src/it/hello-elf4j-world/s
 
 [elf4j-version]: https://img.shields.io/static/v1?label=elf4j&message=4.1.0&color=blue&logoColor=E23D28
 
-[mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.15.2&color=blue&logoColor=E23D28
+[mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.18.0&color=blue&logoColor=E23D28
 
 [maven-central-last-update]: https://img.shields.io/maven-central/last-update/io.github.vitalijr2.logging/mock-loggers-elf4j
 
