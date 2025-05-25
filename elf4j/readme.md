@@ -167,7 +167,7 @@ See more details at [HelloServiceAnnotationTest.java](src/it/hello-elf4j-world/s
 
 [jdk-download]: https://www.oracle.com/java/technologies/downloads/#java11
 
-[elf4j-version]: https://img.shields.io/static/v1?label=elf4j&message=4.1.0&color=blue&logoColor=E23D28
+[elf4j-version]: https://img.shields.io/static/v1?label=elf4j&message=4.2.0&color=blue&logoColor=E23D28
 
 [mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.18.0&color=blue&logoColor=E23D28
 
