@@ -256,6 +256,9 @@
         </plugin>
         <plugin>
           <artifactId>semver-maven-plugin</artifactId>
+          <configuration>
+            <processModule>true</processModule>
+          </configuration>
           <groupId>io.github.q3769</groupId>
           <version>20240116.0.202411140438</version>
         </plugin>
@@ -405,7 +408,7 @@
                   <configuration>
                     <addJavaLicenseAfterPackage>false</addJavaLicenseAfterPackage>
                     <excludeTransitiveDependencies>true</excludeTransitiveDependencies>
-                    <excludedGroups>io\.github\.vitalijr2\.logging</excludedGroups>
+                    <excludedGroups>^io\.github\.vitalijr2</excludedGroups>
                     <excludedScopes>test</excludedScopes>
                     <excludes>
                       <exclude>**/package-info.java</exclude>

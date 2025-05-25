@@ -23,19 +23,8 @@ jobs:
         env:
           SIGN_KEY: ${{ secrets.SIGN_KEY }}
           SIGN_KEY_PASS: ${{ secrets.SIGN_KEY_PASS }}
+          SONATYPE_TOKEN_PASSWORD: ${{ secrets.SONATYPE_TOKEN_PASSWORD }}
+          SONATYPE_TOKEN_USERNAME: ${{ secrets.SONATYPE_TOKEN_USERNAME }}
         run: |
           ./mvnw --batch-mode -s .mvn/ci_settings.xml -ntp -DskipTests -DskipPublishing -Dinvoker.streamLogsOnFailures -Prun-its,release
           ./mvnw license:check-file-header -Dlicense.failOnMissingHeader=true -Pprepare-and-check
-      - name: Logs for integration tests
-        uses: actions/upload-artifact@v4
-        with:
-          name: 'it-logs'
-          compression-level: '6'
-          path: |
-            commons-logging/target/it/**/build.log
-            elf4j/target/it/**/build.log
-            jdk-platform-logging/target/it/**/build.log
-            slf4j/target/it/**/build.log
-            tinylog-provider/target/it/**/build.log
-            tinylog-writer/target/it/**/build.log
-          retention-days: 1
