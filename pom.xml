@@ -256,6 +256,9 @@
         </plugin>
         <plugin>
           <artifactId>semver-maven-plugin</artifactId>
+          <configuration>
+            <processModule>true</processModule>
+          </configuration>
           <groupId>io.github.q3769</groupId>
           <version>20240116.0.202411140438</version>
         </plugin>
@@ -267,6 +270,10 @@
       </plugins>
     </pluginManagement>
     <plugins>
+      <plugin>
+        <artifactId>flatten-maven-plugin</artifactId>
+        <groupId>org.codehaus.mojo</groupId>
+      </plugin>
       <plugin>
         <artifactId>maven-enforcer-plugin</artifactId>
         <configuration>
@@ -296,10 +303,6 @@
         </executions>
         <groupId>org.apache.maven.plugins</groupId>
         <version>3.5.0</version>
-      </plugin>
-      <plugin>
-        <artifactId>flatten-maven-plugin</artifactId>
-        <groupId>org.codehaus.mojo</groupId>
       </plugin>
     </plugins>
   </build>
@@ -405,7 +408,7 @@
                   <configuration>
                     <addJavaLicenseAfterPackage>false</addJavaLicenseAfterPackage>
                     <excludeTransitiveDependencies>true</excludeTransitiveDependencies>
-                    <excludedGroups>io\.github\.vitalijr2\.logging</excludedGroups>
+                    <excludedGroups>^io\.github\.vitalijr2</excludedGroups>
                     <excludedScopes>test</excludedScopes>
                     <excludes>
                       <exclude>**/package-info.java</exclude>
@@ -457,7 +460,7 @@
           <plugin>
             <artifactId>central-publishing-maven-plugin</artifactId>
             <configuration>
-              <deploymentName>${project.name}</deploymentName>
+              <deploymentName>Mock Loggers</deploymentName>
               <ignorePublishedComponents>true</ignorePublishedComponents>
               <publishingServerId>central</publishingServerId>
             </configuration>
@@ -544,7 +547,7 @@
     <java.version>11</java.version>
     <javadoc-plugin.version>3.11.2</javadoc-plugin.version>
     <junit.version>5.12.2</junit.version>
-    <mockito.version>5.17.0</mockito.version>
+    <mockito.version>5.18.0</mockito.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <scm>
@@ -553,5 +556,5 @@
     <url>https://github.com/vitalijr2/mock-loggers</url>
   </scm>
   <url>https://github.com/vitalijr2/mock-loggers</url>
-  <version>1.2.2</version>
+  <version>1.2.3</version>
 </project>
