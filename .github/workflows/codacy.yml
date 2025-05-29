@@ -80,16 +80,12 @@ jobs:
     name: Codacy Analyze
     needs: build
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [ 22.x ]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Run Codacy CLI
-        uses: codacy/codacy-cli-v2-action@main
+        uses: codacy/codacy-cli-v2-action@0.2.0
         with:
           project_token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-          sarif_file_path: results.sarif
           tool: eslint
           upload_report: true
