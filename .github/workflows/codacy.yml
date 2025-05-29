@@ -86,6 +86,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+      - name: Setup Java JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '11'
       - name: Run Codacy CLI
         uses: codacy/codacy-cli-v2-action@main
         with:
