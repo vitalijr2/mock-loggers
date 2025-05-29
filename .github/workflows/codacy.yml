@@ -90,7 +90,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
-          java-version: '11'
+          java-version: '17'
       - name: Run Codacy CLI
         uses: codacy/codacy-cli-v2-action@main
         with:
