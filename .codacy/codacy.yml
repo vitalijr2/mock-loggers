@@ -1,4 +1,8 @@
 runtimes:
   - node@22.2.0
+  - java@11.0.27
 tools:
   - eslint@8.57.0
+  - pmd@6.55.0
+  - semgrep@1.78.0
+  - trivy@0.59.1
