@@ -96,4 +96,5 @@ jobs:
         with:
           project_token: ${{ secrets.CODACY_PROJECT_TOKEN }}
           sarif_file_path: results.sarif
+          tool: eslint
           upload_report: true
