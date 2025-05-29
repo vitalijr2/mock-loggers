@@ -90,6 +90,5 @@ jobs:
         uses: codacy/codacy-cli-v2-action@main
         with:
           project_token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-          tool: eslint
           sarif_file_path: results.sarif
           upload_report: true
