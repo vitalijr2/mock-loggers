@@ -76,3 +76,27 @@ jobs:
         with:
           coverage-reports: commons-logging/target/site/jacoco/jacoco.xml,core/target/site/jacoco/jacoco.xml,elf4j/target/site/jacoco/jacoco.xml,jdk-platform-logging/target/site/jacoco/jacoco.xml,slf4j/target/site/jacoco/jacoco.xml,tinylog-provider/target/site/jacoco/jacoco.xml,tinylog-writer/target/site/jacoco/jacoco.xml
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+  codacy-cli-v2:
+    name: Codacy Analyze
+    needs: build
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 22.x ]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm install
+      - name: Run Codacy CLI
+        uses: codacy/codacy-cli-v2-action@main
+        with:
+          project_token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          tool: eslint
+          sarif_file_path: results.sarif
+          upload_report: true
