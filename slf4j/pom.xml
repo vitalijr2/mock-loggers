@@ -18,6 +18,15 @@
         <groupId>org.apache.maven.plugins</groupId>
       </plugin>
       <plugin>
+        <artifactId>maven-invoker-plugin</artifactId>
+        <configuration>
+          <properties>
+            <slf4j.version>${slf4j.version}</slf4j.version>
+          </properties>
+        </configuration>
+        <groupId>org.apache.maven.plugins</groupId>
+      </plugin>
+      <plugin>
         <artifactId>maven-jar-plugin</artifactId>
         <configuration>
           <archive>
