@@ -84,7 +84,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Run Codacy CLI
-        uses: codacy/codacy-cli-v2-action@0.2.0
+        uses: codacy/codacy-cli-v2-action@be2c794209715d99f18b58fce771b3ecbe1cff96
         with:
           project_token: ${{ secrets.CODACY_PROJECT_TOKEN }}
           tool: eslint
