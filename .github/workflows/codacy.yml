@@ -76,3 +76,16 @@ jobs:
         with:
           coverage-reports: commons-logging/target/site/jacoco/jacoco.xml,core/target/site/jacoco/jacoco.xml,elf4j/target/site/jacoco/jacoco.xml,jdk-platform-logging/target/site/jacoco/jacoco.xml,slf4j/target/site/jacoco/jacoco.xml,tinylog-provider/target/site/jacoco/jacoco.xml,tinylog-writer/target/site/jacoco/jacoco.xml
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+  codacy-cli-v2:
+    name: Codacy Analyze
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Run Codacy CLI
+        uses: codacy/codacy-cli-v2-action@be2c794209715d99f18b58fce771b3ecbe1cff96
+        with:
+          project_token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          tool: eslint
+          upload_report: true
