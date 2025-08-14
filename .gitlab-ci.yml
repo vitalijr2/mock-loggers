@@ -1,0 +1,21 @@
+image: maven:3-openjdk-11
+
+cache:
+  paths:
+    - .m2/repository
+
+verify:development:
+  stage: test
+  script:
+    - './mvnw verify'
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      when: never
+
+verify:default:
+  stage: test
+  script:
+    - './mvnw clean verify'
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      when: always
