@@ -1,21 +1,40 @@
 image: maven:3-openjdk-11
 
 cache:
+  key: maven-cache
   paths:
     - .m2/repository
+
+variables:
+  MAVEN_CLI_OPTS: >-
+    -Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository
 
 verify:development:
   stage: test
   script:
-    - './mvnw verify'
+    - './mvnw $MAVEN_CLI_OPTS verify'
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
       when: never
+    - when: always
+  artifacts:
+    expire_in: 1 week
+    reports:
+      coverage_report:
+        coverage_format: jacoco
+        path: "**/jacoco.xml"
 
 verify:default:
   stage: test
   script:
-    - './mvnw clean verify'
+    - './mvnw $MAVEN_CLI_OPTS clean verify'
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
       when: always
+    - when: never
+  artifacts:
+    expire_in: 1 year
+    reports:
+      coverage_report:
+        coverage_format: jacoco
+        path: "**/jacoco.xml"
