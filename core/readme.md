@@ -16,7 +16,7 @@ and sends alerts before and after tests.
 
 [jdk-download]: https://www.oracle.com/java/technologies/downloads/#java11
 
-[junit-version]: https://img.shields.io/static/v1?label=jUnit&message=5.13.0&color=blue&logo=junit5&logoColor=E23D28
+[junit-version]: https://img.shields.io/static/v1?label=jUnit&message=5.13.4&color=blue&logo=junit5&logoColor=E23D28
 
 [maven-central-last-update]: https://img.shields.io/maven-central/last-update/io.github.vitalijr2.logging/mock-loggers-core
 
