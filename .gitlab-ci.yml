@@ -13,28 +13,36 @@ verify:development:
   stage: test
   script:
     - './mvnw $MAVEN_CLI_OPTS verify'
+    - awk -F"," '{ instructions += $4 + $5; covered += $5 } END { print covered, "/", instructions, "instructions covered"; print 100*covered/instructions, "% covered" }' `find . -name jacoco.csv -print`
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
       when: never
     - when: always
+  coverage: '/(\d+\.?\d*) \% covered/'
   artifacts:
     expire_in: 1 week
     reports:
       coverage_report:
         coverage_format: jacoco
-        path: "**/jacoco.xml"
+        path: reports/target/site/jacoco-aggregate/jacoco.xml
+      junit:
+        - '**/TEST-io.github.vitalijr2.logging.mock.*.xml'
 
 verify:default:
   stage: test
   script:
     - './mvnw $MAVEN_CLI_OPTS clean verify'
+    - awk -F"," '{ instructions += $4 + $5; covered += $5 } END { print covered, "/", instructions, "instructions covered"; print 100*covered/instructions, "% covered" }' `find . -name jacoco.csv -print`
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
       when: always
     - when: never
+  coverage: '/(\d+\.?\d*) \% covered/'
   artifacts:
     expire_in: 1 year
     reports:
       coverage_report:
         coverage_format: jacoco
-        path: "**/jacoco.xml"
+        path: reports/target/site/jacoco-aggregate/jacoco.xml
+      junit:
+        - '**/TEST-io.github.vitalijr2.logging.mock.*.xml'
