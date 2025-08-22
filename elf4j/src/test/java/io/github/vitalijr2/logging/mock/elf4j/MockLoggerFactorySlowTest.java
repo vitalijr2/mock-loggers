@@ -20,7 +20,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
 @Tag("slow")
-class MockLoggerProviderSlowTest {
+class MockLoggerFactorySlowTest {
 
   private static Logger logger;
 

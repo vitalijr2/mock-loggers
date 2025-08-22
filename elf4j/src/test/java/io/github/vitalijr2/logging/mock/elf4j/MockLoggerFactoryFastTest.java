@@ -15,7 +15,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 @Tag("fast")
 @ExtendWith(MockitoExtension.class)
-class MockLoggerProviderFastTest {
+class MockLoggerFactoryFastTest {
 
   @Mock
   private Logger logger;
@@ -24,19 +24,19 @@ class MockLoggerProviderFastTest {
   @Test
   void createAndInitializeProvider() {
     // given
-    var provider = new MockLoggerProvider(logger);
+    var factory = new MockLoggerFactory(logger);
 
     // when and then
-    assertEquals(logger, provider.logger());
+    assertEquals(logger, factory.getLogger());
   }
 
   @DisplayName("Clean and reset the logger")
   @Test
   void cleanAndResetTheLogger() {
     // given
-    var provider = new MockLoggerProvider(logger);
+    var provider = new MockLoggerFactory(logger);
 
-    provider.logger().log("Test message");
+    provider.getLogger().log("Test message");
 
     // when
     var loggerNames = provider.cleanAndReset();
