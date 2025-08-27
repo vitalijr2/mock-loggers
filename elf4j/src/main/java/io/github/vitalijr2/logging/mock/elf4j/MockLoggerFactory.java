@@ -24,9 +24,10 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.reset;
 
 import elf4j.Logger;
-import elf4j.spi.LogServiceProvider;
+import elf4j.spi.LoggerFactory;
 import io.github.vitalijr2.logging.mock.MockLoggerCleaner;
 import java.util.List;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.VisibleForTesting;
 
 /**
@@ -46,19 +47,19 @@ import org.jetbrains.annotations.VisibleForTesting;
  *
  * @since 1.2.0
  */
-public class MockLoggerProvider implements LogServiceProvider, MockLoggerCleaner {
+public class MockLoggerFactory implements LoggerFactory, MockLoggerCleaner {
 
   private final Logger logger;
 
   /**
    * Create a logger provider with a default mock logger.
    */
-  public MockLoggerProvider() {
+  public MockLoggerFactory() {
     this(mock(Logger.class, "Mock logger"));
   }
 
   @VisibleForTesting
-  MockLoggerProvider(Logger logger) {
+  MockLoggerFactory(Logger logger) {
     this.logger = logger;
     subscribeToNotifications();
   }
@@ -76,7 +77,7 @@ public class MockLoggerProvider implements LogServiceProvider, MockLoggerCleaner
    * @return mock logger
    */
   @Override
-  public Logger logger() {
+  public @NotNull Logger getLogger() {
     return logger;
   }
 
