@@ -120,6 +120,11 @@
         <plugins>
           <plugin>
             <artifactId>maven-invoker-plugin</artifactId>
+            <configuration>
+              <properties>
+                <elf4j.version>${elf4j.version}</elf4j.version>
+              </properties>
+            </configuration>
             <groupId>org.apache.maven.plugins</groupId>
           </plugin>
         </plugins>
