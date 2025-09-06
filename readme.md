@@ -9,7 +9,7 @@ Different logging services can be tested using mock loggers backed by [Mockito][
 ![jUnit Version][junit-version]
 ![Mockito Version][mockito-version]
 [![License][license-badge]][license-link]  
-[![GitLab master pipeline][gitlab-master-master-pipeline]][gitlab-master-master-pipeline-link]
+[![GitLab master pipeline][gitlab-master-pipeline]][gitlab-master-pipeline-link]
 [![Codacy Badge][codacy-badge]][codacy-badge-link]
 [![Codacy Coverage][codacy-coverage]][codacy-coverage-link]
 ![GitLab last commit][gitlab-last-commit]
@@ -116,9 +116,9 @@ See full text [here](LICENSE "the LICENSE file").
 
 [mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.19.0&color=blue&logoColor=E23D28
 
-[gitlab-master-master-pipeline]: https://img.shields.io/gitlab/pipeline-status/vitalijr2/mock-loggers?branch=master
+[gitlab-master-pipeline]: https://gitlab.com/vitalijr2/mock-loggers/badges/master/pipeline.svg
 
-[gitlab-master-master-pipeline-link]: https://gitlab.com/vitalijr2/mock-loggers/-/pipelines?page=1&scope=branches&ref=master
+[gitlab-master-pipeline-link]: https://gitlab.com/vitalijr2/mock-loggers/-/commits/master
 
 [codacy-badge]: https://app.codacy.com/project/badge/Grade/924ce8a8d86644ec86c1749afa81f3c2
 
