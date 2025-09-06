@@ -120,13 +120,13 @@ See full text [here](LICENSE "the LICENSE file").
 
 [github-master-check-runs-link]: https://github.com/vitalijr2/mock-loggers/actions?query=branch%3Amaster
 
-[codacy-badge]: https://app.codacy.com/project/badge/Grade/3c0345d6db684e388deb3357362526c0
+[codacy-badge]: https://app.codacy.com/project/badge/Grade/924ce8a8d86644ec86c1749afa81f3c2
 
-[codacy-badge-link]: https://app.codacy.com/gh/vitalijr2/mock-loggers/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade
+[codacy-badge-link]: https://app.codacy.com/gl/vitalijr2/mock-loggers/dashboard?utm_source=gl&utm_medium=referral&utm_content=&utm_campaign=Badge_grade
 
-[codacy-coverage]: https://app.codacy.com/project/badge/Coverage/3c0345d6db684e388deb3357362526c0
+[codacy-coverage]: https://app.codacy.com/project/badge/Coverage/924ce8a8d86644ec86c1749afa81f3c2
 
-[codacy-coverage-link]: https://app.codacy.com/gh/vitalijr2/mock-loggers/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage
+[codacy-coverage-link]: https://app.codacy.com/gl/vitalijr2/mock-loggers/dashboard?utm_source=gl&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage
 
 [github-commit-activity]: https://img.shields.io/github/commit-activity/y/vitalijr2/mock-loggers
 
