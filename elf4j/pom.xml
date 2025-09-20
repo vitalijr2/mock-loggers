@@ -133,7 +133,7 @@
     </profile>
   </profiles>
   <properties>
-    <elf4j.version>6.0.2</elf4j.version>
+    <elf4j.version>7.0.0</elf4j.version>
   </properties>
   <version>1.2.5</version>
 </project>
