@@ -307,8 +307,8 @@
     </plugins>
   </build>
   <ciManagement>
-    <system>GitHub Actions</system>
-    <url>https://github.com/vitalijr2/mock-loggers/actions</url>
+    <system>GitLab Pipelines</system>
+    <url>https://gitlab.com/vitalijr2/mock-loggers/-/pipelines</url>
   </ciManagement>
   <dependencyManagement>
     <dependencies>
@@ -366,14 +366,14 @@
       <id>vitalijr2</id>
       <name>Vitalij Berdinskih</name>
       <timezone>Europe/Kyiv</timezone>
-      <url>https://github.com/vitalijr2</url>
+      <url>https://gitlab.com/vitalijr2</url>
     </developer>
   </developers>
   <groupId>io.github.vitalijr2.logging</groupId>
   <inceptionYear>2024</inceptionYear>
   <issueManagement>
-    <system>GitHub Issues</system>
-    <url>https://github.com/vitalijr2/mock-loggers/issues</url>
+    <system>GitLab Issues</system>
+    <url>https://gitlab.com/vitalijr2/mock-loggers/-/issues</url>
   </issueManagement>
   <licenses>
     <license>
@@ -551,10 +551,10 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <scm>
-    <connection>scm:git:https://github.com/vitalijr2/mock-loggers.git</connection>
-    <developerConnection>scm:git:git@github.com:vitalijr2/mock-loggers.git</developerConnection>
-    <url>https://github.com/vitalijr2/mock-loggers</url>
+    <connection>scm:git:https://gitlab.com/vitalijr2/mock-loggers.git</connection>
+    <developerConnection>scm:git:git@gitlab.com:vitalijr2/mock-loggers.git</developerConnection>
+    <url>https://gitlab.com/vitalijr2/mock-loggers</url>
   </scm>
-  <url>https://github.com/vitalijr2/mock-loggers</url>
-  <version>1.2.5</version>
+  <url>https://gitlab.com/vitalijr2/mock-loggers</url>
+  <version>1.3.0-SNAPSHOT</version>
 </project>
