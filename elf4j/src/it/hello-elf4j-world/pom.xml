@@ -13,12 +13,12 @@
           <target>${java.version}</target>
         </configuration>
         <groupId>org.apache.maven.plugins</groupId>
-        <version>3.13.0</version>
+        <version>${compiler-plugin.version}</version>
       </plugin>
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
         <groupId>org.apache.maven.plugins</groupId>
-        <version>3.5.2</version>
+        <version>${surefire-plugin.version}</version>
       </plugin>
     </plugins>
   </build>

@@ -58,7 +58,7 @@
       <scope>provided</scope>
     </dependency>
   </dependencies>
-  <description>Mock loggers for JDK Platform Logging backed by Mockito.</description>
+  <description>A Mockito-based mock logger implementation for testing with JDK Platform Logging.</description>
   <modelVersion>4.0.0</modelVersion>
   <name>Mock loggers for JDK Platform Logging</name>
   <parent>

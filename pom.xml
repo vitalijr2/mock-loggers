@@ -126,6 +126,11 @@
           <version>3.14.0</version>
         </plugin>
         <plugin>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <groupId>org.apache.maven.plugins</groupId>
+          <version>3.8.1</version>
+        </plugin>
+        <plugin>
           <artifactId>maven-failsafe-plugin</artifactId>
           <configuration>
             <forkCount>1</forkCount>
@@ -170,9 +175,12 @@
             </pomIncludes>
             <postBuildHookScript>verify</postBuildHookScript>
             <properties>
+              <compiler-plugin.version>${compiler-plugin.version}</compiler-plugin.version>
+              <dependency-plugin.version>${dependency-plugin.version}</dependency-plugin.version>
               <java.version>${java.version}</java.version>
               <junit.version>${junit.version}</junit.version>
               <mockito.version>${mockito.version}</mockito.version>
+              <surefire-plugin.version>${surefire-plugin.version}</surefire-plugin.version>
             </properties>
             <settingsFile>src/it/settings.xml</settingsFile>
           </configuration>
@@ -252,7 +260,7 @@
             </properties>
           </configuration>
           <groupId>org.apache.maven.plugins</groupId>
-          <version>3.5.4</version>
+          <version>${surefire-plugin.version}</version>
         </plugin>
         <plugin>
           <artifactId>semver-maven-plugin</artifactId>
@@ -357,8 +365,9 @@
     </dependencies>
   </dependencyManagement>
   <description>
-    Different logging services with mock loggers backed by Mockito.
-    Now this library implements JDK Platform Logging and Apache Commons Logging.
+    This library provides mock logger implementations, built on top of Mockito,
+    for testing logging services.
+    It includes support for commons-logging, elf4j, JDK logging, SLF4J, and tinylog.
   </description>
   <developers>
     <developer>
@@ -544,11 +553,14 @@
     </profile>
   </profiles>
   <properties>
+    <compiler-plugin.version>3.14.0</compiler-plugin.version>
+    <dependency-plugin.version>3.8.1</dependency-plugin.version>
     <java.version>11</java.version>
     <javadoc-plugin.version>3.12.0</javadoc-plugin.version>
     <junit.version>5.13.4</junit.version>
     <mockito.version>5.20.0</mockito.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <surefire-plugin.version>3.5.4</surefire-plugin.version>
   </properties>
   <scm>
     <connection>scm:git:https://gitlab.com/vitalijr2/mock-loggers.git</connection>

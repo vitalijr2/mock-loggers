@@ -72,7 +72,7 @@
       <version>${tinylog.version}</version>
     </dependency>
   </dependencies>
-  <description>Mock provider for tinylog backed by Mockito.</description>
+  <description>A Mockito-based mock provider implementation for testing with tinylog.</description>
   <modelVersion>4.0.0</modelVersion>
   <name>Mock provider for tinylog</name>
   <parent>

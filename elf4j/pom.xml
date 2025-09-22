@@ -76,7 +76,7 @@
       <groupId>org.mockito</groupId>
     </dependency>
   </dependencies>
-  <description>Mock loggers for Easy Logging Facade for Java backed by Mockito.</description>
+  <description>A Mockito-based mock logger implementation for testing with Easy Logging Facade for Java.</description>
   <modelVersion>4.0.0</modelVersion>
   <name>Mock loggers for elf4j</name>
   <parent>
