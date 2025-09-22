@@ -16,8 +16,21 @@
         <version>3.13.0</version>
       </plugin>
       <plugin>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>properties</goal>
+            </goals>
+          </execution>
+        </executions>
+        <groupId>org.apache.maven.plugins</groupId>
+        <version>3.8.1</version>
+      </plugin>
+      <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
+          <argLine>-javaagent:${org.mockito:mockito-core:jar}</argLine>
           <systemPropertyVariables>
             <java.util.logging.config.file>extension-logging.properties</java.util.logging.config.file>
           </systemPropertyVariables>
