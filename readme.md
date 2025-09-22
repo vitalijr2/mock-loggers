@@ -9,10 +9,10 @@ Different logging services can be tested using mock loggers backed by [Mockito][
 ![jUnit Version][junit-version]
 ![Mockito Version][mockito-version]
 [![License][license-badge]][license-link]  
-[![GitHub master check runs][github-master-check-runs]][github-master-check-runs-link]
+[![GitLab master pipeline][gitlab-master-pipeline]][gitlab-master-pipeline-link]
 [![Codacy Badge][codacy-badge]][codacy-badge-link]
 [![Codacy Coverage][codacy-coverage]][codacy-coverage-link]
-![GitHub commit activity][github-commit-activity]
+![GitLab last commit][gitlab-last-commit]
 [![Today's hits][today-hits]][today-hits-link]
 
 ## Table of Contents
@@ -114,21 +114,21 @@ See full text [here](LICENSE "the LICENSE file").
 
 [junit-version]: https://img.shields.io/static/v1?label=jUnit&message=5.13.4&color=blue&logo=junit5&logoColor=E23D28
 
-[mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.18.0&color=blue&logoColor=E23D28
+[mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.19.0&color=blue&logoColor=E23D28
 
-[github-master-check-runs]: https://img.shields.io/github/check-runs/vitalijr2/mock-loggers/master
+[gitlab-master-pipeline]: https://gitlab.com/vitalijr2/mock-loggers/badges/master/pipeline.svg
 
-[github-master-check-runs-link]: https://github.com/vitalijr2/mock-loggers/actions?query=branch%3Amaster
+[gitlab-master-pipeline-link]: https://gitlab.com/vitalijr2/mock-loggers/-/commits/master
 
-[codacy-badge]: https://app.codacy.com/project/badge/Grade/3c0345d6db684e388deb3357362526c0
+[codacy-badge]: https://app.codacy.com/project/badge/Grade/924ce8a8d86644ec86c1749afa81f3c2
 
-[codacy-badge-link]: https://app.codacy.com/gh/vitalijr2/mock-loggers/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade
+[codacy-badge-link]: https://app.codacy.com/gl/vitalijr2/mock-loggers/dashboard?utm_source=gl&utm_medium=referral&utm_content=&utm_campaign=Badge_grade
 
-[codacy-coverage]: https://app.codacy.com/project/badge/Coverage/3c0345d6db684e388deb3357362526c0
+[codacy-coverage]: https://app.codacy.com/project/badge/Coverage/924ce8a8d86644ec86c1749afa81f3c2
 
-[codacy-coverage-link]: https://app.codacy.com/gh/vitalijr2/mock-loggers/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage
+[codacy-coverage-link]: https://app.codacy.com/gl/vitalijr2/mock-loggers/dashboard?utm_source=gl&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage
 
-[github-commit-activity]: https://img.shields.io/github/commit-activity/y/vitalijr2/mock-loggers
+[gitlab-last-commit]: https://img.shields.io/gitlab/last-commit/vitalijr2/mock-loggers
 
 [today-hits]: https://hits.sh/github.com/vitalijr2/mock-loggers.svg?view=today-total&label=today's%20hits
 
