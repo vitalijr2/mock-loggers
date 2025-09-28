@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## Unreleased
+
+### Changed
+
+- Bump elf4j to 7.0.0.
+- Bump Mockito to 5.20.0.
+- Update a bunch of plugins: flatten, Sonatype publishing, compiler, license,
+  failsafe, surefire, javadoc.
+- Move project from GitHub to GitLab.
+
 ## 1.2.5 - 2025-08-29
 
 ### Added

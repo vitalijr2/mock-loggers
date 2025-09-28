@@ -40,7 +40,7 @@ Just put a test dependency to your POM:
     <artifactId>mock-loggers-tinylog-writer</artifactId>
     <groupId>io.github.vitalijr2.logging</groupId>
     <scope>test</scope>
-    <version>1.2.1</version>
+    <version>1.3.0</version>
 </dependency>
 ```
 
