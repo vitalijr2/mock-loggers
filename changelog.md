@@ -11,8 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Bump elf4j to 7.0.0.
 - Bump Mockito to 5.20.0.
-- Update a bunch of plugins: flatten, Sonatype publishing, compiler, license,
-  failsafe, surefire, javadoc.
+- Update a bunch of plugins: dependency, enforcer, flatten,
+  Sonatype publishing, compiler, license, failsafe, surefire and javadoc.
 - Move project from GitHub to GitLab.
 
 ## 1.2.5 - 2025-08-29
