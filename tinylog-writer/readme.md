@@ -40,7 +40,7 @@ Just put a test dependency to your POM:
     <artifactId>mock-loggers-tinylog-writer</artifactId>
     <groupId>io.github.vitalijr2.logging</groupId>
     <scope>test</scope>
-    <version>1.2.1</version>
+    <version>1.3.0</version>
 </dependency>
 ```
 
@@ -204,7 +204,7 @@ See [tinylog.properties](src/it/hello-tinylog-world/src/test/resources/tinylog.p
 
 [tinylog-version]: https://img.shields.io/static/v1?label=tinylog&message=2.7.0&color=blue&logoColor=E23D28
 
-[mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.19.0&color=blue&logoColor=E23D28
+[mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.20.0&color=blue&logoColor=E23D28
 
 [maven-central-last-update]: https://img.shields.io/maven-central/last-update/io.github.vitalijr2.logging/mock-loggers-tinylog-writer
 

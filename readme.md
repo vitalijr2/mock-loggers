@@ -114,7 +114,7 @@ See full text [here](LICENSE "the LICENSE file").
 
 [junit-version]: https://img.shields.io/static/v1?label=jUnit&message=5.13.4&color=blue&logo=junit5&logoColor=E23D28
 
-[mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.19.0&color=blue&logoColor=E23D28
+[mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.20.0&color=blue&logoColor=E23D28
 
 [gitlab-master-pipeline]: https://gitlab.com/vitalijr2/mock-loggers/badges/master/pipeline.svg
 
