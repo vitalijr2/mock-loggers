@@ -64,7 +64,7 @@
     <dependency>
       <artifactId>mock-loggers-core</artifactId>
       <groupId>io.github.vitalijr2.logging</groupId>
-      <version>1.2.5</version>
+      <version>1.3.0</version>
     </dependency>
     <dependency>
       <artifactId>mockito-core</artifactId>
@@ -76,13 +76,13 @@
       <groupId>org.mockito</groupId>
     </dependency>
   </dependencies>
-  <description>Mock loggers for Easy Logging Facade for Java backed by Mockito.</description>
+  <description>A Mockito-based mock logger implementation for testing with Easy Logging Facade for Java.</description>
   <modelVersion>4.0.0</modelVersion>
   <name>Mock loggers for elf4j</name>
   <parent>
     <artifactId>mock-loggers</artifactId>
     <groupId>io.github.vitalijr2.logging</groupId>
-    <version>1.2.5</version>
+    <version>1.3.0</version>
   </parent>
   <profiles>
     <profile>
@@ -133,7 +133,7 @@
     </profile>
   </profiles>
   <properties>
-    <elf4j.version>6.0.2</elf4j.version>
+    <elf4j.version>7.0.0</elf4j.version>
   </properties>
-  <version>1.2.5</version>
+  <version>1.3.0</version>
 </project>

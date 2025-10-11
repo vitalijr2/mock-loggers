@@ -31,7 +31,7 @@ Just put a test dependency to your POM:
     <artifactId>mock-loggers-elf4j</artifactId>
     <groupId>io.github.vitalijr2.logging</groupId>
     <scope>test</scope>
-    <version>1.2.1</version>
+    <version>1.3.0</version>
 </dependency>
 ```
 
@@ -167,9 +167,9 @@ See more details at [HelloServiceAnnotationTest.java](src/it/hello-elf4j-world/s
 
 [jdk-download]: https://www.oracle.com/java/technologies/downloads/#java11
 
-[elf4j-version]: https://img.shields.io/static/v1?label=elf4j&message=4.2.0&color=blue&logoColor=E23D28
+[elf4j-version]: https://img.shields.io/static/v1?label=elf4j&message=7.0.0&color=blue&logoColor=E23D28
 
-[mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.19.0&color=blue&logoColor=E23D28
+[mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.20.0&color=blue&logoColor=E23D28
 
 [maven-central-last-update]: https://img.shields.io/maven-central/last-update/io.github.vitalijr2.logging/mock-loggers-elf4j
 

@@ -13,17 +13,30 @@
           <target>${java.version}</target>
         </configuration>
         <groupId>org.apache.maven.plugins</groupId>
-        <version>3.13.0</version>
+        <version>${compiler-plugin.version}</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>properties</goal>
+            </goals>
+          </execution>
+        </executions>
+        <groupId>org.apache.maven.plugins</groupId>
+        <version>${dependency-plugin.version}</version>
       </plugin>
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
+          <argLine>-javaagent:${org.mockito:mockito-core:jar}</argLine>
           <systemPropertyVariables>
             <java.util.logging.config.file>extension-logging.properties</java.util.logging.config.file>
           </systemPropertyVariables>
         </configuration>
         <groupId>org.apache.maven.plugins</groupId>
-        <version>3.5.2</version>
+        <version>${surefire-plugin.version}</version>
       </plugin>
     </plugins>
   </build>

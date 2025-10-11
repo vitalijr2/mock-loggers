@@ -31,7 +31,7 @@ Just put a test dependency to your POM:
     <artifactId>mock-loggers-slf4j</artifactId>
     <groupId>io.github.vitalijr2.logging</groupId>
     <scope>test</scope>
-    <version>1.2.1</version>
+    <version>1.3.0</version>
 </dependency>
 ```
 
@@ -165,7 +165,7 @@ See more details at [HelloServiceAnnotationTest.java](src/it/hello-slf4j-world/s
 
 [slf4j-version]: https://img.shields.io/static/v1?label=SLF4J&message=2.0.17&color=blue&logoColor=E23D28
 
-[mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.19.0&color=blue&logoColor=E23D28
+[mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.20.0&color=blue&logoColor=E23D28
 
 [maven-central-last-update]: https://img.shields.io/maven-central/last-update/io.github.vitalijr2.logging/mock-loggers-slf4j
 
