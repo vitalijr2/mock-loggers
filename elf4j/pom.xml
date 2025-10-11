@@ -64,7 +64,7 @@
     <dependency>
       <artifactId>mock-loggers-core</artifactId>
       <groupId>io.github.vitalijr2.logging</groupId>
-      <version>1.3.0-SNAPSHOT</version>
+      <version>1.3.0</version>
     </dependency>
     <dependency>
       <artifactId>mockito-core</artifactId>
@@ -82,7 +82,7 @@
   <parent>
     <artifactId>mock-loggers</artifactId>
     <groupId>io.github.vitalijr2.logging</groupId>
-    <version>1.3.0-SNAPSHOT</version>
+    <version>1.3.0</version>
   </parent>
   <profiles>
     <profile>
@@ -135,5 +135,5 @@
   <properties>
     <elf4j.version>7.0.0</elf4j.version>
   </properties>
-  <version>1.3.0-SNAPSHOT</version>
+  <version>1.3.0</version>
 </project>
