@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Minimum required Java version is now 17.
 - Bump jUnit to 6.0.0.
+- Update plugins: JaCoCo
 
 ## 1.3.0 - 2025-10-11
 

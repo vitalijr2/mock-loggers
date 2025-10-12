@@ -159,7 +159,7 @@ See more details at [HelloServiceAnnotationTest.java](src/it/hello-jdk-platform-
 
 [Mockito]: https://site.mockito.org
 
-[java-version]: https://img.shields.io/static/v1?label=Java&message=11&color=blue&logoColor=E23D28
+[java-version]: https://img.shields.io/static/v1?label=Java&message=17&color=blue&logoColor=E23D28
 
 [jdk-download]: https://www.oracle.com/java/technologies/downloads/#java11
 

@@ -44,7 +44,7 @@ Just put a test dependency to your POM:
 
 [using-bom]: https://reflectoring.io/maven-bom/#introducing-mavens-bill-of-material-bom "Using Maven’s Bill of Materials (BOM), Abdelbaki BEN ELHAJ SLIMENE"
 
-[java-version]: https://img.shields.io/static/v1?label=Java&message=11&color=blue&logoColor=E23D28
+[java-version]: https://img.shields.io/static/v1?label=Java&message=17&color=blue&logoColor=E23D28
 
 [jdk-download]: https://www.oracle.com/java/technologies/downloads/#java11
 
