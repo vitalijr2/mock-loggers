@@ -2,7 +2,7 @@
 
 [elf4j][] provider with mock loggers backed by [Mockito][].
 
-> [!WARNING]
+> [!IMPORTANT]
 > This library does not support _parallel test execution_.
 
 [![Java Version][java-version]][jdk-download]
@@ -52,7 +52,7 @@ void helloWorld() {
 See more details at [HelloServiceBasicTest.java](src/it/hello-elf4j-world/src/test/java/example/hello/HelloServiceBasicTest.java)
 
 > [!IMPORTANT]
-> Keep in mind that all loggers are initialized only once during the test run.
+> Keep in mind that all loggers are initialized once per test run.
 
 Therefore, a more complex example cleans the loggers after (or before)
 each test:

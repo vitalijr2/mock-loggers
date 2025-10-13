@@ -19,14 +19,13 @@ are known to be valid and tested to work together.[>>][using-bom]
 
 ## How to use
 
-Just put a test dependency to your POM:
+Add the dependency to your POM file. By default, the scope is _test_:
 
 ```xml
 <dependencies>
     <dependency>
         <artifactId>mock-loggers-*****</artifactId>
         <groupId>io.github.vitalijr2.logging</groupId>
-        <scope>test</scope>
     </dependency>
 </dependencies>
 <dependencyManagement>

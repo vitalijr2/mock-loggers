@@ -2,7 +2,7 @@
 
 [Tinylog][tinylog] provider with a mock instance backed by [Mockito][].
 
-> [!WARNING]
+> [!IMPORTANT]
 > This library does not support _parallel test execution_.
 
 [![Java Version][java-version]][jdk-download]
@@ -68,7 +68,7 @@ void helloWorld() {
 See more details at [HelloServiceBasicTest.java](src/it/hello-tinylog-world/src/test/java/example/hello/HelloServiceBasicTest.java)
 
 > [!IMPORTANT]
-> Keep in mind that the logger is initialized only once during the test run.
+> Keep in mind that all loggers are initialized once per test run.
 
 Therefore, a more complex example cleans the logger after (or before)
 each test:
