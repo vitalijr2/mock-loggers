@@ -200,7 +200,7 @@ See [tinylog.properties](src/it/hello-tinylog-world/src/test/resources/tinylog.p
 
 [java-version]: https://img.shields.io/static/v1?label=Java&message=17&color=blue&logoColor=E23D28
 
-[jdk-download]: https://www.oracle.com/java/technologies/downloads/#java11
+[jdk-download]: https://www.oracle.com/java/technologies/downloads/#java17
 
 [tinylog-version]: https://img.shields.io/static/v1?label=tinylog&message=2.7.0&color=blue&logoColor=E23D28
 

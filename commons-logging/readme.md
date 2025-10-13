@@ -162,7 +162,7 @@ See more details at [HelloServiceAnnotationTest.java](src/it/hello-commons-loggi
 
 [java-version]: https://img.shields.io/static/v1?label=Java&message=17&color=blue&logoColor=E23D28
 
-[jdk-download]: https://www.oracle.com/java/technologies/downloads/#java11
+[jdk-download]: https://www.oracle.com/java/technologies/downloads/#java17
 
 [commons-logging-version]: https://img.shields.io/static/v1?label=commons-logging&message=1.3.5&color=blue&logoColor=E23D28
 

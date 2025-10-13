@@ -161,7 +161,7 @@ See more details at [HelloServiceAnnotationTest.java](src/it/hello-slf4j-world/s
 
 [java-version]: https://img.shields.io/static/v1?label=Java&message=17&color=blue&logoColor=E23D28
 
-[jdk-download]: https://www.oracle.com/java/technologies/downloads/#java11
+[jdk-download]: https://www.oracle.com/java/technologies/downloads/#java17
 
 [slf4j-version]: https://img.shields.io/static/v1?label=SLF4J&message=2.0.17&color=blue&logoColor=E23D28
 

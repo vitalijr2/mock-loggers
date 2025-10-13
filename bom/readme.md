@@ -46,7 +46,7 @@ Just put a test dependency to your POM:
 
 [java-version]: https://img.shields.io/static/v1?label=Java&message=17&color=blue&logoColor=E23D28
 
-[jdk-download]: https://www.oracle.com/java/technologies/downloads/#java11
+[jdk-download]: https://www.oracle.com/java/technologies/downloads/#java17
 
 [maven-central-last-update]: https://img.shields.io/maven-central/last-update/io.github.vitalijr2.logging/mock-loggers-bom
 
