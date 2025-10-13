@@ -19,14 +19,13 @@ are known to be valid and tested to work together.[>>][using-bom]
 
 ## How to use
 
-Just put a test dependency to your POM:
+Add the dependency to your POM file. By default, the scope is _test_:
 
 ```xml
 <dependencies>
     <dependency>
         <artifactId>mock-loggers-*****</artifactId>
         <groupId>io.github.vitalijr2.logging</groupId>
-        <scope>test</scope>
     </dependency>
 </dependencies>
 <dependencyManagement>
@@ -44,9 +43,9 @@ Just put a test dependency to your POM:
 
 [using-bom]: https://reflectoring.io/maven-bom/#introducing-mavens-bill-of-material-bom "Using Maven’s Bill of Materials (BOM), Abdelbaki BEN ELHAJ SLIMENE"
 
-[java-version]: https://img.shields.io/static/v1?label=Java&message=11&color=blue&logoColor=E23D28
+[java-version]: https://img.shields.io/static/v1?label=Java&message=17&color=blue&logoColor=E23D28
 
-[jdk-download]: https://www.oracle.com/java/technologies/downloads/#java11
+[jdk-download]: https://www.oracle.com/java/technologies/downloads/#java17
 
 [maven-central-last-update]: https://img.shields.io/maven-central/last-update/io.github.vitalijr2.logging/mock-loggers-bom
 

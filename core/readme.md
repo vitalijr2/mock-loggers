@@ -12,11 +12,11 @@ and sends alerts before and after tests.
 [![Maven Central][maven-central]][maven-central-link]
 [![Javadoc][javadoc]][javadoc-link]  
 
-[java-version]: https://img.shields.io/static/v1?label=Java&message=11&color=blue&logoColor=E23D28
+[java-version]: https://img.shields.io/static/v1?label=Java&message=17&color=blue&logoColor=E23D28
 
-[jdk-download]: https://www.oracle.com/java/technologies/downloads/#java11
+[jdk-download]: https://www.oracle.com/java/technologies/downloads/#java17
 
-[junit-version]: https://img.shields.io/static/v1?label=jUnit&message=5.13.4&color=blue&logo=junit5&logoColor=E23D28
+[junit-version]: https://img.shields.io/static/v1?label=jUnit&message=6.0.0&color=blue&logo=junit5&logoColor=E23D28
 
 [maven-central-last-update]: https://img.shields.io/maven-central/last-update/io.github.vitalijr2.logging/mock-loggers-core
 

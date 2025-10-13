@@ -3,7 +3,7 @@
 [JDK Platform Logging][jdk-logging] service with mock loggers
 backed by [Mockito][].
 
-> [!WARNING]
+> [!IMPORTANT]
 > This library does not support _parallel test execution_.
 
 [![Java Version][java-version]][jdk-download]
@@ -51,7 +51,7 @@ void helloWorld() {
 See more details at [HelloServiceBasicTest.java](src/it/hello-jdk-platform-logging-world/src/test/java/example/hello/HelloServiceBasicTest.java)
 
 > [!IMPORTANT]
-> Keep in mind that all loggers are initialized only once during the test run.
+> Keep in mind that all loggers are initialized once per test run.
 
 Therefore, a more complex example cleans the loggers after (or before)
 each test:
@@ -159,9 +159,9 @@ See more details at [HelloServiceAnnotationTest.java](src/it/hello-jdk-platform-
 
 [Mockito]: https://site.mockito.org
 
-[java-version]: https://img.shields.io/static/v1?label=Java&message=11&color=blue&logoColor=E23D28
+[java-version]: https://img.shields.io/static/v1?label=Java&message=17&color=blue&logoColor=E23D28
 
-[jdk-download]: https://www.oracle.com/java/technologies/downloads/#java11
+[jdk-download]: https://www.oracle.com/java/technologies/downloads/#java17
 
 [mockito-version]: https://img.shields.io/static/v1?label=Mockito&message=5.20.0&color=blue&logoColor=E23D28
 
