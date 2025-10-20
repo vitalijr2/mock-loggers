@@ -2,7 +2,9 @@ package io.github.vitalijr2.logging.mock;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.eq;
+import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
@@ -42,17 +44,16 @@ class MockLoggerExtensionFastTest {
     extension = new MockLoggerExtension(loggerKeeper, extensionLogger);
   }
 
-  @DisplayName("Clean and reset loggers after each test")
+  @DisplayName("Clean and reset loggers then print out loggers' names")
   @Test
-  void resetLoggersAfterEachTest() {
+  void cleanAndResetLoggers() {
     // given
     when(loggerKeeper.cleanAndReset()).thenReturn(List.of("a", "b", "c"));
 
     // when
-    assertDoesNotThrow(() -> extension.afterEach(extensionContext));
+    assertDoesNotThrow(extension::cleanAndResetLoggers);
 
     // then
-    verifyNoInteractions(extensionContext);
     verify(extensionLogger).log(eq(Level.DEBUG), messageCaptor.capture());
     verify(loggerKeeper).cleanAndReset();
 
@@ -60,22 +61,34 @@ class MockLoggerExtensionFastTest {
         "logging message");
   }
 
+  @DisplayName("Clean and reset loggers after each test")
+  @Test
+  void resetLoggersAfterEachTest() {
+    // given
+    extension = spy(extension);
+    doNothing().when(extension).cleanAndResetLoggers();
+
+    // when
+    assertDoesNotThrow(() -> extension.afterEach(extensionContext));
+
+    // then
+    verifyNoInteractions(extensionContext);
+    verify(extension).cleanAndResetLoggers();
+  }
+
   @DisplayName("Clean and reset loggers before each test")
   @Test
   void resetLoggersBeforeEachTest() {
     // given
-    when(loggerKeeper.cleanAndReset()).thenReturn(List.of("a", "b", "c"));
+    extension = spy(extension);
+    doNothing().when(extension).cleanAndResetLoggers();
 
     // when
     assertDoesNotThrow(() -> extension.beforeEach(extensionContext));
 
     // then
     verifyNoInteractions(extensionContext);
-    verify(extensionLogger).log(eq(Level.DEBUG), messageCaptor.capture());
-    verify(loggerKeeper).cleanAndReset();
-
-    assertEquals("Clean and reset the loggers: a, b, c", messageCaptor.getValue().get(),
-        "logging message");
+    verify(extension).cleanAndResetLoggers();
   }
 
 }
