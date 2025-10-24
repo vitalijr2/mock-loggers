@@ -87,9 +87,7 @@ public class MockLoggerExtension implements AfterEachCallback, BeforeEachCallbac
    */
   @Override
   public void afterEach(ExtensionContext context) {
-    var loggerNames = loggerKeeper.cleanAndReset();
-
-    extensionLogger.log(Level.DEBUG, () -> "Clean and reset the loggers: " + String.join(", ", loggerNames));
+    cleanAndResetLoggers();
   }
 
   /**
@@ -100,6 +98,11 @@ public class MockLoggerExtension implements AfterEachCallback, BeforeEachCallbac
    */
   @Override
   public void beforeEach(ExtensionContext context) {
+    cleanAndResetLoggers();
+  }
+
+  @VisibleForTesting
+  void cleanAndResetLoggers() {
     var loggerNames = loggerKeeper.cleanAndReset();
 
     extensionLogger.log(Level.DEBUG, () -> "Clean and reset the loggers: " + String.join(", ", loggerNames));

@@ -6,9 +6,6 @@ Different logging services can be tested using mock loggers backed by [Mockito][
 > The minimum required Java version has been updated to 17.  
 > Version **1.3.0** remains compatible with Java 11.
 
-> [!IMPORTANT]
-> This library does not support _parallel test execution_.
-
 [![Java Version][java-version]][jdk-download]
 ![jUnit Version][junit-version]
 ![Mockito Version][mockito-version]
@@ -35,6 +32,9 @@ Different logging services can be tested using mock loggers backed by [Mockito][
 <!--te-->
 
 ## How to use
+
+> [!IMPORTANT]
+> This library does not support _parallel test execution_.
 
 The simplest usage example looks like this:
 

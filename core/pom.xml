@@ -45,10 +45,6 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <artifactId>junit-jupiter-engine</artifactId>
-      <groupId>org.junit.jupiter</groupId>
-    </dependency>
-    <dependency>
       <artifactId>mockito-core</artifactId>
       <groupId>org.mockito</groupId>
     </dependency>
