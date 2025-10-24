@@ -454,6 +454,9 @@
           </plugin>
         </plugins>
       </build>
+      <!--
+       Update third-party license, check a release
+      -->
       <id>prepare-and-check</id>
     </profile>
     <profile>
@@ -507,6 +510,9 @@
           </plugin>
         </plugins>
       </build>
+      <!--
+       Publish a release
+      -->
       <id>release</id>
     </profile>
     <profile>
@@ -543,6 +549,9 @@
           </plugin>
         </plugins>
       </build>
+      <!--
+       Run integration tests
+      -->
       <id>run-its</id>
     </profile>
   </profiles>
