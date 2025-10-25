@@ -127,12 +127,20 @@
         </plugin>
         <plugin>
           <artifactId>maven-dependency-plugin</artifactId>
+          <executions>
+            <execution>
+              <goals>
+                <goal>properties</goal>
+              </goals>
+            </execution>
+          </executions>
           <groupId>org.apache.maven.plugins</groupId>
           <version>3.9.0</version>
         </plugin>
         <plugin>
           <artifactId>maven-failsafe-plugin</artifactId>
           <configuration>
+            <argLine>@{argLine} -javaagent:${org.mockito:mockito-core:jar}</argLine>
             <forkCount>1</forkCount>
             <includes>
               <include>**/*Test.java</include>
@@ -255,6 +263,7 @@
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
           <configuration>
+            <argLine>@{argLine} -javaagent:${org.mockito:mockito-core:jar}</argLine>
             <properties>
               <groups>fast</groups>
             </properties>

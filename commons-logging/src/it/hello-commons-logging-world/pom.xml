@@ -16,11 +16,21 @@
         <version>${compiler-plugin.version}</version>
       </plugin>
       <plugin>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>properties</goal>
+            </goals>
+          </execution>
+        </executions>
+        <groupId>org.apache.maven.plugins</groupId>
+        <version>${dependency-plugin.version}</version>
+      </plugin>
+      <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
-          <systemPropertyVariables>
-            <java.util.logging.config.file>extension-logging.properties</java.util.logging.config.file>
-          </systemPropertyVariables>
+          <argLine>-javaagent:${org.mockito:mockito-core:jar}</argLine>
         </configuration>
         <groupId>org.apache.maven.plugins</groupId>
         <version>${surefire-plugin.version}</version>
