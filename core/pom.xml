@@ -10,6 +10,10 @@
         <groupId>org.jacoco</groupId>
       </plugin>
       <plugin>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <groupId>org.apache.maven.plugins</groupId>
+      </plugin>
+      <plugin>
         <artifactId>maven-failsafe-plugin</artifactId>
         <groupId>org.apache.maven.plugins</groupId>
       </plugin>
