@@ -2,6 +2,8 @@
 
 Different logging services can be tested using mock loggers backed by [Mockito][].
 
+In addition to the [GitLab page][gl-project], this project can also be found on [GitHub][gh-project].
+
 > [!NOTE]
 > The minimum required Java version has been updated to 17.  
 > Version **1.3.0** remains compatible with Java 11.
@@ -101,6 +103,10 @@ limitations under the License.
 See full text [here](LICENSE "the LICENSE file").
 
 [Mockito]: https://site.mockito.org
+
+[gl-project]: https://gitlab.com/vitalijr2/mock-loggers
+
+[gh-project]: https://github.com/vitalijr2/mock-loggers
 
 [jdk-logging]: https://www.baeldung.com/java-9-logging-api "Java Platform Logging API"
 
