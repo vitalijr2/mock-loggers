@@ -1,7 +1,7 @@
-level, message,trace count,debug count,info count,warning count,error count,fatal count,log name
-TRACE, test trace message,1,0,0,0,0,0,io.github.vitalijr2.logging.mock.commons.MockLoggerFactorySlowTest
-DEBUG, test debug message,0,1,0,0,0,0,io.github.vitalijr2.logging.mock.commons.MockLoggerFactorySlowTest
-INFO, test info message,0,0,1,0,0,0,io.github.vitalijr2.logging.mock.commons.MockLoggerFactorySlowTest
-WARNING, test warning message,0,0,0,1,0,0,io.github.vitalijr2.logging.mock.commons.MockLoggerFactorySlowTest
-ERROR, test error message,0,0,0,0,1,0,io.github.vitalijr2.logging.mock.commons.MockLoggerFactorySlowTest
-FATAL, test fatal message,0,0,0,0,0,1,io.github.vitalijr2.logging.mock.commons.MockLoggerFactorySlowTest
+level,trace count,debug count,info count,warning count,error count,fatal count,log name
+TRACE,1,0,0,0,0,0,io.github.vitalijr2.logging.mock.commons.MockLoggerFactorySlowTest
+DEBUG,0,1,0,0,0,0,io.github.vitalijr2.logging.mock.commons.MockLoggerFactorySlowTest
+INFO,0,0,1,0,0,0,io.github.vitalijr2.logging.mock.commons.MockLoggerFactorySlowTest
+WARNING,0,0,0,1,0,0,io.github.vitalijr2.logging.mock.commons.MockLoggerFactorySlowTest
+ERROR,0,0,0,0,1,0,io.github.vitalijr2.logging.mock.commons.MockLoggerFactorySlowTest
+FATAL,0,0,0,0,0,1,io.github.vitalijr2.logging.mock.commons.MockLoggerFactorySlowTest

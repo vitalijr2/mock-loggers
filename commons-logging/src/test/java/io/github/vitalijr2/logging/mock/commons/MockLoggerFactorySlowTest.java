@@ -37,9 +37,11 @@ class MockLoggerFactorySlowTest {
   @DisplayName("Test")
   @ParameterizedTest
   @CsvFileSource(resources = "commons-logging.csv", numLinesToSkip = 1)
-  void test(String level, String message, int traceCount, int debugCount, int infoCount, int warningCount,
+  void test(String level, int traceCount, int debugCount, int infoCount, int warningCount,
       int errorCount, int fatalCount, String logName) {
     // given
+    var message = "test " + level + " message";
+
     verifyNoInteractions(log);
 
     // when
@@ -67,12 +69,12 @@ class MockLoggerFactorySlowTest {
     }
 
     // then
-    verify(log, times(traceCount)).trace("test trace message");
-    verify(log, times(debugCount)).debug("test debug message");
-    verify(log, times(infoCount)).info("test info message");
-    verify(log, times(warningCount)).warn("test warning message");
-    verify(log, times(errorCount)).error("test error message");
-    verify(log, times(fatalCount)).fatal("test fatal message");
+    verify(log, times(traceCount)).trace("test TRACE message");
+    verify(log, times(debugCount)).debug("test DEBUG message");
+    verify(log, times(infoCount)).info("test INFO message");
+    verify(log, times(warningCount)).warn("test WARNING message");
+    verify(log, times(errorCount)).error("test ERROR message");
+    verify(log, times(fatalCount)).fatal("test FATAL message");
   }
 
   @DisplayName("Clean and reset mock loggers")
